@@ -1,0 +1,67 @@
+/* bootstrap tabs*/
+.nav-tabs {
+  border-bottom: none;
+
+  .nav-link {
+    border-radius: 0;
+    border:none;
+    background:$backgroundColor;
+    margin-right:4px;
+    font-weight: 300;
+    color: $darkColor;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .nav-item.show .nav-link,
+  .nav-link.active {
+    border-color: $colorMain;
+    background: $colorMain;
+    color: $darkgreyColor;
+    font-weight: 500;
+  }
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight:500;
+  text-transform: capitalize;
+  padding:21px 49px;
+  color: $fontColor;
+  line-height:1.15;
+  i{
+    color: $darkColor;
+  }
+  .small-tabs & {
+    padding:24px 32px 18px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .nav-link {
+    padding:10px 21px;
+  }
+}
+@media (max-width: 1199px) {
+  .nav-link {
+    padding:10px 14px;
+  }
+}
+
+.tab-content {
+  border:none;
+  padding:36px 40px 63px;
+  box-shadow:0 1px 14px 1px rgba(0, 0, 0, 0.05)
+}
+
+.tab-pane {
+  .media {
+    img {
+      max-width: 40%;
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+
+
+// Selectors
+
+$headings:          h1, h2, h3, h4, h5, h6;
+
+$button:            '.theme_buttons a',
+					'.theme_button',
+					'.button',
+					'button',
+					'input[type="button"]',
+					'input[type="reset"]',
+					'input[type="submit"]';
+
+$button-inverse:    '.theme_buttons.inverse a',
+					'.theme_button.inverse',
+					'.button.inverse',
+					'button.inverse',
+					'input[type="button"].inverse',
+					'input[type="reset"].inverse',
+					'input[type="submit"].inverse';
+
+$input:             'input[type="text"]',
+					'input[type="email"]',
+					'input[type="url"]',
+					'input[type="password"]',
+					'input[type="search"]',
+					'input[type="tel"]',
+					'input[type="number"]',
+					'textarea',
+					'select';
+
+$input_fc:			$input, '.form-control';
+
+
+// Helpers
+
+@mixin color( $main, $hover ) {
+	color: $main;
+	&:hover, &:focus, &:active { color: $hover; }
+}
+
+@mixin size( $val, $extra: $val ) { width: $val; height: $extra; }
+
+@mixin marginY( $val, $extra: $val ) { margin-top: $val; margin-bottom: $extra; }
+@mixin marginX( $val, $extra: $val ) { margin-left: $val; margin-right: $extra; }
+@mixin paddingY( $val, $extra: $val ) { padding-top: $val; padding-bottom: $extra; }
+@mixin paddingX( $val, $extra: $val ) { padding-left: $val; padding-right: $extra; }
+
+@mixin flexTop { display: flex; justify-content: center; align-items: flex-start; }
+@mixin flexTopRight { display: flex; justify-content: flex-end; align-items: flex-start; }
+@mixin flexRight { display: flex; justify-content: flex-end; align-items: center; }
+@mixin flexBottomRight { display: flex; justify-content: flex-end; align-items: flex-end; }
+@mixin flexBottom { display: flex; justify-content: center; align-items: flex-end; }
+@mixin flexBottomLeft { display: flex; justify-content: flex-start; align-items: flex-end; }
+@mixin flexLeft { display: flex; justify-content: flex-start; align-items: center; }
+@mixin flexTopLeft { display: flex; justify-content: flex-start; align-items: flex-start; }
+@mixin flexCenterX { display: flex; justify-content: center; }
+@mixin flexCenterY { display: flex; align-items: center; }
+@mixin flexCenter { display: flex; justify-content: center; align-items: center; }
+
+@mixin positionFill { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+@mixin positionFillBottom { position: absolute; right: 0; bottom: 0; left: 0; }
+@mixin positionTop { position: absolute; left: 50%; top: 0; transform: translateX( -50% ); }
+@mixin positionTopRight { position: absolute; right: 0; top: 0; }
+@mixin positionRight { position: absolute; right: 0; top: 50%; transform: translateY( -50% ); }
+@mixin positionBottomRight { position: absolute; right: 0; bottom: 0; }
+@mixin positionBottom { position: absolute; left: 50%; bottom: 0; transform: translateX( -50% ); }
+@mixin positionBottomLeft { position: absolute; left: 0; bottom: 0; }
+@mixin positionLeft { position: absolute; left: 0; top: 50%; transform: translateY( -50% ); }
+@mixin positionTopLeft { position: absolute; left: 0; top: 0; }
+@mixin positionCenterX { position: absolute; left: 50%; transform: translateX( -50% ); }
+@mixin positionCenterY { position: absolute; top: 50%; transform: translateY( -50% ); }
+@mixin positionCenter { position: absolute; left: 50%; top: 50%; transform: translate( -50%, -50% ); }
+
+@mixin marginCenterX { margin-left: auto; margin-right: auto; }
+
+@mixin move( $x, $y ) { transform: translate( $x, $y ); }
+@mixin moveUp( $length ) { transform: translateY( - $length ); }
+@mixin moveRight( $length ) { transform: translateX( $length ); }
+@mixin moveDown( $length ) { transform: translateY( $length ); }
+@mixin moveLeft( $length ) { transform: translateX( - $length ); }
+
+@mixin rmove( $x, $y ) { position: relative; left: $x; top: $y; }
+@mixin rmoveUp( $length ) { position: relative; top: - $length; }
+@mixin rmoveRight( $length ) { position: relative; left: $length; }
+@mixin rmoveDown( $length ) { position: relative; top: $length; }
+@mixin rmoveLeft( $length ) { position: relative; left: - $length; }
+
+@mixin placeholder {
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; }
+}
+
+@mixin clearFix() {
+	&:before, &:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}

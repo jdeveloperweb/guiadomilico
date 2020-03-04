@@ -1,0 +1,376 @@
+/* forms */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select,
+.form-control {
+  height:40px;
+  border-bottom:1px solid $borderDarkColor;
+  border-color: transparent transparent $borderDarkColor;
+  outline: none;
+  background-color: transparent;
+  color: $darkColor;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top:10px;
+  padding-bottom:5px;
+  font-size: 16px;
+  width: 100%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+footer{
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select,
+  .form-control {
+    padding: 5px 10px;
+  }
+}
+
+select{
+  padding-bottom: 0;
+  padding-top: 0;
+  border:2px solid $borderDarkColor;
+}
+
+input[disabled] {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+[type="submit"],
+button {
+  cursor: pointer;
+}
+
+[type="submit"],
+button {
+  cursor: pointer;
+  padding: 6px 36px;
+  font-weight: 500;
+  background-color: transparent;
+  border: 2px solid $colorMain;
+  color: $darkgreyColor;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: rgba($darkgreyColor, 0.8);
+  }
+
+  .ds &:not([class]), .cs &:not([class]) {
+    border-color: $lightColor;
+    color: $lightColor;
+    &:hover {
+
+    }
+  }
+}
+[type="submit"]{
+  padding:12px 30px;
+}
+textarea,
+textarea.form-control {
+  padding-top:9px;
+  height: 100%;
+}
+
+.form-group {
+  position: relative;
+
+  [class*='col-'] > & {
+    margin-bottom: 0;
+  }
+
+  [class*='col-'] > & + & {
+    margin-top: 10px;
+  }
+  [class*='col-'] > & + & label{
+    margin-top: 41px;
+  }
+  .btn{
+    padding: 11px 30px;
+    margin-top: 59px;
+  }
+
+}
+
+
+
+@media (max-width: 1199px) {
+  [class*='col-'] > .form-group + .form-group {
+    margin-top: 0;
+  }
+
+}
+
+@media (max-width: 575px) {
+  [class*='col-'] > .form-group + .form-group {
+    margin-top: 10px;
+  }
+  [class*='col-'] > .form-group + .form-group label {
+    margin-top: 25px;
+    margin-bottom:20px;
+  }
+}
+
+.contact-form textarea, textarea.form-control{
+  background-image: -webkit-linear-gradient(transparent, transparent 38px, rgba($borderColor, 0.4) 30px, rgba($borderColor, 0.4) 31px, rgba($borderColor, 0.4) 31px)!important;
+  background-image: -moz-linear-gradient(transparent, transparent 38px, rgba($borderColor, 0.4) 30px, rgba($borderColor, 0.4) 31px, rgba($borderColor, 0.4) 31px)!important;
+  background-image: -ms-linear-gradient(transparent, transparent 38px, rgba($borderColor, 0.4) 30px, rgba($borderColor, 0.4) 31px, rgba($borderColor, 0.4) 31px)!important;
+  background-image: -o-linear-gradient(transparent, transparent 38px, rgba($borderColor, 0.4) 30px, rgba($borderColor, 0.4) 31px, rgba($borderColor, 0.4) 31px)!important;
+  background-image: linear-gradient(transparent, transparent 38px, rgba($borderColor, 0.4) 30px, rgba($borderColor, 0.4) 31px, rgba($borderColor, 0.4) 31px)!important;
+  background-color:transparent;
+  background-size: 100% 39px;
+  height:119px;
+  line-height: 40px;
+  padding-top: 2px;
+  border: none;
+}
+
+
+  /* select styling */
+select[multiple] {
+  height: auto;
+}
+
+select option,
+.form-control option {
+  color: $darkgreyColor;
+  background-color: $lightColor;
+}
+
+.form-control-unstyled {
+  border: none;
+  background-color: transparent;
+}
+
+.form-control, .form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.form-control.invalid {
+  -webkit-box-shadow: 0 0 0 2px $colorMain;
+  box-shadow: 0 0 0 2px $colorMain;
+}
+
+.form-control:focus {
+  border-color:transparent transparent darken($borderColor, 15%);
+  background-color: transparent;
+}
+
+.form-control:-moz-placeholder {
+  font-style: normal;
+  color: $darkColor;
+  opacity: 1;
+}
+
+.form-control::-moz-placeholder {
+  font-style: normal;
+  color: $darkColor;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  font-style: normal;
+  color: $darkColor;
+  opacity: 1;
+}
+
+.form-control::-webkit-input-placeholder {
+  font-style: normal;
+  color: $darkColor;
+  opacity: 1;
+}
+
+.form-control:focus:-moz-placeholder {
+  color: transparent;
+}
+
+.form-control:focus::-moz-placeholder {
+  color: transparent;
+}
+
+.form-control:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-control:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+/*icons for forms */
+form label + [class*="fa-"] {
+  position: absolute;
+  font-size: 16px;
+  left: 28px;
+  top: 60px;
+  width: 1em;
+  text-align: center;
+}
+
+//.has-placeholder class has .form-group elements
+form .has-placeholder label + [class*="fa-"] {
+  top:13px;
+}
+
+form label + [class*="fa-"] + .form-control {
+  padding-left: 60px;
+}
+label {
+  //display: none;
+  display: block;
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+label {
+  //font-weight: inherit;
+  .checkbox &,
+  .radio & {
+    font-weight: inherit;
+  }
+
+  .checkbox &[for],
+  .radio &[for] {
+    font-weight: inherit;
+    cursor: pointer;
+  }
+}
+
+label[for]{
+  cursor: pointer;
+}
+
+.checkbox,
+.radio {
+  label[for] + input[type=checkbox],
+  label[for] + input[type=radio] {
+    left: 20px;
+  }
+  .form-check {
+    padding: 0;
+  }
+}
+
+input[type=checkbox],
+input[type=radio] {
+  margin-top: 8px;
+}
+
+//for wordpress widgets wrapper
+.form-wrapper {
+  &.hero-bg,
+  &.muted-bg,
+  &.cs,
+  &.ds,
+  &.ls {
+    padding: 35px;
+  }
+}
+
+//styled checkboxes and radio
+.has-error .form-control {
+  border-color: $colorMain;
+}
+
+.has-error label,
+.has-error .help-block {
+  color: $colorMain;
+}
+
+/*styled checkbox */
+.checkbox {
+  input[type="checkbox"] {
+    display: none;
+  }
+  label + input[type="checkbox"],
+  label > input[type="checkbox"] {
+    display: inline-block;
+  }
+}
+
+input[type="checkbox"] + label {
+  padding-left: 0;
+}
+
+input[type="checkbox"] + label > a {
+  color: $darkgreyColor;
+}
+
+input[type="checkbox"] + label:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin: 1px 10px 4px 0;
+  text-align: center;
+  padding-right: 0.1em;
+  width: 16px;
+  height: 16px;
+  line-height: 14px;
+  font-size: 15px;
+  border: 1px solid $borderColor;
+  font-family: "FontAwesome";
+}
+
+input[type="checkbox"]:checked + label:before {
+  content: "\f00c";
+  color: $colorMain;
+}
+
+input[type="checkbox"]:disabled + label:before {
+  background-color: $borderColor;
+}
+
+/*styled radio*/
+.radio {
+  input[type="radio"] {
+    display: none;
+  }
+  label + input[type="radio"],
+  label > input[type="radio"] {
+    display: inline-block;
+  }
+}
+
+input[type="radio"] + label {
+  padding-left: 0;
+}
+
+input[type="radio"] + label > a {
+  color: #999999;
+}
+
+input[type="radio"] + label:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-bottom: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid $borderColor;
+}
+
+input[type="radio"]:checked + label:before {
+  padding: 3px;
+  background-color: $darkgreyColor;
+  background-clip: content-box;
+}
+
+input[type="radio"]:disabled + label:before {
+  background-color: $borderColor;
+}

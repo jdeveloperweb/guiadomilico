@@ -1,0 +1,195 @@
+/*
+widget_search,
+widget_mailchimp
+widget_product_search
+*/
+
+
+.widget_search,
+.widget_product_search,
+.widget_mailchimp {
+  form {
+    position: relative;
+    margin: auto;
+  }
+  label {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+  input {
+    width: 100%;
+    max-width: 370px;
+  }
+}
+.cs .widget_mailchimp input {
+  border-bottom-color: $lightColor;
+}
+
+.cs .widget_mailchimp input:-moz-placeholder {
+  font-style: normal;
+  color: $lightColor;
+  opacity: 1;
+}
+
+.cs .widget_mailchimp input::-moz-placeholder {
+  font-style: normal;
+  color: $lightColor;
+  opacity: 1;
+}
+
+.cs .widget_mailchimp input:-ms-input-placeholder {
+  font-style: normal;
+  color: $lightColor;
+  opacity: 1;
+}
+
+.cs .widget_mailchimp input::-webkit-input-placeholder {
+  font-style: normal;
+  color: $lightColor;
+  opacity: 1;
+}
+
+
+
+footer .widget.widget_mailchimp{
+  margin-bottom: 30px;
+}
+
+.widget.widget_mailchimp .screen-reader-text{
+  position: relative!important;
+}
+//buttons and icons inside a form to the right
+.widget_search button,
+.widget_mailchimp button,
+  //input instead of button is used in woo html
+.widget_product_search form input[type="submit"],
+.widget_product_search form:before {
+  text-align: center;
+  width:auto;
+  line-height: 1;
+  font-weight:700;
+  position: absolute;
+  right: 0;
+  top: auto;
+  bottom: 0;
+  background-color:transparent;
+  opacity: 1;
+  border:none;
+  padding:2px 16px;
+}
+
+.widget_mailchimp button{
+  background-color: $colorMain;
+  opacity: 1;
+  border: 2px solid $lightColor;
+  padding:15px 47px;
+}
+
+.ds{
+  .widget_mailchimp button{
+    background-color:transparent;
+    opacity: 1;
+    border: 2px solid $colorMain;
+    color: $lightColor;
+    padding:15px 47px;
+    &:hover{
+      background: $colorMain;
+      border-color: $colorMain;
+    }
+  }
+}
+
+
+.widget_search button{
+  background-color: transparent;
+}
+
+.widget_search button,
+.widget_mailchimp button,
+  //input instead of button is used in woo html
+.widget_product_search form input[type="submit"] {
+  &:hover {
+   border-color: $darkColor;
+  }
+}
+
+
+.widget_search button{
+  padding: 11px 29px 11px 11px;
+  &:before {
+    font-family: 'FontAwesome';
+    content: '\f002';
+    font-size: 17px;
+    color: $colorMain;
+  }
+}
+.widget_product_search form:before {
+  font-family: 'FontAwesome';
+  content: '\f002';
+  font-size: 17px;
+  color: $colorMain;
+  background: transparent;
+  height: 40px;
+  line-height: 37px;
+}
+.widget_product_search {
+  input[type="submit"] {
+    color: transparent;
+    font-size: 0;
+  }
+}
+@media (max-width: 1199px) {
+  footer .widget_mailchimp form {
+    margin: 0;
+  }
+ .widget_mailchimp input, .cs .widget_mailchimp input, .cs .widget_mailchimp input[type="email"]{
+   padding-right:90px;
+ }
+
+}
+@media (max-width: 1024px){
+  .widget_search input, .widget_product_search input, .widget_mailchimp input {
+    max-width:275px;
+  }
+  .widget_mailchimp input, .cs .widget_mailchimp input, .cs .widget_mailchimp input[type="email"]{
+    padding-right:0;
+  }
+}
+@media (max-width: 991px) {
+  .widget_search input, .widget_product_search input, .widget_mailchimp input {
+    max-width: 480px;
+  }
+}
+@media (max-width: 767px) {
+  .widget_search input, .widget_product_search input, .widget_mailchimp input {
+    max-width: 300px;
+  }
+  .page_footer .widget img {
+    margin-bottom: 30px;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .widget_search input, .widget_product_search input, .widget_mailchimp input, .cs .widget_mailchimp input {
+    width: 100%;
+    max-width:100%;
+    padding-right: 180px;
+  }
+
+  .widget_search form, .widget_product_search form, .widget_mailchimp form{
+    max-width:100%;
+  }
+  .widget_mailchimp input, .cs .widget_mailchimp input, .cs .widget_mailchimp input[type="email"]{
+    padding-right: 175px;
+  }
+}
+@media (max-width: 479px) {
+  .ds .widget_mailchimp button, .widget_mailchimp button, .cs .widget_mailchimp button{
+    padding: 12px 10px;
+  }
+  .widget_mailchimp input, .cs .widget_mailchimp input, .cs .widget_mailchimp input[type="email"]{
+    padding-right: 100px;
+  }
+}

@@ -1,0 +1,77 @@
+/*
+** 404
+*/
+
+.error-404 {
+  background-image: url(../images/404_bg.jpg);
+  background-size: cover;
+  .page-header {
+    h6{
+      font-family: 'Roboto', sans-serif;
+      font-size: 40px;
+      font-weight: 500;
+      margin-bottom:8px;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-size: 226px;
+      font-family: 'Anton', sans-serif;
+      color: $colorMain;
+      line-height: 1;
+      margin: 0;
+      margin-bottom: 9px;
+      letter-spacing: 15px;
+    }
+    p {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1;
+      font-family: 'Roboto Condensed', sans-serif;
+      position: relative;
+      color: $lightColor;
+      text-transform: uppercase;
+      letter-spacing:20px;
+      margin-bottom: 64px;
+      padding-bottom:46px;
+      &:after{
+        content: '';
+        height: 14px;
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        background:$colorMain;
+        -webkit-mask: url("../img/mask/blog-separator.png") no-repeat center center;
+      }
+
+    }
+    .btn{
+    padding: 15px 50px;
+  }
+
+  }
+
+  .widget_search {
+    margin: 58px 0;
+  }
+
+
+  .page-content p a{
+    padding:16px 50px;
+    margin-bottom: 0;
+  }
+
+
+}
+
+
+@media (max-width: 479px) {
+  .error-404 .page-header h3 {
+    font-size: 150px;
+  }
+  .error-404 .page-header h6 {
+    font-size: 35px;
+  }
+}
+
+
+

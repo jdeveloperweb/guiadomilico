@@ -1,0 +1,259 @@
+/*
+** Vertical margins and padding for sections and columns
+*/
+
+/* Vertical padding for sections
+.s - section
+pt-* - padding top value
+pb-* - padding bottom value
+py-* - same value for top and for bottom padding
+*/
+
+//setting value not on section but for child container for section with top and bottom borders with container width
+@each $value in $section-vertical-padding {
+  .s-pt-#{$value} > [class*='container'] {
+    padding-top: #{$value}px;
+  }
+}
+
+@each $value in $section-vertical-padding {
+  .s-pb-#{$value} > [class*='container'] {
+    padding-bottom: #{$value}px;
+  }
+}
+
+@each $value in $section-vertical-padding {
+  .s-py-#{$value} > [class*='container'] {
+    padding-top: #{$value}px;
+    padding-bottom: #{$value}px;
+  }
+}
+
+@each $breakpoint-abbr, $breakpoint-value in $grid-breakpoints {
+  @media (min-width: #{$breakpoint-value}) {
+    @each $value in $section-vertical-padding {
+      .s-pt-#{$breakpoint-abbr}-#{$value} > [class*='container'] {
+        padding-top: #{$value}px;
+      }
+    }
+
+    @each $value in $section-vertical-padding {
+      .s-pb-#{$breakpoint-abbr}-#{$value} > [class*='container'] {
+        padding-bottom: #{$value}px;
+      }
+    }
+
+    @each $value in $section-vertical-padding {
+      .s-py-#{$breakpoint-abbr}-#{$value} > [class*='container'] {
+        padding-top: #{$value}px;
+        padding-bottom: #{$value}px;
+      }
+    }
+  }
+}
+
+
+/* Vertical margins for columns in sections and rows
+.c - columns
+mt-* - margin top value
+mb-* - margin bottom value
+my-* - same value for top and for bottom margin
+*/
+@each $value in $columns-vertical-margins {
+  .c-mt-#{$value} [class*="col-"],
+  .row.c-mt-#{$value} > [class*="col-"] {
+    margin-top: #{$value}px;
+  }
+}
+
+@each $value in $columns-vertical-margins {
+  .c-mb-#{$value} [class*="col-"],
+  .row.c-mb-#{$value} > [class*="col-"] {
+    margin-bottom: #{$value}px;
+  }
+}
+
+@each $value in $columns-vertical-margins {
+  .c-my-#{$value} [class*="col-"],
+  .row.c-my-#{$value} > [class*="col-"] {
+    margin-top: #{$value}px;
+    margin-bottom: #{$value}px;
+  }
+}
+
+@each $breakpoint-abbr, $breakpoint-value in $grid-breakpoints {
+  @media (min-width: #{$breakpoint-value}) {
+    @each $value in $columns-vertical-margins {
+      .c-mt-#{$breakpoint-abbr}-#{$value} [class*="col-"],
+      .row.c-mt-#{$breakpoint-abbr}-#{$value} > [class*="col-"] {
+        margin-top: #{$value}px;
+      }
+    }
+
+    @each $value in $columns-vertical-margins {
+      .c-mb-#{$breakpoint-abbr}-#{$value} [class*="col-"],
+      .row.c-mb-#{$breakpoint-abbr}-#{$value} > [class*="col-"] {
+        margin-bottom: #{$value}px;
+      }
+    }
+
+    @each $value in $columns-vertical-margins {
+      .c-my-#{$breakpoint-abbr}-#{$value} [class*="col-"],
+      .row.c-my-#{$breakpoint-abbr}-#{$value} > [class*="col-"] {
+        margin-top: #{$value}px;
+        margin-bottom: #{$value}px;
+      }
+    }
+  }
+}
+
+//removing bottom margin for last row - for contact form in wrapper
+form[class*="c-mb-"] .row:last-child [class^="col-"],
+[class*="c-mb-"] form .row:last-child [class^="col-"] {
+  margin-bottom: 0 !important;
+}
+
+/* overlap featured image on top section (for big screens) */
+@media screen and (min-width: 1200px) {
+  .s-top-overlap {
+    margin-top: -140px;
+  }
+  .s-top-overlap-big {
+    margin-top: -180px;
+  }
+  .s-top-overlap-small {
+    margin-top: -100px;
+  }
+}
+
+/* full height section */
+.s-full-height {
+  min-height: 100vh;
+}
+
+/* Vertical dividers - use them with Bootstrap responsive utilities - http://getbootstrap.com/docs/4.1/utilities/display/#hiding-elements */
+[class*='divider-'] {
+  width: 100%;
+  clear: both;
+  &:last-child {
+    order: 10000;
+  }
+}
+
+
+
+.fw-divider-special, .fw-divider-special-center, .fw-divider-special-center-big{
+  clear: both;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  .special {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width:264px;
+    height: 15px;
+    background:$colorMain;
+    -webkit-mask: url("../img/mask/separator.png") no-repeat center center;
+  }
+}
+.fw-divider-special-center {
+  width: 100%;
+  .special {
+    width: 100%;
+    background: $colorMain;
+    -webkit-mask: url("../img/mask/separator-center.png") no-repeat center center;
+  }
+}
+
+.fw-divider-slider {
+  clear: both;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  .special {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width:299px;
+    height: 15px;
+    background:$colorMain;
+    -webkit-mask: url("../img/mask/slider-separator.png") no-repeat center center;
+  }
+}
+
+
+footer .fw-divider-special .special {
+  background:transparent;
+  -webkit-mask: none;
+  &:before, &:after {
+    position: absolute;
+    bottom:-5px;
+    top: auto;
+    left: 0;
+    color: $colorMain;
+  }
+  &:before {
+    font-family: 'icomoon' !important;
+    content: "\e919";
+    font-size: 13px;
+    line-height: 1;
+  }
+  &:after {
+    letter-spacing: 1.8px;
+    line-height: 1;
+    font-size: 20px;
+    bottom: 0;
+    top:auto;
+    content: '';
+    height: 2px;
+    width: 260px;
+    margin-left:19px;
+    background: $colorMain;
+    margin-top:0;
+    display: inline-block;
+    -webkit-mask: url(../img/mask/separator-events.png) repeat center center;
+  }
+}
+
+@media (max-width: 991px) {
+  footer .fw-divider-special .special:after {
+    width: 160px;
+  }
+  footer .fw-divider-special .special {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .divider-top-bottom {
+    margin-top: 1.5em;
+    margin-bottom: 1.9em;
+    padding-bottom: 1.5em;
+  }
+}
+@media (max-width: 479px) {
+  .fw-divider-special-center .special {
+    width: 255px;
+  }
+}
+
+@each $value in $dividers-height {
+  .divider-#{$value} {
+    margin-top: #{$value}px;
+  }
+}
+@each $breakpoint-abbr, $breakpoint-value in $grid-breakpoints {
+  @media (min-width: #{$breakpoint-value}) {
+    @each $value in $dividers-height {
+      .divider-#{$breakpoint-abbr}-#{$value} {
+        margin-top: #{$value}px;
+      }
+    }
+  }
+}
+

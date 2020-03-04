@@ -1,0 +1,278 @@
+/*
+** Bootstrap Overrides
+*/
+@import 'override_bootstrap/breadcrumbs';
+@import 'override_bootstrap/forms';
+@import 'override_bootstrap/carousel';
+@import 'override_bootstrap/tabs';
+@import 'override_bootstrap/collapse';
+@import 'override_bootstrap/dropdowns';
+
+//making container 1170px width for wide screens
+@media (min-width: 1300px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+//other bootstrap elements
+/* modal */
+.modal-open {
+  padding-right: 0 !important;
+}
+
+.modal-backdrop.show {
+  background-color: #4d4d4d;
+  opacity: 0.9;
+}
+
+.modal-content {
+  border-radius: 1px;
+  [class*="col-"]:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* bootstrap buttons */
+.btn {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0;
+  padding:6px 30px;
+  border-radius: 0;
+  margin-bottom:0;
+  border-width: 2px;
+
+  //for icons
+  &.round,
+  &.rounded {
+    padding: 23px;
+    line-height: 1;
+  }
+}
+.btn.large {
+  padding:10px 40px;
+}
+.btn.small{
+  padding:6px 17px;
+}
+
+  /* media elements */
+.media > img {
+  display: block;
+}
+
+.media-body {
+  h3, h4 {
+    line-height: 1;
+    margin-top: 0.3em;
+    margin-bottom: 0.2em;
+  }
+
+  * + &,
+  & + * {
+    margin-left:18px;
+  }
+}
+
+
+@media (max-width: 479px) {
+  button.btn + span.m-25{
+    margin: 10px;
+  }
+}
+
+
+
+//for media component inside table - for dashboard
+td .media-body {
+  width: auto;
+}
+
+// our custom video placeholser
+.embed-responsive-3by2 {
+  //height property removed in v4
+  height: 0;
+  padding-bottom:56.4%;
+  background-color: $backgroundColorFooter;
+}
+.embed-responsive-3by2 a > img {
+  opacity: 0.3;
+}
+.embed-responsive-3by2 a:hover > img {
+  opacity: 0.3;
+}
+
+
+#video, .format-video {
+  .photoswipe-link, .embed-placeholder {
+    &:after {
+      transition: all 0.3s ease-in-out;
+      content: "\e90d";
+      font-family: 'icomoon';
+      position: absolute;
+      color: $colorMain;
+      font-size: 40px;
+      line-height:40px;
+      width:40px;
+      height:40px;
+      text-align: center;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -30px;
+      margin-top: -30px;
+    }
+    &:hover:after {
+      opacity: 0.4;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  #video .photoswipe-link:after, #video .embed-placeholder:after,
+  .format-video .photoswipe-link:after, .format-video .embed-placeholder:after {
+    font-size: 60px;
+  }
+}
+
+.alert{
+  border-width: 0 0 0 4px;
+  padding:18px 30px;
+  margin-bottom:20px;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  color: $lightColor;
+  &:before {
+    font-family: FontAwesome;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+}
+
+.alert-success {
+  background-color:$colorMain3;
+  &:before {
+    content: "\f058";
+  }
+}
+
+.alert-info {
+  background-color:$colorMain4;
+  &:before {
+    content: "\f06a";
+  }
+}
+
+.alert-warning {
+  background-color: $colorMain;
+  color: $darkColor;
+  &:before {
+    content:"\f071";
+    color: $darkColor;
+  }
+}
+
+.alert-danger {
+  background-color:$colorMain2;
+  &:before {
+    content:"\f057";
+  }
+}
+.mark, mark {
+  background-color: transparent;
+}
+
+button.close {
+  min-width: 0;
+}
+
+/* small in headings */
+.h1 .small,
+.h1 small,
+.h2 .small,
+.h2 small,
+.h3 .small,
+.h3 small,
+.h4 .small,
+.h4 small,
+.h5 .small,
+.h5 small,
+.h6 .small,
+.h6 small,
+h1 .small,
+h1 small,
+h2 .small,
+h2 small,
+h3 .small,
+h3 small,
+h4 .small,
+h4 small,
+h5 .small,
+h5 small,
+h6 .small,
+h6 small {
+  color: inherit;
+  font-weight: 300;
+}
+
+/* labels */
+.label-success {
+  color: $lightColor;
+  background-color: $colorSuccess;
+}
+
+.label-info {
+  color: $lightColor;
+  background-color: $colorInfo;
+}
+
+.label-warning {
+  color: $lightColor;
+  background-color: $colorWarning;
+}
+
+.label-danger {
+  color: $lightColor;
+  background-color: $colorDanger;
+}
+
+/*
+progressbar*/
+.progress-bar-title{
+  margin-bottom: 0.95em;
+  color: $darkColor;
+}
+.progress {
+  height:1px;
+  border-radius: 20px;
+  margin-bottom:45px;
+  position: relative;
+  box-shadow: none;
+  overflow: unset;
+  background-color:$borderColor;
+  & + & {
+    margin-top: 10px;
+  }
+  [data-transitiongoal] {
+    width: 0;
+  }
+  .progress-bar {
+    transition: width 0.5s ease 0.2s;
+    height:4px;
+    position: relative;
+    top: -2px;
+    border-radius: 20px;
+  }
+  span {
+    position: absolute;
+    right: 0;
+    top: -39px;
+    font-size: 16px;
+    font-weight:300;
+    color: $darkColor;
+  }
+}

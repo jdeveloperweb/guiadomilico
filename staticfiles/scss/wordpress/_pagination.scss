@@ -1,0 +1,159 @@
+/*
+** WordPress Page Links and Pagination
+*/
+.page-item,
+.nav-links,
+.page-links {
+  clear: both;
+  & > span,
+  & > a {
+    border-radius: 0 !important;
+    color: $fontColor;
+    background-color: transparent;
+    border: 1px solid $borderDarkColor;
+    outline: 1px solid $borderDarkColor;
+    display: inline-block;
+    margin-right: 11px;
+    margin-left: 0;
+    padding: 5px 10px;
+    min-width: 2.4em;
+    text-align: center;
+    line-height: inherit;
+    &:hover {
+      border-color: $colorMain!important;
+      outline-color:$colorMain!important;
+      color: $darkgreyColor!important;
+      background: transparent!important;
+    }
+  }
+  &.active > a,
+  & > span {
+    border-color: $colorMain!important;
+    outline-color:$colorMain!important;
+    color: $darkColor!important;
+    background:$colorMain!important;
+    cursor: not-allowed;
+  }
+  .fa {
+    font-size: 10px;
+  }
+}
+
+//page and comments links smaller
+.comments-pagination,
+.page-links {
+  .page-numbers,
+  & > span,
+  a {
+    //min-width: 2em;
+  }
+}
+
+.page-links a:first-child {
+  margin-left: 1em;
+}
+
+//blog styles
+.pagination {
+  margin-top: 60px;
+  justify-content: flex-start;
+}
+
+//blog post
+.post-nav {
+  margin: 60px 0 0;
+  position: relative;
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    & > div {
+      width: 50%;
+      height: auto;
+      //display: flex;
+      //align-items: center;
+      //justify-content: center;
+      position: relative;
+      padding: 30px 40px;
+      text-align: right;
+
+      transition: 0.2s opacity ease;
+      &:hover {
+        opacity: 0.9;
+      }
+      @media(max-width: 575px) {
+        width: 100%;
+      }
+      .fa {
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+      &:first-child {
+        text-align: left;
+        .fa {
+          right: auto;
+          left: 0;
+        }
+      }
+    }
+    .nav-subtitle {
+      @include small-text();
+      text-align: center;
+      min-width: 8em;
+      padding: 0.25em 0.8em 0.05em;
+      display: inline-block;
+    }
+    .nav-title {
+      display: block;
+    }
+
+    a {
+      @include cover();
+
+    }
+  }
+  //for .cover-image
+  .post-nav-image {
+    display: none;
+  }
+  .cover-image {
+    .post-nav-text-wrap {
+      text-align: center;
+    }
+  }
+}
+
+
+
+@media (max-width: 1199px) {
+  .post-nav .nav-links > div {
+    padding: 40px 20px;
+  }
+  .post-nav .nav-links .nav-title {
+    font-size: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

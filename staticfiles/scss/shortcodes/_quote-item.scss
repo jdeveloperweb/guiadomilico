@@ -1,0 +1,133 @@
+.quote-item {
+  border: none;
+  padding:28px 40px 40px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  background: $lightColor;
+  box-shadow: 0 1px 14px 1px rgba(0, 0, 0, 0.05);
+
+  @media (min-width: 768px) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width:100%;
+  }
+  i{
+    display: block;
+    font-size:50px;
+    color: $colorMain;
+    left: -3px;
+    margin-bottom: 18px;
+  }
+  footer{
+    span{
+      display: block;
+      margin-top: 9px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: 'Roboto Condensed', sans-serif;
+      line-height: 1;
+    }
+  }
+  p{
+    margin-top:0;
+    display: block;
+    position: relative;
+    padding-bottom: 35px;
+    margin-bottom: 30px;
+    &:after, &:before{
+      position: absolute;
+      top: auto;
+      left: 0;
+      bottom: 0;
+      content: '';
+    }
+    &:after{
+      content: '';
+      height: 2px;
+      width: 241px;
+      margin-left:19px;
+      background: $colorMain;
+      display: inline-block;
+      -webkit-mask: url(../img/mask/separator-events.png) repeat center center;
+    }
+    &:before{
+      font-family: 'icomoon' !important;
+      content: "\e919";
+      font-size: 13px;
+      display: inline-block;
+      color:$colorMain;
+      line-height: 1;
+      bottom:-6px;
+    }
+  }
+  cite{
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    display: block;
+  }
+  footer{
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.quote-image {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+  img {
+    border-radius: 50%;
+    }
+  //testimonial author
+  & + p {
+    margin: 30px 0 20px;
+  }
+
+}
+.active.center .quote-item{
+  opacity: 1;
+}
+
+.container-fluids-mw .container-fluid{
+  width: 80%;
+}
+
+
+@media (max-width: 1199px) {
+  .quote-item p:after {
+    width: 220px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .quote-item {
+    padding:20px 15px 20px;
+  }
+  .quote-item em {
+    margin-top: 1.2rem;
+    font-size: 14px;
+  }
+  .quote-item cite {
+    margin-top: 1.4em;
+  }
+
+}
+
+@media (max-width: 575px) {
+  .container-fluids-mw .container-fluid {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+

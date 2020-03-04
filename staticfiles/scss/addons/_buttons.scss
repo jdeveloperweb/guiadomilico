@@ -1,0 +1,113 @@
+/*
+** Buttons
+ */
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn.focus,
+.btn:focus {
+  box-shadow: 0 0 3px 0 rgba(100, 100, 100, .75);
+}
+
+.btn-secondary {
+  border-color: $backgroundLightColor;
+  background-color: $backgroundLightColor;
+  color: $darkgreyColor;
+}
+
+
+.btn-link {
+  font-weight: 300;
+  color: $colorMain;
+  background-color: transparent;
+  position: relative;
+  padding: 0;
+  &:before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top: auto;
+    bottom:1px;
+    left: 0;
+    background: $colorMain;
+    -webkit-transition: all 0.3ms ease-in-out;
+    -moz-transition: all 0.3ms ease-in-out;
+    -ms-transition: all 0.3ms ease-in-out;
+    -o-transition: all 0.3ms ease-in-out;
+    transition: all 0.3ms ease-in-out;
+  }
+  &:hover{
+    color: $colorMain2;
+    text-decoration: none;
+    &:before {
+      background:$colorMain2;
+    }
+  }
+}
+
+
+/*color background buttons*/
+.btn-maincolor,
+.btn-maincolor2,
+.btn-maincolor3,
+.btn-darkgrey {
+  color: $darkColor;
+  border-color: transparent !important;
+}
+.btn-darkgrey{
+  color: $lightColor;
+}
+
+.btn-maincolor {
+  background-color: $colorMain;
+}
+
+.btn-maincolor2 {
+  background-color: $colorMain2;
+}
+
+.btn-maincolor3 {
+  background-color: $colorMain3;
+}
+
+.btn-darkgrey {
+  background-color: $darkgreyColor;
+}
+
+/*color outline buttons*/
+.btn-outline-maincolor,
+.btn-outline-maincolor2,
+.btn-outline-maincolor3,
+.btn-outline-darkgrey {
+  background-color: transparent;
+}
+
+.btn-outline-maincolor {
+  color: $darkColor;
+  border-color: $colorMain;
+}
+
+.btn-outline-maincolor2 {
+  color: $darkColor;
+  border-color: $colorMain2;
+}
+
+.btn-outline-maincolor3 {
+  color: $darkColor;
+  border-color: $colorMain3;
+}
+
+.btn-outline-darkgrey {
+  color: $darkgreyColor;
+  border-color: $colorMain;
+}
+
+.btn.btn-outline-light {
+  color: $darkColor;
+  border-color: $lightColor;
+  &:hover{
+    background-color:$lightColor;
+  }
+}

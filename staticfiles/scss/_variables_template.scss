@@ -1,0 +1,168 @@
+///////////////////
+//theme variables//
+///////////////////
+
+//Colors
+
+//Monochrome colors
+
+//text color in light section (.ls)
+$fontColor: #6d7a82;
+//background color for light section (.ls) and font color in dark section (.ds)
+$lightColor: #ffffff;
+//text color for headings in light section (.ls) and background color for dark section (.ds)
+$darkgreyColor: #131e25;
+//background color for light grey background light section (grey - .ls.ms)
+$greyColor: #e9ecef;
+//background color for dark muted section (.ds.ms)
+$darkColor: #131e25;
+//border colors for elements in light section (.ls) (and .bordered elements)
+$borderColor: #b0b6b9;
+//rgba variant for bordered elements
+$borderColorRGBA: rgba(#ffffff, 0.05);
+//background color for hero background elements in light section (.hero-bg)
+$backgroundColor: #fafafa;
+//background color for footer
+$backgroundColorFooter: #0d161b;
+// light background color
+$backgroundLightColor: #f8f7f5;
+// dark border color
+$borderDarkColor:#e7e8e9;
+//background dark RGBA
+$backgroundDarkRGBA: rgba(#ffffff, 0.05);
+// background color rgba
+$backgroundColorRGBA:rgba(#131e25, 0.5);
+
+
+
+$boxShadow:0px 27px 24px -37px rgba(0,0,0,0.66);
+$boxShadowHover:0px 27px 35px -28px rgba(0,0,0,0.66);;
+
+//section specific variables
+
+// dark section - .ds
+
+//font color in dark section (.ds)
+$darkFontColor: #ffffff;
+//border colors in dark section (.ds)
+$darkBorderColor: #454545;
+//background color for elements with background (.hero-bg etc.)
+$darkBackgroundColor: rgba(#fff, 0.05);
+//rgba variant for bordered elements
+$darkBorderColorRGBA: rgba(#ffffff, 0.10);
+
+//color section - .cs
+
+//border colors in color section (.cs)
+$colorBorderColor: rgba(#fff, 0.15);
+$colorBackgroundColor: rgba(#fff, 0.1);
+
+//dark grey background dark blue section - (.ds.bs)
+$darkBlueColor: #253138;
+$darkBlueColorLighter: #2f3e47;
+
+//Accent Color schemes
+
+//this variables is used in development process
+//in production color variables are overridden in 'color_schemes' folder
+
+//theme accent colors
+$styleNumber: '' !default;
+$colorMain: #f4ca59 !default;
+$colorMain2: #eb3e3e !default;
+$colorMain3: #3abf16 !default;
+$colorMain4: #2180eb !default;
+
+//////bootstrap colors
+//orange - warning
+$colorPrimary: $colorMain !default;
+//green
+$colorSuccess: #4db19e !default;
+//blue
+$colorInfo: #007ebd !default;
+//orange
+$colorWarning: #eeb269 !default;
+//red
+$colorDanger: #dc5753 !default;
+
+//universal muted background color
+$universalBackgroundColor: rgba(150, 150, 150, 0.05) !default;
+$universalBorderColor: rgba(200, 200, 200, 0.35) !default;
+
+//Layout
+//////side header
+$sideHeaderWidth: 310px;
+//inner side header padding
+$sideHeaderLeftRightPadding: 30px;
+//header transition
+$headerTransition: 0.5s ease-in-out;
+
+$grid-breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+//_horizontal spacers
+//reverse for smaller gutters has priority
+$columns-horizontal-gutters-sum:175 160 150 140 135 120 110 100 80 75 60 50 46 40 30 25 20 15 10 8 5 4 2 1 0;
+$container-horizontal-padding: 0 1 2 5 10 20 30 50 60 80;
+
+//_vertical spacers - vertical margins and padding for sections and columns
+$section-vertical-padding: 0 1 2 3 5 10 15 20 25 30 40 45 50 59 60 65 70 75 77 80 85 90 96 98 100 110 125 130 135 140 141 150 160 175 190;
+$columns-vertical-margins: 0 1 2 5 10 15 20 25 30 40 46 50 60;
+
+//top and bottom borders height for sections with borders - 1px by default
+$section-borders-height: 2 3 5;
+
+//font size helpers - fs-xx
+$font-size-helpers:8 12 14 16 18 20 24 28 32 35 36 40 51 56 60;
+
+$dividers-height: 0 5 10 16 20 23 25 30 35 40 42 45 48 50 52 55 60 64 65 67 70 75 80 90 95 96 100 105 110 115 120 130 140 145 150;
+
+@mixin small-text() {
+  font-size: 14px;
+  line-height: 1.6em;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing:0;
+}
+
+@mixin cover() {
+  content: '';
+  position: absolute;
+  display: block;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin widget-title() {
+  font-weight: 400;
+  font-size: 23px;
+  margin-bottom:1.25em;
+  letter-spacing: 0;
+  line-height: 1;
+  color: $darkColor;
+}
+
+@mixin widget-a-before() {
+  font-family: 'icomoon' !important;
+  content: "\e917";
+  font-size:4px;
+  color: $colorMain;
+  position: relative;
+  top:-4px;
+  padding-right: 10px;
+}
+
+@mixin widget-a-before-icomoon() {
+  font-family: 'icomoon';
+  content: '\e915';
+  font-size: 14px;
+  color: $colorMain;
+  position: relative;
+  padding-right: 10px;
+}

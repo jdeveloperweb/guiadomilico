@@ -1,0 +1,111 @@
+
+.post-nav-panels {
+	display: flex;
+	flex-flow: column wrap;
+	margin: 40px 0 0;
+	&.has-images { margin: 60px 0 0; }
+	.nav-item {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position-y: 50%;
+
+		display: flex;
+		justify-content: center;
+		position: relative;
+		a {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			width: 100%;
+			text-align: center;
+			padding: 15px 0;
+			position: relative;
+			z-index: 2;
+		}
+		&.has-image {
+			&:before {
+				content: '';
+				background-color: $mainColor;
+				opacity: 0.8;
+				@include elementTransition();
+
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				z-index: 1;
+			}
+			&:hover:before {
+				opacity: 0.5;
+			}
+			min-height: 146px;
+			a {
+				padding-left: 15px; padding-right: 15px;
+				@media (min-width: 320px) { padding-left: 45px; padding-right: 45px; }
+				@media (min-width: 992px) { padding-left: 15px; padding-right: 15px; }
+				@media (min-width: 1200px) { padding-left: 45px; padding-right: 45px; }
+			}
+		}
+	}
+	.nav-item-label {
+		color: $mainColor2;
+		display: block;
+		font-family: "Montserrat", sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 700;
+		letter-spacing: -0.05em;
+		line-height: 17px;
+		text-transform: uppercase;
+
+		margin-top: 4px;
+	}
+	.nav-item-title {
+		color: $darkColor;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 22px;
+		font-weight: 600;
+		line-height: 29px;
+		letter-spacing: -0.05em;
+		@include elementTransition();
+
+		display: block;
+		margin-top: 20px;
+	}
+	.nav-item {
+		a:hover .nav-item-title {
+			color: $mainColor;
+		}
+		&.has-image {
+			a {
+				.nav-item-title {
+					color: $lightColor;
+				}
+				//&:hover .nav-item-title {
+				//	color: $mainColor;
+				//}
+			}
+		}
+	}
+	@media(min-width: 992px) {
+		&.both-links {
+			flex-flow: row nowrap;
+			.nav-item {
+				//flex-grow: 1;
+				width: 50%;
+			}
+			.nav-item {
+				&:not(:last-child) { margin-right: 5px; }
+				&:not(:first-child) { margin-left: 5px; }
+			}
+		}
+	}
+	@media(max-width: 991px) {
+		.nav-item + .nav-item {
+			margin-top: 30px;
+		}
+	}
+}

@@ -1,0 +1,162 @@
+/* bootstrap collapse*/
+//unstyled
+[data-toggle="collapse"] {
+  display: inline-block;
+  position: relative;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  margin-bottom:0;
+  &:after {
+    position: absolute;
+    right: 0;
+    top: 7px;
+    margin-top: 0;
+    font-size: 10px;
+    font-family: 'FontAwesome';
+    content: "\f078";
+  }
+  &.collapsed {
+    &:after {
+      content: "\f054";
+    }
+  }
+}
+
+//cards as tabs
+[role="tablist"] {
+  .card {
+    border-radius: 0;
+    border: none;
+    background: none;
+    > div{
+      margin-bottom: 15px;
+    }
+  }
+  .card-header {
+    padding: 0;
+    background: none;
+    border: none;
+    margin-bottom:0!important;
+    box-shadow: 0 1px 14px 1px rgba(0, 0, 0, 0.05);
+    a {
+      font-size: 18px;
+      letter-spacing: 0;
+      font-weight:300;
+      text-transform: capitalize;
+      display: block;
+      position: relative;
+      padding:36px 20px 21px 67px;
+      background-color:$lightColor;
+      color: $darkgreyColor;
+      &:before,
+      &:after {
+        text-align: center;
+        font-family: inherit;
+        font-size:11px;
+        font-weight: 100;
+        content: '';
+        width: 60px;
+        position: absolute;
+        left:19px;
+        top: 0;
+        bottom: 0;
+        color:$colorMain;
+        background-color:transparent;
+        transition: opacity 0.3s ease-in-out;
+      }
+      &:after {
+        height: 30px;
+        line-height: 30px;
+        margin-top: -7px;
+        vertical-align: top;
+        top: 50%;
+        bottom: auto;
+        content: "\e91c";
+        font-family: 'icomoon';
+        background: none;
+      }
+      &:hover {
+        color: inherit;
+        opacity: 0.7;
+        &:before,
+        &:after {
+          //opacity: 0.9;
+        }
+      }
+      &.collapsed {
+        background-color: $lightColor;
+        color: $darkgreyColor;
+        padding-top: 29px;
+        padding-bottom: 32px;
+        box-shadow: 0 1px 14px 1px rgba(0, 0, 0, 0.05);
+        &:after {
+          content: "\e91b";
+          font-family: 'icomoon';
+          margin-top: -15px;
+        }
+      }
+    }
+
+
+  }
+  .collapse{
+    box-shadow: 0 1px 14px 1px rgba(0, 0, 0, 0.05);
+    margin-bottom:0!important;
+  }
+  .media img {
+    max-width: 80px;
+  }
+}
+
+[role="tablist"] .card-header + div .card-body {
+  padding:6px 61px 23px;
+  background-color: $lightColor;
+  margin-bottom: 0;
+}
+.card-body{
+  padding: 40px;
+  margin-bottom: 30px;
+}
+
+[role="tablist"] {
+  .card + .card{
+    margin-top: 11px;
+  }
+  > div + div{
+     margin-top: 11px;
+   }
+}
+
+@media (max-width: 767px) {
+  [role="tablist"] .card-header a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 479px) {
+  [role="tablist"] .card-header a{
+    padding: 36px 20px 21px 35px;
+  }
+  [role="tablist"] .card-header a:before, [role="tablist"] .card-header a:after {
+    left: -10px;
+  }
+  [role="tablist"] .card-header + div .card-body {
+    padding: 6px 35px 23px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

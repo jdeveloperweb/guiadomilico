@@ -1,0 +1,23 @@
+/* widget_tag_cloud */
+.widget_tag_cloud {
+  a {
+    border: none;
+    color: $darkColor;
+    background: $colorMain;
+    text-transform: uppercase;
+    border-radius: 1px;
+    padding:4px 19px;
+    margin:0 5px 10px 0;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Roboto Condensed', sans-serif;
+    &:hover {
+      background-color: $colorMain;
+      border-color: $colorMain;
+      color: $lightColor;
+    }
+  }
+
+}
