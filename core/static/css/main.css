@@ -2620,7 +2620,6 @@ html[xmlns] .slides {
 	}
 
 	.page_slider .flexslider .intro_layer a.btn {
-		left: -45px;
 		position: relative;
 	}
 }
@@ -19375,7 +19374,7 @@ body.active-side-header.slide-right .page_header_side {
 
 .page_slider .flexslider-style2 .intro_layers_wrapper .intro_layers .intro_layer h6 {
 	font-family: "Roboto Condensed", sans-serif;
-	letter-spacing: 20px;
+	letter-spacing: 10px;
 	margin-bottom: 15px;
 	text-transform: uppercase;
 }
