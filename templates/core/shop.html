@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<title>Fortex - Bootstrap 4 premium MultePage HTML template</title>
+	<meta charset="utf-8">
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<!-- Responsável por carregar os arquivos estáticos -->
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animations.css' %}">
+	<link rel="stylesheet" href="{% static 'css/regular.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/brands.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/solid.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}" class="color-switcher-link">
+	<link rel="stylesheet" href="{% static 'css/shop.css' %}" class="color-switcher-link">
+	<script src="{% static 'js/vendor/modernizr-custom.js' %}"></script>
+
+	<!--[if lt IE 9]>
+		<script src="{% static 'js/vendor/html5shiv.min.js' %}"></script>
+		<script src="{% static 'js/vendor/respond.min.js' %}"></script>
+		<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+	<!--[if lt IE 9]>
+		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
+	<![endif]-->
+
+	<div class="preloader">
+		<div class="preloader_image"></div>
+	</div>
+
+	<!-- search modal -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form" action="/">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="btn">Search</button>
+			</form>
+		</div>
+	</div>
+
+
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="sign_up_modal">
+		<div class="container">
+			<div class="row c-gutter-0 align-items-center">
+				<div class="ls col-12 col-sm-6">
+					<form class="contact-form sign-in c-mb-10 c-gutter-10" method="post" action="/">
+						<div class="row">
+							<div class="col-sm-12">
+								<h4><span class="color-main">Sign Up</span> / Sign In</h4>
+								<div class="divider-sm-0 divider-md-30"></div>
+								<div class="form-group has-placeholder">
+									<label for="signupname">Full Name <span class="required">*</span></label>
+									<input type="text" aria-required="true" size="30" value="" name="name" id="signupname" class="form-control" placeholder="Full Name">
+								</div>
+								<div class="form-group has-placeholder">
+									<label for="signuppassword">Password<span class="required">*</span></label>
+									<input type="password" aria-required="true" size="30" value="" name="password" id="signuppassword" class="form-control" placeholder="Password">
+								</div>
+								<div class="form-group has-placeholder">
+									<label for="signupemail">Email<span class="required">*</span></label>
+									<input type="email" aria-required="true" size="30" value="" name="email" id="signupemail" class="form-control" placeholder="Email">
+								</div>
+								<div>
+									<input type="checkbox" class="checkbox" id="signupcheckbox" />
+									<label for="signupcheckbox">I agree with all the text in the agreement</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<button type="submit" id="contact_signupform_submit" name="contact_submit" class="btn btn-outline-darkgrey">Email Us</button>
+								</div>
+							</div>
+							<a class="phone_modal_button sign_up_modal close-modal" data-dismiss="modal" aria-label="Close" href="#sign_in_modal"><span aria-hidden="true">I am already Member</span></a>
+						</div>
+					</form>
+				</div>
+				<div class="col-12 col-sm-6 d-none d-sm-block">
+					<img src="{% static 'images/sing-in-modal.jpg' %}" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="sign_in_modal">
+		<div class="container">
+			<div class="row c-gutter-0 align-items-center">
+				<div class="ls col-12 col-sm-6">
+					<form class="contact-form sign-in c-mb-10 c-gutter-10" method="post" action="/">
+						<div class="row">
+							<div class="col-sm-12">
+								<h4><span class="color-main">Sign In</span> / Sign Up</h4>
+								<div class="divider-sm-0 divider-md-30"></div>
+								<div class="form-group has-placeholder">
+									<label for="signname">Full Name <span class="required">*</span></label>
+									<input type="text" aria-required="true" size="30" value="" name="name" id="signname" class="form-control" placeholder="Full Name">
+								</div>
+								<div class="form-group has-placeholder">
+									<label for="signpassword">Password<span class="required">*</span></label>
+									<input type="password" aria-required="true" size="30" value="" name="password" id="signpassword" class="form-control" placeholder="Password">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<button type="submit" id="contact_signinform_submit" name="contact_submit" class="btn btn-outline-darkgrey">Email Us</button>
+								</div>
+							</div>
+							<a class="sign_up_modal close-modal" data-dismiss="modal" aria-label="Close" href="#sign_up_modal"><span aria-hidden="true">Forgot Password?</span></a>
+						</div>
+					</form>
+				</div>
+				<div class="col-12 col-sm-6 d-none d-sm-block">
+					<img src="{% static 'images/sing-in-modal.jpg' %}" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div><!-- eof .modal -->
+
+	<!-- wrappers for visual page editor and boxed version of template -->
+	<div id="canvas">
+		<div id="box_wrapper">
+
+			<!-- template sections -->
+			<div class="header_absolute ds cover-background">
+
+				<!--eof topline-->
+
+				<!-- header with two Bootstrap columns - left for logo and right for navigation and includes (search, social icons, additional links and buttons etc -->
+				<header class="page_header s-overlay ds justify-nav-end">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-xl-2 col-lg-3 col-md-4 col-11">
+								<a href="./" class="logo">
+									<img src="{% static 'images/logo.png' %}" alt="">
+								</a>
+							</div>
+							<div class="col-xl-10 col-lg-9 col-md-8 col-1">
+								<div class="nav-wrap">
+
+									<!-- main nav start -->
+									<nav class="top-nav">
+										<ul class="nav sf-menu">
+
+
+											<li class="active">
+												<a href="{% url 'index' %}">Principal</a>
+
+											</li>
+
+											<li>
+												<a href="about.html">O Guia</a>
+													<div class="mega-menu">
+													<ul class="mega-menu-row">
+														<li class="mega-menu-col">
+															<a href="#">Headers</a>
+															<ul>
+																<li>
+																	<a href="header1.html">Header Type 1</a>
+																</li>
+																<li>
+																	<a href="header2.html">Header Type 2</a>
+																</li>
+																<li>
+																	<a href="header3.html">Header Type 3</a>
+																</li>
+																<li>
+																	<a href="header4.html">Header Type 4</a>
+																</li>
+																<li>
+																	<a href="header5.html">Header Type 5</a>
+																</li>
+																<li>
+																	<a href="header6.html">Header Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="#">Side Menus</a>
+															<ul>
+																<li>
+																	<a href="header-side.html">Push Left</a>
+																</li>
+																<li>
+																	<a href="header-side-right.html">Push Right</a>
+																</li>
+																<li>
+																	<a href="header-side-slide.html">Slide Left</a>
+																</li>
+																<li>
+																	<a href="header-side-slide-right.html">Slide Right</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked.html">Sticked Left</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked-right.html">Sticked Right</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="title1.html">Title Sections</a>
+															<ul>
+																<li>
+																	<a href="title1.html">Title section 1</a>
+																</li>
+																<li>
+																	<a href="title2.html">Title section 2</a>
+																</li>
+																<li>
+																	<a href="title3.html">Title section 3</a>
+																</li>
+																<li>
+																	<a href="title4.html">Title section 4</a>
+																</li>
+																<li>
+																	<a href="title5.html">Title section 5</a>
+																</li>
+																<li>
+																	<a href="title6.html">Title section 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="footer1.html#footer">Footers</a>
+															<ul>
+																<li>
+																	<a href="footer1.html#footer">Footer Type 1</a>
+																</li>
+																<li>
+																	<a href="footer2.html#footer">Footer Type 2</a>
+																</li>
+																<li>
+																	<a href="footer3.html#footer">Footer Type 3</a>
+																</li>
+																<li>
+																	<a href="footer4.html#footer">Footer Type 4</a>
+																</li>
+																<li>
+																	<a href="footer5.html#footer">Footer Type 5</a>
+																</li>
+																<li>
+																	<a href="footer6.html#footer">Footer Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="copyright1.html#copyright">Copyright</a>
+
+															<ul>
+																<li>
+																	<a href="copyright1.html#copyright">Copyright 1</a>
+																</li>
+																<li>
+																	<a href="copyright2.html#copyright">Copyright 2</a>
+																</li>
+																<li>
+																	<a href="copyright3.html#copyright">Copyright 3</a>
+																</li>
+																<li>
+																	<a href="copyright4.html#copyright">Copyright 4</a>
+																</li>
+																<li>
+																	<a href="copyright5.html#copyright">Copyright 5</a>
+																</li>
+																<li>
+																	<a href="copyright6.html#copyright">Copyright 6</a>
+																</li>
+															</ul>
+														</li>
+
+													</ul>
+												</div> <!-- eof mega menu -->
+											</li>
+											<!-- eof pages -->
+
+
+											<li>
+												<a href="#">Fórum</a>
+											</li>
+											<!-- eof features -->
+
+
+											<!-- blog -->
+											<li>
+												<a href="blog-right.html">Blog</a>
+
+											</li>
+											<!-- eof blog -->
+
+
+											<!-- shop -->
+											<li>
+												<a href="{% url 'shop' %}">Shop</a>
+
+											</li>
+											<!-- eof shop -->
+
+
+											<!-- contacts -->
+											<li>
+												<a href="contact2.html">Contatos</a>
+											</li>
+											<!-- eof contacts -->
+										</ul>
+
+
+									</nav>
+									<!-- eof main nav -->
+
+									<!--hidding includes on small devices. They are duplicated in topline-->
+									<ul class="top-includes d-none d-xl-block">
+										<li>
+											<!--modal search-->
+											<span>
+												<a href="#" class="search_modal_button">
+													<i class="fa fa-search"></i>
+												</a>
+											</span>
+
+										</li>
+										<li>
+											<div class="dropdown">
+												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<i class="ico icon-shopping-bag"></i>
+													<span class="badge bg-maincolor">2</span>
+												</a>
+												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
+													<div class="widget woocommerce widget_shopping_cart">
+
+
+														<div class="widget_shopping_cart_content">
+
+															<ul class="woocommerce-mini-cart cart_list product_list_widget ">
+																<li class="woocommerce-mini-cart-item mini_cart_item">
+																	<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku="">×</a>
+																	<a href="shop-product-right.html">
+																		<img src="{% static 'images/shop/26.jpg' %}" alt="">Medical marijuana THC
+																	</a>
+
+																	<span class="quantity">1 ×
+																		<span class="woocommerce-Price-amount amount">
+																			<span class="woocommerce-Price-currencySymbol">$</span>
+																			12.00
+																		</span>
+																	</span>
+																</li>
+																<li class="woocommerce-mini-cart-item mini_cart_item">
+																	<a href="#" class="remove" aria-label="Remove this item" data-product_id="76" data-product_sku="">×</a>
+																	<a href="shop-product-right.html">
+																		<img src="{% static 'images/shop/26.jpg' %}" alt="">Medical marijuana THC
+																	</a>
+
+																	<span class="quantity">1 ×
+																		<span class="woocommerce-Price-amount amount">
+																			<span class="woocommerce-Price-currencySymbol">$</span>
+																			15.00
+																		</span>
+																	</span>
+																</li>
+															</ul>
+
+															<p class="woocommerce-mini-cart__total total">
+																<strong>Subtotal:</strong>
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">$</span>
+																	27.00
+																</span>
+															</p>
+
+															<p class="woocommerce-mini-cart__buttons buttons">
+																<a href="shop-cart.html" class="button wc-forward">View cart</a>
+																<a href="shop-checkout.html" class="button checkout wc-forward ">Checkout</a>
+															</p>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</li>
+
+										<li>
+											<span>
+												<a class="phone_modal_button" href="#sign_in_modal"><span class="ico icon-male-user-shadow"></span></a>
+											</span>
+
+										</li>
+
+									</ul>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- header toggler -->
+					<span class="toggle_menu"><span></span></span>
+				</header>
+
+				<section class="page_slider">
+				<div class="ds flexslider flexslider-style2">
+					<ul class="slides">
+						<li class="cover-image flex-slide">
+							<img src="{% static 'images/slider/slidetest.jpg' %}" alt="">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="intro_layers_wrapper">
+											<div class="intro_layers">
+
+												<div class="intro_layer" data-animation="fadeInRight">
+													<h1>
+														<span>O MELHOR EM ARTIGOS</span>
+													</h1>
+												</div>
+												<div class="intro_layer" data-animation="fadeInRight">
+													<h1>
+														E ACESSÓRIOS MILITARES
+													</h1>
+												</div>
+												<div class="intro_layer" data-animation="fadeInRight">
+													<div class="fw-divider-slider">
+														<p class="special"></p>
+													</div>
+												</div>
+												<div class="intro_layer" data-animation="fadeInUp">
+													<p>Fique por dentro de tudo que acontece na área militar, tire suas dúvidas. <br> Encontre desde artigos, acessórios ou uniformes militares. </p>
+												</div>
+											</div> <!-- eof .intro_layers -->
+										</div> <!-- eof .intro_layers_wrapper -->
+									</div> <!-- eof .col-* -->
+								</div><!-- eof .row -->
+							</div><!-- eof .container-fluid -->
+						</li>
+
+						<li class="cover-image flex-slide">
+							<img src="{% static 'images/slider/slidetest2.jpg' %}" alt="">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="intro_layers_wrapper">
+											<div class="intro_layers">
+
+												<div class="intro_layer" data-animation="fadeInRight">
+													<h1>
+														<span>A MAIOR LOJA DO BRASIL</span>
+													</h1>
+												</div>
+												<div class="intro_layer" data-animation="fadeInRight">
+													<h1>
+														DO ALFINETE AO FOGUETE
+													</h1>
+												</div>
+												<div class="intro_layer" data-animation="fadeInRight">
+													<div class="fw-divider-slider">
+														<p class="special"></p>
+													</div>
+												</div>
+												<div class="intro_layer" data-animation="fadeInUp">
+													<p>Fique por dentro de tudo que acontece na área militar, tire suas dúvidas. <br> Encontre desde artigos, acessórios ou uniformes militares. </p>
+												</div>
+
+											</div> <!-- eof .intro_layers -->
+										</div> <!-- eof .intro_layers_wrapper -->
+									</div> <!-- eof .col-* -->
+								</div><!-- eof .row -->
+							</div><!-- eof .container-fluid -->
+						</li>
+
+
+					</ul>
+				</div> <!-- eof flexslider -->
+
+
+
+
+			</section>
+
+<header class="page_header s-overlay cs cs justify-nav-center menu-fixo">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-xl-12 col-lg-12 col-md-8 col-1">
+								<div class="nav-wrap">
+
+										<!-- main nav start -->
+									<nav class="top-nav ">
+										<ul class="nav sf-menu new-color">
+
+
+											<li >
+												<a href="index.html">TODOS OS DEPARTAMENTOS</a>
+											</li>
+
+											<li>
+												<a href="about.html">VESTUÁRIO</a>
+													<div class="mega-menu">
+													<ul class="mega-menu-row">
+														<li class="mega-menu-col">
+															<a href="#">Headers</a>
+															<ul>
+																<li>
+																	<a href="header1.html">Header Type 1</a>
+																</li>
+																<li>
+																	<a href="header2.html">Header Type 2</a>
+																</li>
+																<li>
+																	<a href="header3.html">Header Type 3</a>
+																</li>
+																<li>
+																	<a href="header4.html">Header Type 4</a>
+																</li>
+																<li>
+																	<a href="header5.html">Header Type 5</a>
+																</li>
+																<li>
+																	<a href="header6.html">Header Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="#">Side Menus</a>
+															<ul>
+																<li>
+																	<a href="header-side.html">Push Left</a>
+																</li>
+																<li>
+																	<a href="header-side-right.html">Push Right</a>
+																</li>
+																<li>
+																	<a href="header-side-slide.html">Slide Left</a>
+																</li>
+																<li>
+																	<a href="header-side-slide-right.html">Slide Right</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked.html">Sticked Left</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked-right.html">Sticked Right</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="title1.html">Title Sections</a>
+															<ul>
+																<li>
+																	<a href="title1.html">Title section 1</a>
+																</li>
+																<li>
+																	<a href="title2.html">Title section 2</a>
+																</li>
+																<li>
+																	<a href="title3.html">Title section 3</a>
+																</li>
+																<li>
+																	<a href="title4.html">Title section 4</a>
+																</li>
+																<li>
+																	<a href="title5.html">Title section 5</a>
+																</li>
+																<li>
+																	<a href="title6.html">Title section 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="footer1.html#footer">Footers</a>
+															<ul>
+																<li>
+																	<a href="footer1.html#footer">Footer Type 1</a>
+																</li>
+																<li>
+																	<a href="footer2.html#footer">Footer Type 2</a>
+																</li>
+																<li>
+																	<a href="footer3.html#footer">Footer Type 3</a>
+																</li>
+																<li>
+																	<a href="footer4.html#footer">Footer Type 4</a>
+																</li>
+																<li>
+																	<a href="footer5.html#footer">Footer Type 5</a>
+																</li>
+																<li>
+																	<a href="footer6.html#footer">Footer Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="copyright1.html#copyright">Copyright</a>
+
+															<ul>
+																<li>
+																	<a href="copyright1.html#copyright">Copyright 1</a>
+																</li>
+																<li>
+																	<a href="copyright2.html#copyright">Copyright 2</a>
+																</li>
+																<li>
+																	<a href="copyright3.html#copyright">Copyright 3</a>
+																</li>
+																<li>
+																	<a href="copyright4.html#copyright">Copyright 4</a>
+																</li>
+																<li>
+																	<a href="copyright5.html#copyright">Copyright 5</a>
+																</li>
+																<li>
+																	<a href="copyright6.html#copyright">Copyright 6</a>
+																</li>
+															</ul>
+														</li>
+
+													</ul>
+												</div> <!-- eof mega menu -->
+											</li>
+											<!-- eof pages -->
+
+
+											<li>
+												<a href="#">LINHA TÁTICA</a>
+						<div class="mega-menu">
+													<ul class="mega-menu-row">
+														<li class="mega-menu-col">
+															<a href="#">Headers</a>
+															<ul>
+																<li>
+																	<a href="header1.html">Header Type 1</a>
+																</li>
+																<li>
+																	<a href="header2.html">Header Type 2</a>
+																</li>
+																<li>
+																	<a href="header3.html">Header Type 3</a>
+																</li>
+																<li>
+																	<a href="header4.html">Header Type 4</a>
+																</li>
+																<li>
+																	<a href="header5.html">Header Type 5</a>
+																</li>
+																<li>
+																	<a href="header6.html">Header Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="#">Side Menus</a>
+															<ul>
+																<li>
+																	<a href="header-side.html">Push Left</a>
+																</li>
+																<li>
+																	<a href="header-side-right.html">Push Right</a>
+																</li>
+																<li>
+																	<a href="header-side-slide.html">Slide Left</a>
+																</li>
+																<li>
+																	<a href="header-side-slide-right.html">Slide Right</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked.html">Sticked Left</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked-right.html">Sticked Right</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="title1.html">Title Sections</a>
+															<ul>
+																<li>
+																	<a href="title1.html">Title section 1</a>
+																</li>
+																<li>
+																	<a href="title2.html">Title section 2</a>
+																</li>
+																<li>
+																	<a href="title3.html">Title section 3</a>
+																</li>
+																<li>
+																	<a href="title4.html">Title section 4</a>
+																</li>
+																<li>
+																	<a href="title5.html">Title section 5</a>
+																</li>
+																<li>
+																	<a href="title6.html">Title section 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="footer1.html#footer">Footers</a>
+															<ul>
+																<li>
+																	<a href="footer1.html#footer">Footer Type 1</a>
+																</li>
+																<li>
+																	<a href="footer2.html#footer">Footer Type 2</a>
+																</li>
+																<li>
+																	<a href="footer3.html#footer">Footer Type 3</a>
+																</li>
+																<li>
+																	<a href="footer4.html#footer">Footer Type 4</a>
+																</li>
+																<li>
+																	<a href="footer5.html#footer">Footer Type 5</a>
+																</li>
+																<li>
+																	<a href="footer6.html#footer">Footer Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="copyright1.html#copyright">Copyright</a>
+
+															<ul>
+																<li>
+																	<a href="copyright1.html#copyright">Copyright 1</a>
+																</li>
+																<li>
+																	<a href="copyright2.html#copyright">Copyright 2</a>
+																</li>
+																<li>
+																	<a href="copyright3.html#copyright">Copyright 3</a>
+																</li>
+																<li>
+																	<a href="copyright4.html#copyright">Copyright 4</a>
+																</li>
+																<li>
+																	<a href="copyright5.html#copyright">Copyright 5</a>
+																</li>
+																<li>
+																	<a href="copyright6.html#copyright">Copyright 6</a>
+																</li>
+															</ul>
+														</li>
+
+													</ul>
+												</div> <!-- eof mega menu -->
+
+											</li>
+											<!-- eof features -->
+
+
+											<!-- blog -->
+											<li>
+												<a href="blog-right.html">SOBREVIVÊNCIA & AVENTURA</a>
+						<div class="mega-menu">
+													<ul class="mega-menu-row">
+														<li class="mega-menu-col">
+															<a href="#">Headers</a>
+															<ul>
+																<li>
+																	<a href="header1.html">Header Type 1</a>
+																</li>
+																<li>
+																	<a href="header2.html">Header Type 2</a>
+																</li>
+																<li>
+																	<a href="header3.html">Header Type 3</a>
+																</li>
+																<li>
+																	<a href="header4.html">Header Type 4</a>
+																</li>
+																<li>
+																	<a href="header5.html">Header Type 5</a>
+																</li>
+																<li>
+																	<a href="header6.html">Header Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="#">Side Menus</a>
+															<ul>
+																<li>
+																	<a href="header-side.html">Push Left</a>
+																</li>
+																<li>
+																	<a href="header-side-right.html">Push Right</a>
+																</li>
+																<li>
+																	<a href="header-side-slide.html">Slide Left</a>
+																</li>
+																<li>
+																	<a href="header-side-slide-right.html">Slide Right</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked.html">Sticked Left</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked-right.html">Sticked Right</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="title1.html">Title Sections</a>
+															<ul>
+																<li>
+																	<a href="title1.html">Title section 1</a>
+																</li>
+																<li>
+																	<a href="title2.html">Title section 2</a>
+																</li>
+																<li>
+																	<a href="title3.html">Title section 3</a>
+																</li>
+																<li>
+																	<a href="title4.html">Title section 4</a>
+																</li>
+																<li>
+																	<a href="title5.html">Title section 5</a>
+																</li>
+																<li>
+																	<a href="title6.html">Title section 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="footer1.html#footer">Footers</a>
+															<ul>
+																<li>
+																	<a href="footer1.html#footer">Footer Type 1</a>
+																</li>
+																<li>
+																	<a href="footer2.html#footer">Footer Type 2</a>
+																</li>
+																<li>
+																	<a href="footer3.html#footer">Footer Type 3</a>
+																</li>
+																<li>
+																	<a href="footer4.html#footer">Footer Type 4</a>
+																</li>
+																<li>
+																	<a href="footer5.html#footer">Footer Type 5</a>
+																</li>
+																<li>
+																	<a href="footer6.html#footer">Footer Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="copyright1.html#copyright">Copyright</a>
+
+															<ul>
+																<li>
+																	<a href="copyright1.html#copyright">Copyright 1</a>
+																</li>
+																<li>
+																	<a href="copyright2.html#copyright">Copyright 2</a>
+																</li>
+																<li>
+																	<a href="copyright3.html#copyright">Copyright 3</a>
+																</li>
+																<li>
+																	<a href="copyright4.html#copyright">Copyright 4</a>
+																</li>
+																<li>
+																	<a href="copyright5.html#copyright">Copyright 5</a>
+																</li>
+																<li>
+																	<a href="copyright6.html#copyright">Copyright 6</a>
+																</li>
+															</ul>
+														</li>
+
+													</ul>
+												</div> <!-- eof mega menu -->
+											</li>
+											<!-- eof blog -->
+
+
+											<!-- shop -->
+											<li class="active">
+												<a href="{% url 'shop' %}">CUTELARIA</a>
+						<div class="mega-menu">
+													<ul class="mega-menu-row">
+														<li class="mega-menu-col">
+															<a href="#">Headers</a>
+															<ul>
+																<li>
+																	<a href="header1.html">Header Type 1</a>
+																</li>
+																<li>
+																	<a href="header2.html">Header Type 2</a>
+																</li>
+																<li>
+																	<a href="header3.html">Header Type 3</a>
+																</li>
+																<li>
+																	<a href="header4.html">Header Type 4</a>
+																</li>
+																<li>
+																	<a href="header5.html">Header Type 5</a>
+																</li>
+																<li>
+																	<a href="header6.html">Header Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="#">Side Menus</a>
+															<ul>
+																<li>
+																	<a href="header-side.html">Push Left</a>
+																</li>
+																<li>
+																	<a href="header-side-right.html">Push Right</a>
+																</li>
+																<li>
+																	<a href="header-side-slide.html">Slide Left</a>
+																</li>
+																<li>
+																	<a href="header-side-slide-right.html">Slide Right</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked.html">Sticked Left</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked-right.html">Sticked Right</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="title1.html">Title Sections</a>
+															<ul>
+																<li>
+																	<a href="title1.html">Title section 1</a>
+																</li>
+																<li>
+																	<a href="title2.html">Title section 2</a>
+																</li>
+																<li>
+																	<a href="title3.html">Title section 3</a>
+																</li>
+																<li>
+																	<a href="title4.html">Title section 4</a>
+																</li>
+																<li>
+																	<a href="title5.html">Title section 5</a>
+																</li>
+																<li>
+																	<a href="title6.html">Title section 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="footer1.html#footer">Footers</a>
+															<ul>
+																<li>
+																	<a href="footer1.html#footer">Footer Type 1</a>
+																</li>
+																<li>
+																	<a href="footer2.html#footer">Footer Type 2</a>
+																</li>
+																<li>
+																	<a href="footer3.html#footer">Footer Type 3</a>
+																</li>
+																<li>
+																	<a href="footer4.html#footer">Footer Type 4</a>
+																</li>
+																<li>
+																	<a href="footer5.html#footer">Footer Type 5</a>
+																</li>
+																<li>
+																	<a href="footer6.html#footer">Footer Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="copyright1.html#copyright">Copyright</a>
+
+															<ul>
+																<li>
+																	<a href="copyright1.html#copyright">Copyright 1</a>
+																</li>
+																<li>
+																	<a href="copyright2.html#copyright">Copyright 2</a>
+																</li>
+																<li>
+																	<a href="copyright3.html#copyright">Copyright 3</a>
+																</li>
+																<li>
+																	<a href="copyright4.html#copyright">Copyright 4</a>
+																</li>
+																<li>
+																	<a href="copyright5.html#copyright">Copyright 5</a>
+																</li>
+																<li>
+																	<a href="copyright6.html#copyright">Copyright 6</a>
+																</li>
+															</ul>
+														</li>
+
+													</ul>
+												</div> <!-- eof mega menu -->
+
+											</li>
+											<!-- eof shop -->
+
+
+											<!-- contacts -->
+											<li>
+												<a href="contact2.html">COLECIONÁVEIS</a>
+																		<div class="mega-menu">
+													<ul class="mega-menu-row">
+														<li class="mega-menu-col">
+															<a href="#">Headers</a>
+															<ul>
+																<li>
+																	<a href="header1.html">Header Type 1</a>
+																</li>
+																<li>
+																	<a href="header2.html">Header Type 2</a>
+																</li>
+																<li>
+																	<a href="header3.html">Header Type 3</a>
+																</li>
+																<li>
+																	<a href="header4.html">Header Type 4</a>
+																</li>
+																<li>
+																	<a href="header5.html">Header Type 5</a>
+																</li>
+																<li>
+																	<a href="header6.html">Header Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="#">Side Menus</a>
+															<ul>
+																<li>
+																	<a href="header-side.html">Push Left</a>
+																</li>
+																<li>
+																	<a href="header-side-right.html">Push Right</a>
+																</li>
+																<li>
+																	<a href="header-side-slide.html">Slide Left</a>
+																</li>
+																<li>
+																	<a href="header-side-slide-right.html">Slide Right</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked.html">Sticked Left</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked-right.html">Sticked Right</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="title1.html">Title Sections</a>
+															<ul>
+																<li>
+																	<a href="title1.html">Title section 1</a>
+																</li>
+																<li>
+																	<a href="title2.html">Title section 2</a>
+																</li>
+																<li>
+																	<a href="title3.html">Title section 3</a>
+																</li>
+																<li>
+																	<a href="title4.html">Title section 4</a>
+																</li>
+																<li>
+																	<a href="title5.html">Title section 5</a>
+																</li>
+																<li>
+																	<a href="title6.html">Title section 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="footer1.html#footer">Footers</a>
+															<ul>
+																<li>
+																	<a href="footer1.html#footer">Footer Type 1</a>
+																</li>
+																<li>
+																	<a href="footer2.html#footer">Footer Type 2</a>
+																</li>
+																<li>
+																	<a href="footer3.html#footer">Footer Type 3</a>
+																</li>
+																<li>
+																	<a href="footer4.html#footer">Footer Type 4</a>
+																</li>
+																<li>
+																	<a href="footer5.html#footer">Footer Type 5</a>
+																</li>
+																<li>
+																	<a href="footer6.html#footer">Footer Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="copyright1.html#copyright">Copyright</a>
+
+															<ul>
+																<li>
+																	<a href="copyright1.html#copyright">Copyright 1</a>
+																</li>
+																<li>
+																	<a href="copyright2.html#copyright">Copyright 2</a>
+																</li>
+																<li>
+																	<a href="copyright3.html#copyright">Copyright 3</a>
+																</li>
+																<li>
+																	<a href="copyright4.html#copyright">Copyright 4</a>
+																</li>
+																<li>
+																	<a href="copyright5.html#copyright">Copyright 5</a>
+																</li>
+																<li>
+																	<a href="copyright6.html#copyright">Copyright 6</a>
+																</li>
+															</ul>
+														</li>
+
+													</ul>
+												</div> <!-- eof mega menu -->
+
+											</li>
+
+											<!-- eof contacts -->
+										</ul>
+
+
+									</nav>
+									<!-- eof main nav -->
+
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- header toggler -->
+					<span class="toggle_menu"><span></span></span>
+
+
+
+				</header>
+							<img src="{% static 'images/front-shop.jpg' %}" alt="">
+
+			<section class="ls s-py-0 c-gutter-60">
+				<div class="container">
+					<div class="row">
+
+						<div class="d-none d-lg-block divider-70"></div>
+
+						<main class="col-lg-8 col-xl-9 order-lg-2">
+							<div class="columns-3">
+
+								<p class="woocommerce-result-count">
+									Showing all 23 results</p>
+								<form class="woocommerce-ordering" method="get">
+									<select name="orderby" class="orderby">
+										<option value="menu_order" selected="selected">Default sorting</option>
+										<option value="popularity">Sort by popularity</option>
+										<option value="rating">Sort by average rating</option>
+										<option value="date">Sort by newness</option>
+										<option value="price">Sort by price: low to high</option>
+										<option value="price-desc">Sort by price: high to low</option>
+									</select>
+								</form>
+
+								<ul class="products">
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<span class="onsale">Sale!</span>
+
+												<img src="{% static 'images/shop/01.jpg'%}" alt="">
+
+												<h2>Perfect Point Throwing Axe Overall Satin Stainless Steel</h2>
+
+												<span class="price">
+													<del>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>25<span>00</span>
+														</span>
+													</del>
+													<ins>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>15<span>00</span>
+														</span>
+													</ins>
+												</span>
+
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart
+											</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="{% static 'images/shop/02.jpg' %}" alt="">
+												<h2>Airsoft pistol CZ 75 D DuoTone CO2 4.5 mm, black</h2>
+												<span class="price">
+													<span>
+														<span>$</span>18.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="{% static 'images/shop/04.jpg' %}" alt="">
+												<h2>Ear protection Peltor ComTac XP</h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>35.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="{% static 'images/shop/03.jpg' %}" alt="">
+												<h2>Pellets nr. 10, 300 pcs, cal. 4.46 mm</h2>
+												<span class="price">
+													<span>
+														<span>$</span>20.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="{% static 'images/shop/05.jpg' %}" alt="">
+												<h2>Bow compound Buster 15 - 29 lbs black Bow </h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>35.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/06.jpg" alt="">
+												<h2>Stun gun UZI 650 000 Volts Stun gun UZI 650 </h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>35.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/09.jpg" alt="">
+												<h2>Tactical flashlight Perfecta Searcher 200 Tactical </h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>20.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<span class="onsale">Sale!</span>
+												<img src="images/shop/07.jpg" alt="">
+												<h2>Gas pistol Smith&Wesson M&P 9C black</h2>
+
+												<span class="price">
+													<del>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>20<span>00</span>
+														</span>
+													</del>
+													<ins>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>18<span>00</span>
+														</span>
+													</ins>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/08.jpg" alt="">
+												<h2>Airsoft submachine Heckler&Koch MP5 A5 </h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>20.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-product-left.html" class="button product_type_variable add_to_cart_button">Select options</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<span class="onsale">Sale!</span>
+												<img src="images/shop/09.jpg" alt="">
+												<h2>Replica submachine gun PPS 41</h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>30.00
+													</span> – <span class="woocommerce-Price-amount amount">
+														<span>$</span>35.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-product-left.html" class="button product_type_variable add_to_cart_button">Select options</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/10.jpg" alt="">
+												<h2>Pellets Crosman Premium Pointed, 500 pcs, cal. 4,5</h2>
+												<span class="price">
+													<span>
+														<span>$</span>15.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/11.jpg" alt="">
+												<h2>Carbine conversions KPOS G2 for Glock 17</h2>
+												<span class="price">
+													<span>
+														<span>$</span>9.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/12.jpg" alt="">
+												<h2>Perfect Point Throwing Axe Overall Satin Stainless Steel</h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>9.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/01.jpg" alt="">
+												<h2>Airsoft pistol CZ 75 D DuoTone CO2 4.5 mm, black</h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>9.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/02.jpg" alt="">
+												<h2>Ear protection Peltor ComTac XP</h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>9.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/06.jpg" alt="">
+												<h2>Bow compound Buster 15 - 29 lbs black Bow </h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>35.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/03.jpg" alt="">
+												<h2>Stun gun UZI 650 000 Volts Stun gun UZI 650 000 Volts</h2>
+												<span class="price">
+													<span>
+														<span>$</span>15.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<span class="onsale">Sale!</span>
+												<img src="images/shop/08.jpg" alt="">
+												<h2>Tactical flashlight Perfecta Searcher 200</h2>
+
+												<span class="price">
+													<del>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>30<span>00</span>
+														</span>
+													</del>
+													<ins>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>22<span>00</span>
+														</span>
+													</ins>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/04.jpg" alt="">
+												<h2>Gas pistol Smith&Wesson M&P 9C black</h2>
+												<span class="price">
+													<span>
+														<span>$</span>20.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/12.jpg" alt="">
+												<h2>Airsoft submachine Heckler&Koch MP5 A5 </h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>35.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/06.jpg" alt="">
+												<h2>Pellets Crosman Premium Pointed, 500 pcs, cal. 4,5 mm</h2>
+
+												<span class="price">
+													<span>
+														<span>$</span>15.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<img src="images/shop/07.jpg" alt="">
+												<h2>Carbine conversions KPOS G2 for Glock 17</h2>
+												<span class="price">
+													<span>
+														<span>$</span>3.00
+													</span>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+
+									<li class="product">
+										<div class="product-inner">
+											<a href="shop-product-left.html">
+												<span class="onsale">Sale!</span>
+												<img src="images/shop/08.jpg" alt="">
+												<h2>Bow compound Buster 15 - 29 lbs black</h2>
+
+												<span class="price">
+													<del>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>10<span>00</span>
+														</span>
+													</del>
+													<ins>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>8<span>00</span>
+														</span>
+													</ins>
+												</span>
+											</a>
+											<a rel="nofollow" href="shop-cart.html" class="button product_type_simple add_to_cart_button">Add to
+												cart</a>
+										</div>
+									</li>
+
+								</ul>
+							</div>
+							<!-- columns 2 -->
+
+							<nav class="woocommerce-pagination">
+								<ul class="page-numbers">
+									<li>
+										<span class="page-numbers current">1</span>
+									</li>
+									<li>
+										<a class="page-numbers" href="shop-left.html">2</a>
+									</li>
+									<li>
+										<a class="next page-numbers" href="shop-left.html">→</a>
+									</li>
+								</ul>
+							</nav>
+
+						</main>
+
+						<aside class="col-lg-4 col-xl-3 order-lg-1">
+							<div class="widget woocommerce widget_product_categories">
+								<h3 class="widget-title">Categories</h3>
+								<ul class="product-categories">
+									<li class="cat-item cat-parent">
+										<a href="shop-right.html">Clothing</a>
+										<span class="count">(12)</span>
+										<ul class="children">
+											<li class="cat-item">
+												<a href="shop-right.html">Hoodies</a>
+												<span class="count">(46)</span>
+											</li>
+											<li class="cat-item">
+												<a href="shop-right.html">T-shirts</a>
+												<span class="count">(165)</span>
+											</li>
+										</ul>
+									</li>
+									<li class="cat-item cat-parent">
+										<a href="shop-right.html">Music</a>
+										<span class="count">(16)</span>
+										<ul class="children">
+											<li class="cat-item">
+												<a href="shop-right.html">Albums</a>
+												<span class="count">(24)</span>
+											</li>
+											<li class="cat-item">
+												<a href="shop-right.html">Singles</a>
+												<span class="count">(2)</span>
+											</li>
+										</ul>
+									</li>
+									<li class="cat-item">
+										<a href="shop-right.html">Posters</a>
+										<span class="count">(45)</span>
+									</li>
+								</ul>
+							</div>
+
+
+							<div class="widget woocommerce widget_top_rated_products">
+								<h3 class="widget-title">Top Products</h3>
+								<ul class="product_list_widget">
+									<li>
+										<a href="shop-product-right.html">
+											<img src="images/shop/01.jpg" alt="">
+											<span class="product-title">Ninja Silhouette</span>
+										</a>
+										<div class="star-rating">
+											<span style="width:100%">Rated
+												<strong class="rating">5.00 </strong>
+												out of 5
+											</span>
+										</div>
+										<span class="woocommerce-Price-amount amount">
+											<span class="woocommerce-Price-currencySymbol">$</span>
+											20.00
+										</span>
+									</li>
+
+									<li>
+										<a href="shop-product-right.html">
+											<img src="images/shop/02.jpg" alt="">
+											<span class="product-title">Woo Album #4</span>
+										</a>
+										<div class="star-rating">
+											<span style="width:100%">Rated
+												<strong class="rating">5.00</strong>
+												out of 5
+											</span>
+										</div>
+										<span class="woocommerce-Price-amount amount">
+											<span class="woocommerce-Price-currencySymbol">$</span>
+											9.00
+										</span>
+									</li>
+
+									<li>
+										<a href="shop-product-right.html">
+											<img src="images/shop/03.jpg" alt="">
+											<span class="product-title">Happy Ninja</span>
+										</a>
+										<div class="star-rating">
+											<span style="width:100%">Rated
+												<strong class="rating">5.00</strong>
+												out of 5
+											</span>
+										</div>
+										<span class="woocommerce-Price-amount amount">
+											<span class="woocommerce-Price-currencySymbol">$</span>
+											18.00
+										</span>
+									</li>
+
+									<li>
+										<a href="shop-product-right.html">
+											<img src="images/shop/04.jpg" alt="">
+											<span class="product-title">Patient Ninja</span>
+										</a>
+										<div class="star-rating">
+											<span style="width:93.4%">Rated
+												<strong class="rating">4.67</strong>
+												out of 5
+											</span>
+										</div>
+										<span class="woocommerce-Price-amount amount">
+											<span class="woocommerce-Price-currencySymbol">$</span>
+											35.00
+										</span>
+									</li>
+
+									<li>
+										<a href="shop-product-right.html">
+											<img src="images/shop/05.jpg" alt="">
+											<span class="product-title">Premium Quality</span>
+										</a>
+										<div class="star-rating">
+											<span style="width:90%">Rated
+												<strong class="rating">4.50</strong>
+												out of 5
+											</span>
+										</div>
+										<span class="woocommerce-Price-amount amount">
+											<span class="woocommerce-Price-currencySymbol">$</span>
+											20.00
+										</span>
+									</li>
+								</ul>
+							</div>
+
+
+							<div class="widget woocommerce widget_price_filter">
+
+								<h3 class="widget-title">Price Filter</h3>
+
+								<form method="get" action="/">
+									<div class="price_slider_wrapper">
+										<div class="price_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="">
+											<div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 10%; width: 70%;">
+
+											</div>
+											<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 10%;">
+
+											</span>
+											<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 80%;">
+
+											</span>
+										</div>
+										<div class="price_slider_amount">
+											<input type="text" id="min_price" name="min_price" value="" data-min="20" placeholder="Min price" style="display: none;">
+											<input type="text" id="max_price" name="max_price" value="" data-max="30" placeholder="Max price" style="display: none;">
+											<button type="submit" class="button">Filter</button>
+											<div class="price_label" style="">
+												Price: <span class="from">$21</span> - <span class="to">$28</span>
+											</div>
+
+											<div class="clear"></div>
+
+										</div>
+									</div>
+								</form>
+							</div>
+
+
+							<div class="widget woocommerce widget_layered_nav">
+								<h3 class="widget-title">Filters</h3>
+								<ul>
+									<li class="wc-layered-nav-term chosen">
+										<a href="shop-right.html">Black</a>
+										<span class="count">(85)</span>
+									</li>
+									<li class="wc-layered-nav-term">
+										<a href="#">Blue</a>
+										<span class="count">(12)</span>
+									</li>
+									<li class="wc-layered-nav-term">
+										<a href="#">Green</a>
+										<span class="count">(41)</span>
+									</li>
+									<li class="wc-layered-nav-term">
+										<a href="#">Yellow</a>
+										<span class="count">(12)</span>
+									</li>
+									<li class="wc-layered-nav-term">
+										<a href="#">Red</a>
+										<span class="count">(26)</span>
+									</li>
+								</ul>
+							</div>
+
+
+							<div class="widget woocommerce widget_product_tag_cloud">
+
+								<h3 class="widget-title">Price Tags</h3>
+
+								<div class="tagcloud">
+									<a href="shop-right.html" class="tag-cloud-link" aria-label="album (1 product)">
+										Album
+									</a>
+									<a href="shop-right.html" class="tag-cloud-link" aria-label="premium (1 product)">
+										Premium
+									</a>
+									<a href="shop-right.html" class="tag-cloud-link" aria-label="product (1 product)">
+										Product
+									</a>
+									<a href="shop-right.html" class="tag-cloud-link" aria-label="single (1 product)">
+										Single
+									</a>
+								</div>
+							</div>
+
+
+							<div class="widget woocommerce widget_layered_nav dropdown">
+								<h3 class="widget-title">Colors Filter</h3>
+
+								<select class="dropdown_layered_nav_color">
+									<option value="">Any color</option>
+									<option value="black">Black</option>
+									<option value="blue">Blue</option>
+									<option value="green">Green</option>
+								</select>
+
+							</div>
+
+						</aside>
+
+						<div class="d-none d-lg-block divider-70"></div>
+					</div>
+
+				</div>
+			</section>
+
+			<footer class="page_footer ds s-pt-77 s-pb-40 c-gutter-150">
+				<div class="container">
+					<div class="row">
+						<div class="divider-20 d-none d-xl-block"></div>
+
+
+						<div class="col-md-4 animate" data-animation="fadeInUp">
+							<div class="widget widget_icons_list">
+								<h3>Contacts</h3>
+								<div class="media side-icon-box">
+									<div class="icon-styled color-main fs-14">
+										<i class="ico icon-map-pin-silhouette"></i>
+									</div>
+									<p class="media-body">USA, 3280 Cabell Avenue Alexandria, VA 22301</p>
+								</div>
+								<div class="media side-icon-box">
+									<div class="icon-styled color-main fs-14">
+										<i class="ico icon-phone-receiver"></i>
+									</div>
+									<p class="media-body"> +1 703 518 60 99 <span>+1 234 056 78 90</span></p>
+								</div>
+								<div class="media side-icon-box">
+									<div class="icon-styled color-main fs-14">
+										<i class="fa fa-envelope"></i>
+									</div>
+									<p class="media-body">
+										<a href="#">info@fortex.com</a>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 animate" data-animation="fadeInUp">
+
+							<div class="widget widget_text">
+
+								<img src="images/logo.png" alt="">
+
+								<p>
+									A security agency is a governmental organization which conducts intelligence activities for the internal security of a nation.
+								</p>
+
+
+								<div class="divider-20 d-none d-xl-block"></div>
+								<div class="fw-divider-special">
+									<p class="special"></p>
+								</div>
+								<div class="divider-25 d-none d-xl-block"></div>
+
+
+								<div class="widget widget_social_buttons">
+									<a href="#" class="fa fa-facebook" title="facebook"></a>
+									<a href="#" class="fa fa-twitter" title="twitter"></a>
+									<a href="#" class="fa fa-google" title="google"></a>
+									<a href="#" class="fa fa-youtube-play" title="youtube-play"></a>
+									<a href="#" class="fa fa-rss" title="rss"></a>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="col-md-4 animate" data-animation="fadeInUp">
+							<div class="widget widget_recent_posts">
+
+								<h3 class="widget-title">Recent Posts</h3>
+								<ul class="list-unstyled">
+									<li class="media">
+										<a class="media-image" href="blog-single-right.html">
+											<img src="images/events/01.jpg" alt="">
+										</a>
+										<div class="media-body">
+											<h4>
+												<a href="blog-single-right.html">Eod tempor invidunt labore dolore magna</a>
+											</h4>
+											<p class="item-meta">
+												Dec 18, 2018
+											</p>
+										</div>
+									</li>
+
+									<li class="media">
+										<a class="media-image" href="blog-single-right.html">
+											<img src="images/events/02.jpg" alt="">
+										</a>
+										<div class="media-body">
+											<h4>
+												<a href="blog-single-right.html">Aliquyam erat, sed voluptua vero eos </a>
+											</h4>
+											<p class="item-meta">
+												Nov 22, 2018
+											</p>
+
+										</div>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="divider-40 d-none d-xl-block"></div>
+					</div>
+				</div>
+			</footer>
+			<section class="page_copyright ds s-py-10">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-md-12 text-center">
+							<p><span class="copyright_year">&copy;</span> Copyright Fortex</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		</div><!-- eof #box_wrapper -->
+	</div><!-- eof #canvas -->
+
+
+	<script src="{% static 'js/compressed.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+
+</html>

@@ -8769,6 +8769,11 @@ article.s-overlay.ds:before {
 }
 
 .s-overlay.ds.ms:before {
+	background-color: #c39a2b;
+	opacity: 1;
+}
+
+.s-overlay.ds.ms.new:before {
 	background-color: #131e25;
 	opacity: 1;
 }
@@ -17600,6 +17605,19 @@ a img.aligncenter {
 		color: #fff;
 	}
 
+.sf-menu.new-color > li + li:before {
+	color: #212529;
+	content: "|";
+	font-family: "icomoon" !important;
+	font-size: 18px;
+	margin-left: -4px;
+	position: absolute;
+	top: 45%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
 	.cs .sf-menu > li > a:hover,
 	.cs .sf-menu > li.active > a {
 		color: #131e25;
@@ -17609,10 +17627,27 @@ a img.aligncenter {
 		color: #fff;
 	}
 
+
+
 	.ds .sf-menu > li > a:hover,
 	.ds .sf-menu > li.active > a {
 		color: #f4ca59;
+}
+
+/*MEU INICIO MENU SHOP*/
+
+
+	.ds .sf-menu.new-color > li > a {
+		color: #131e25;
+		font-weight:bold!important;
 	}
+
+	.ds .sf-menu.new-color > li > a:hover,
+	.ds .sf-menu.new-color > li.active > a {
+		color: #fff;
+}
+
+/*FIM MENU SHOP*/
 
 	.ls .sf-menu > li > a {
 		color: #131e25;
@@ -17646,6 +17681,7 @@ a img.aligncenter {
 		min-width: 17em;
 		padding: 46px 0 46px;
 		text-align: left;
+		z-index:1000!important;
 		/* no auto sub width for IE7, see white-space comment below */
 	}
 
@@ -18006,7 +18042,7 @@ a img.aligncenter {
 		position: absolute;
 		top: 100%;
 		width: 940px;
-		z-index: 10;
+		z-index: 999999;
 	}
 
 	.top-nav .menu-item-has-mega-menu:hover .mega-menu {
@@ -18186,6 +18222,7 @@ a img.aligncenter {
 
 .menu-click .active-submenu > div.mega-menu {
 	height: auto;
+	z-index:99999
 }
 
 .menu-click .active-submenu > ul,
@@ -18226,7 +18263,7 @@ a img.aligncenter {
 	-webkit-transition: 0.5s ease-in-out;
 	transition: 0.5s ease-in-out;
 	width: 100%;
-	z-index: 1000;
+	z-index: 998;
 }
 
 .boxed .page_header,
@@ -18234,8 +18271,38 @@ a img.aligncenter {
 	box-shadow: 0 2px 15px 0 rgba(100, 100, 100, 0.05);
 	opacity: 0.98;
 	position: fixed !important;
-	z-index: 1001;
+	z-index: 999;
 }
+
+/*MEU MENU FIXO*/
+.menu-fixo{
+    transition:none;
+    z-index: 998 !important;
+    	font-family: "Roboto Condensed", sans-serif;
+
+
+}
+.menu-fixo.shop-menu{
+	box-shadow: 0 2px 15px 0 rgba(100, 100, 100, 0.05);
+	opacity: 0.98;
+	top:75px;
+
+	position: fixed !important;
+    z-index: 998 !important;
+}
+
+
+@media (max-width: 500px) {
+.menu-fixo.shop-menu{
+	box-shadow: 0 2px 15px 0 rgba(100, 100, 100, 0.05);
+	opacity: 0.98;
+	top:65px;
+	position: fixed !important;
+	z-index: 3;
+}
+}
+
+/*FIM MEU MENU FIXO*/
 
 .boxed .page_header:after,
 .page_header.affix:after {
@@ -24113,3 +24180,5 @@ p.entry-description {
 .checkbox-slider--b-flat input + span:before {
 	box-shadow: none;
 }
+
+

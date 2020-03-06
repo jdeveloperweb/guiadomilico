@@ -4,6 +4,19 @@
 
 var $body = $('body');
 var $window = $(window);
+/// minha proprias funções
+
+jQuery("document").ready(function($){
+ var nav = $('.menu-fixo');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() >= 440) {
+            nav.addClass("shop-menu");
+        } else {
+            nav.removeClass("shop-menu");
+        }
+    });
+});
+
 
 //hidding menu elements that do not fit in menu width
 //processing center logo

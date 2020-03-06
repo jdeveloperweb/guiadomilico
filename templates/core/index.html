@@ -247,21 +247,8 @@
 
 
 											<li class="active">
-												<a href="index.html">Principal</a>
-												<ul>
-													<li>
-														<a href="index.html">MultiPage</a>
-													</li>
-													<li>
-														<a href="index_homeblocks.html">Home Blocks</a>
-													</li>
-													<li>
-														<a href="index_static.html">Static Intro</a>
-													</li>
-													<li>
-														<a href="index_singlepage.html">Single Page</a>
-													</li>
-												</ul>
+												<a href="{% url 'index' %}">Principal</a>
+
 											</li>
 
 											<li>
@@ -400,114 +387,15 @@
 											<!-- blog -->
 											<li>
 												<a href="blog-right.html">Blog</a>
-												<ul>
 
-													<li>
-														<a href="blog-right.html">Right Sidebar</a>
-													</li>
-													<li>
-														<a href="blog-left.html">Left Sidebar</a>
-													</li>
-													<li>
-														<a href="blog-full.html">No Sidebar</a>
-													</li>
-													<li>
-														<a href="blog-grid.html">Blog Grid</a>
-													</li>
-
-													<li>
-														<a href="blog-single-right.html">Post</a>
-														<ul>
-															<li>
-																<a href="blog-single-right.html">Right Sidebar</a>
-															</li>
-															<li>
-																<a href="blog-single-left.html">Left Sidebar</a>
-															</li>
-															<li>
-																<a href="blog-single-full.html">No Sidebar</a>
-															</li>
-														</ul>
-													</li>
-
-													<li>
-														<a href="blog-single-video-right.html">Video Post</a>
-														<ul>
-															<li>
-																<a href="blog-single-video-right.html">Right Sidebar</a>
-															</li>
-															<li>
-																<a href="blog-single-video-left.html">Left Sidebar</a>
-															</li>
-															<li>
-																<a href="blog-single-video-full.html">No Sidebar</a>
-															</li>
-														</ul>
-													</li>
-
-												</ul>
 											</li>
 											<!-- eof blog -->
 
 
 											<!-- shop -->
 											<li>
-												<a href="shop-right.html">Shop</a>
-												<ul>
-													<li>
-														<a href="shop-account-dashboard.html">Account</a>
-														<ul>
+												<a href="{% url 'shop' %}">Shop</a>
 
-															<li>
-																<a href="shop-account-details.html">Account details</a>
-															</li>
-															<li>
-																<a href="shop-account-addresses.html">Addresses</a>
-															</li>
-															<li>
-																<a href="shop-account-address-edit.html">Edit Address</a>
-															</li>
-															<li>
-																<a href="shop-account-orders.html">Orders</a>
-															</li>
-															<li>
-																<a href="shop-account-order-single.html">Single Order</a>
-															</li>
-															<li>
-																<a href="shop-account-downloads.html">Downloads</a>
-															</li>
-															<li>
-																<a href="shop-account-password-reset.html">Password Reset</a>
-															</li>
-															<li>
-																<a href="shop-account-login.html">Login/Logout</a>
-															</li>
-
-														</ul>
-													</li>
-													<li>
-														<a href="shop-right.html">Right Sidebar</a>
-													</li>
-													<li>
-														<a href="shop-left.html">Left Sidebar</a>
-													</li>
-													<li>
-														<a href="shop-product-right.html">Product Right Sidebar</a>
-													</li>
-													<li>
-														<a href="shop-product-left.html">Product Left Sidebar</a>
-													</li>
-													<li>
-														<a href="shop-cart.html">Cart</a>
-													</li>
-													<li>
-														<a href="shop-checkout.html">Checkout</a>
-													</li>
-													<li>
-														<a href="shop-order-received.html">Order Received</a>
-													</li>
-
-												</ul>
 											</li>
 											<!-- eof shop -->
 
@@ -515,17 +403,6 @@
 											<!-- contacts -->
 											<li>
 												<a href="contact2.html">Contatos</a>
-												<ul>
-													<li>
-														<a href="contact2.html">Contact</a>
-													</li>
-													<li>
-														<a href="contact3.html">Contact 2</a>
-													</li>
-													<li>
-														<a href="contact4.html">Contact 3</a>
-													</li>
-												</ul>
 											</li>
 											<!-- eof contacts -->
 										</ul>
@@ -609,6 +486,7 @@
 											<span>
 												<a class="phone_modal_button" href="#sign_in_modal"><span class="ico icon-male-user-shadow"></span></a>
 											</span>
+
 										</li>
 
 									</ul>
