@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'tz4k+&f2-8zxghufnzd^!c02fw#rx@4u@3bo_y=pu5rti9$%si'
 
-#Configura
+#CONFIGURA OS REPOSITÓRIOS
 APP_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 PROJECT_ROOT = os.path.abspath(os.path.dirname(APP_ROOT))
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #guiadomilico apps
+    'guiadomilico.apps.base'
 
 
 
