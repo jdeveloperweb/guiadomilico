@@ -17603,6 +17603,7 @@ a img.aligncenter {
 
 	.cs .sf-menu > li > a {
 		color: #fff;
+		font-weight:bold;
 	}
 
 .sf-menu.new-color > li + li:before {

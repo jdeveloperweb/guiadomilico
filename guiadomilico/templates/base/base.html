@@ -189,7 +189,7 @@
 
 			<!-- template sections -->
 
-
+{% block menu %}
 			<!--topline section visible only on small screens|-->
 			<div class="header_absolute header_under_slider ds">
 				<section class="page_topline ds s-overlay">
@@ -247,7 +247,7 @@
 
 
 											<li class="active">
-												<a href="">Principal</a>
+												<a href="{% url 'base:index' %}">Principal</a>
 
 											</li>
 
@@ -394,7 +394,7 @@
 
 											<!-- shop -->
 											<li>
-												<a href="">Shop</a>
+												<a href="{% url 'base:loja-virtual' %}">Shop</a>
 
 											</li>
 											<!-- eof shop -->
@@ -499,25 +499,12 @@
 					<!-- header toggler -->
 					<span class="toggle_menu"><span></span></span>
 				</header>
+	{% endblock %}
 			</div>
 
+                {% block content %}
 
-
-
-
-                {%block content%}
-
-
-
-
-
-                {%endblock%}
-
-
-
-
-
-
+                {% endblock %}
 
 
 
