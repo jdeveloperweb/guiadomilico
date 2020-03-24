@@ -42,11 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #guiadomilico apps
-    'guiadomilico.apps.core'
-
-
-
+    #guiadomilico.apps
+    'guiadomilico.apps.core',
+    'guiadomilico.apps.accounts',
 ]
 
 MIDDLEWARE = [
