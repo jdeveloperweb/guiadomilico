@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #guiadomilico apps
-    'guiadomilico.apps.base'
+    'guiadomilico.apps.core'
 
 
 

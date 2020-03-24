@@ -19,5 +19,5 @@ from django.conf.urls import url, include
 urlpatterns = [
     url('admin/', admin.site.urls),
     #URL do app BASE:
-    url(r'^', include('guiadomilico.apps.base.urls')),
+    url(r'^', include('guiadomilico.apps.core.urls')),
 ]
