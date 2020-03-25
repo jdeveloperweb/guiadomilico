@@ -1,51 +1,82 @@
-from __future__ import unicode_literals
 import re
 
 from django.db import models
-from django.contrib.auth.models import User
 from django.utils import timezone
 
 from .constants import *
 
+# Imports para usar o AbstractBaseUser
+from django.core import validators
+from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
+from django.utils.translation import gettext_lazy as _
 
-class Pessoa(models.Model):
+from .managers import CustomUserManager
+
+
+class Usuario(AbstractBaseUser, PermissionsMixin):
+    # Forma de login
+    username = models.CharField(_('Nome de Usuário'), max_length=15, unique=True,
+                                help_text=_(
+                                    'Obrigatório no máximo 15 caracteres. São permitidos letras, números e \".\" \"-\" \"_\"'),
+                                validators=[validators.RegexValidator(re.compile('^[\w.-_]+$'),
+                                                                      _('Digite um nome de usuário válido.'),
+                                                                      _('Inválido.'))])
+    email = models.EmailField(_('Endereço de Email'), unique=True)
 
     # Dados
-    nome = models.CharField(max_length=255, null=True, blank=True)
+    nome = models.CharField(_('Nome'), max_length=255, null=True, blank=True)
+    sobrenome = models.CharField(_('Sobrenome'), max_length=255, null=True, blank=True)
     nome_razao_social = models.CharField(max_length=255, null=True, blank=True)
     tipo_pessoa = models.CharField(max_length=2, choices=TIPO_PESSOA)
-    inscricao_municipal = models.CharField(
-        max_length=32, null=True, blank=True)
-    informacoes_adicionais = models.CharField(
-        max_length=1055, null=True, blank=True)
+    inscricao_municipal = models.CharField(max_length=32, null=True, blank=True)
+    informacoes_adicionais = models.CharField(max_length=1055, null=True, blank=True)
     genero = models.CharField(max_length=1, choices=GENERO, null=True, blank=True)
 
     # Regras de acesso
     role = models.PositiveSmallIntegerField(default=9, choices=PAPEIS)
 
-
     # Dados padrao
-    endereco_padrao = models.ForeignKey(
-        'accounts.Endereco', related_name="end_padrao", on_delete=models.CASCADE, null=True, blank=True)
-    telefone_padrao = models.ForeignKey(
-        'accounts.Telefone', related_name="tel_padrao", on_delete=models.CASCADE, null=True, blank=True)
-    site_padrao = models.ForeignKey(
-        'accounts.Site', related_name="sit_padrao", on_delete=models.CASCADE, null=True, blank=True)
-    email_padrao = models.ForeignKey(
-        'accounts.Email', related_name="ema_padrao", on_delete=models.CASCADE, null=True, blank=True)
-
+    endereco_padrao = models.ForeignKey('accounts.Endereco', related_name="end_padrao", on_delete=models.CASCADE,
+                                        null=True, blank=True)
+    telefone_padrao = models.ForeignKey('accounts.Telefone', related_name="tel_padrao", on_delete=models.CASCADE,
+                                        null=True, blank=True)
+    site_padrao = models.ForeignKey('accounts.Site', related_name="sit_padrao", on_delete=models.CASCADE, null=True,
+                                    blank=True)
 
     # Sobre o objeto
-    criado_por = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     data_criacao = models.DateTimeField(editable=False)
     data_edicao = models.DateTimeField()
+
+    # Define se o usuário confirou o email
+    is_trusty = models.BooleanField(_('Confiável'), default=False,
+                                    help_text=_('Mostra se o usuário ativou ou não sua conta.'))
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email', 'nome', 'sobrenome']
+
+    objects = CustomUserManager()
+
+    class Meta:
+        verbose_name = 'Usuário'
+        verbose_name_plural = 'Usuários'
+
+    def get_full_name(self):
+        s = u'%s %s' % (
+            self.nome, self.sobrenome)
+        return s
+
+    def get_short_name(self):
+        s = u'%s' % (
+            self.nome)
+        return s
 
     def save(self, *args, **kwargs):
         # Atualizar datas criacao edicao
         if not self.data_criacao:
             self.data_criacao = timezone.now()
         self.data_edicao = timezone.now()
-        return super(Pessoa, self).save(*args, **kwargs)
+        return super(Usuario, self).save(*args, **kwargs)
 
     @property
     def cpf_cnpj_apenas_digitos(self):
@@ -87,8 +118,8 @@ class Pessoa(models.Model):
 
 
 class PessoaFisica(models.Model):
-    pessoa_id = models.OneToOneField(
-        Pessoa, on_delete=models.CASCADE, primary_key=True, related_name='pessoa_fis_info')
+    usuario_id = models.OneToOneField(Usuario, on_delete=models.CASCADE, primary_key=True,
+                                      related_name='pessoa_fis_info')
     cpf = models.CharField(name='CPF', max_length=32, null=True, blank=True)
     rg = models.CharField(max_length=32, null=True, blank=True)
     nascimento = models.DateField(null=True, blank=True)
@@ -109,14 +140,13 @@ class PessoaFisica(models.Model):
 
 
 class PessoaJuridica(models.Model):
-    pessoa_id = models.OneToOneField(
-        Pessoa, on_delete=models.CASCADE, primary_key=True, related_name='pessoa_jur_info')
-    cnpj = models.CharField(max_length=32, null=True, blank=True)
+    usuario_id = models.OneToOneField(Usuario, on_delete=models.CASCADE, primary_key=True,
+                                      related_name='pessoa_jur_info')
+    cnpj = models.CharField(name='CNPJ', max_length=32, null=True, blank=True)
     nome_fantasia = models.CharField(max_length=255, null=True, blank=True)
     inscricao_estadual = models.CharField(max_length=32, null=True, blank=True)
     responsavel = models.CharField(max_length=32, null=True, blank=True)
-    sit_fiscal = models.CharField(
-        max_length=2, null=True, blank=True, choices=ENQUADRAMENTO_FISCAL)
+    sit_fiscal = models.CharField(max_length=2, null=True, blank=True, choices=ENQUADRAMENTO_FISCAL)
     suframa = models.CharField(max_length=16, null=True, blank=True)
 
     @property
@@ -142,23 +172,18 @@ class PessoaJuridica(models.Model):
 
 
 class Endereco(models.Model):
-    pessoa_end = models.ForeignKey(
-        Pessoa, related_name="endereco", on_delete=models.CASCADE)
-    tipo_endereco = models.CharField(
-        max_length=3, null=True, blank=True, choices=TIPO_ENDERECO)
+    usuario_end = models.ForeignKey(Usuario, related_name="endereco", on_delete=models.CASCADE)
+    tipo_endereco = models.CharField(max_length=3, null=True, blank=True, choices=TIPO_ENDERECO)
     logradouro = models.CharField(max_length=255, null=True, blank=True)
     numero = models.CharField(max_length=16, null=True, blank=True)
     bairro = models.CharField(max_length=64, null=True, blank=True)
     complemento = models.CharField(max_length=64, null=True, blank=True)
-    pais = models.CharField(max_length=32, null=True,
-                            blank=True, default='Brasil')
-    codigo_pais = models.CharField(max_length=5, null=True,
-                             blank=True, default='1058')
+    pais = models.CharField(max_length=32, null=True, blank=True, default='Brasil')
+    codigo_pais = models.CharField(max_length=5, null=True, blank=True, default='1058')
     municipio = models.CharField(max_length=64, null=True, blank=True)
     codigo_mun = models.CharField(max_length=9, null=True, blank=True)
     cep = models.CharField(max_length=16, null=True, blank=True)
-    uf = models.CharField(max_length=3, null=True,
-                          blank=True, choices=UF_SIGLA)
+    uf = models.CharField(max_length=2, null=True, blank=True, choices=UF_SIGLA)
 
     @property
     def format_endereco(self):
@@ -166,7 +191,8 @@ class Endereco(models.Model):
 
     @property
     def format_endereco_completo(self):
-        return '{0} - {1} - {2} - {3} - {4} - {5} - {6}'.format(self.logradouro, self.numero, self.bairro, self.municipio, self.cep, self.uf, self.pais)
+        return '{0} - {1} - {2} - {3} - {4} - {5} - {6}'.format(self.logradouro, self.numero, self.bairro,
+                                                                self.municipio, self.cep, self.uf, self.pais)
 
     def __unicode__(self):
         s = u'%s, %s, %s (%s)' % (
@@ -180,10 +206,8 @@ class Endereco(models.Model):
 
 
 class Telefone(models.Model):
-    pessoa_tel = models.ForeignKey(
-        Pessoa, related_name="telefone", on_delete=models.CASCADE)
-    tipo_telefone = models.CharField(
-        max_length=8, choices=TIPO_TELEFONE, null=True, blank=True)
+    usuario_tel = models.ForeignKey(Usuario, related_name="telefone", on_delete=models.CASCADE)
+    tipo_telefone = models.CharField(max_length=8, choices=TIPO_TELEFONE, null=True, blank=True)
     telefone = models.CharField(max_length=32)
 
     def get_telefone_apenas_digitos(self):
@@ -193,32 +217,22 @@ class Telefone(models.Model):
         s = u'%s / %s' % (
             self.telefone.replace('(', '').replace(' ', '').replace(')', '').replace('-', ''),
             self.tipo_telefone
-            )
+        )
         return s
 
-class Email(models.Model):
-    pessoa_email = models.ForeignKey(
-        Pessoa, related_name="email", on_delete=models.CASCADE)
-    email = models.CharField(max_length=255)
-
-    def __str__(self):
-        s = u'%s' % (self.email )
-        return s
 
 class Site(models.Model):
-    pessoa_site = models.ForeignKey(
-        Pessoa, related_name="site", on_delete=models.CASCADE)
+    usuario_site = models.ForeignKey(Usuario, related_name="site", on_delete=models.CASCADE)
     site = models.CharField(max_length=255)
 
     def __str__(self):
-        s = u'%s' % (self.site )
+        s = u'%s' % (self.site)
         return s
 
+
 class Banco(models.Model):
-    pessoa_banco = models.ForeignKey(
-        Pessoa, related_name="banco", on_delete=models.CASCADE)
-    banco = models.CharField(
-        max_length=3, choices=BANCOS, null=True, blank=True)
+    usuario_banco = models.ForeignKey(Usuario, related_name="banco", on_delete=models.CASCADE)
+    banco = models.CharField(max_length=3, choices=BANCOS, null=True, blank=True)
     agencia = models.CharField(max_length=8, null=True, blank=True)
     conta = models.CharField(max_length=32, null=True, blank=True)
     digito = models.CharField(max_length=8, null=True, blank=True)
@@ -235,11 +249,10 @@ class Banco(models.Model):
 
 
 class Documento(models.Model):
-    pessoa_documento = models.ForeignKey(
-        Pessoa, related_name="documento", on_delete=models.CASCADE)
+    usuario_documento = models.ForeignKey(Usuario, related_name="documento", on_delete=models.CASCADE)
     tipo = models.CharField(max_length=32)
     documento = models.CharField(max_length=255)
 
     def __str__(self):
-        s = u'%s' % (self.documento )
+        s = u'%s' % (self.documento)
         return s
