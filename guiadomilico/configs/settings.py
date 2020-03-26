@@ -136,3 +136,19 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(APP_ROOT, 'media/')
 MEDIA_URL = 'media/'
+
+
+# Backend adicionado para que o serviço de envio de email funcione
+# Somente um deles deve estar marcado.
+# O primeiro imprime o email no console
+# O segundo utiliza o SMTP do gmail para o envio do email.
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = ''
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'suporte.guiadomilico@gmail.com'
+EMAIL_HOST_PASSWORD = 'guiadomilico@S3th'
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_SUBJECT_PREFIX = '[Guia do Milico] '
