@@ -44,6 +44,10 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     site_padrao = models.ForeignKey('accounts.Site', related_name="sit_padrao", on_delete=models.CASCADE, null=True,
                                     blank=True)
 
+    # Informações de registro
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
     # Sobre o objeto
     data_criacao = models.DateTimeField(editable=False)
     data_edicao = models.DateTimeField()
