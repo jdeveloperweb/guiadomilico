@@ -28,7 +28,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     nome = models.CharField(_('Nome'), max_length=255, null=True, blank=True)
     sobrenome = models.CharField(_('Sobrenome'), max_length=255, null=True, blank=True)
     nome_razao_social = models.CharField(max_length=255, null=True, blank=True)
-    tipo_pessoa = models.CharField(max_length=2, choices=TIPO_PESSOA)
+    tipo_pessoa = models.CharField(max_length=2, choices=TIPO_PESSOA, default='PF')
     inscricao_municipal = models.CharField(max_length=32, null=True, blank=True)
     informacoes_adicionais = models.CharField(max_length=1055, null=True, blank=True)
     genero = models.CharField(max_length=1, choices=GENERO, null=True, blank=True)
@@ -113,11 +113,11 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
             return ''
 
     def __unicode__(self):
-        s = u'%s' % (self.nome_razao_social)
+        s = u'%s %s' % (self.nome, self.sobrenome)
         return s
 
     def __str__(self):
-        s = u'%s' % (self.nome_razao_social)
+        s = u'%s %s' % (self.nome, self.sobrenome)
         return s
 
 
