@@ -4,7 +4,9 @@
     <list default="true" id="8ff9d0ba-1aec-4622-9673-ccb1cfa95392" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/static/images/breadcrumbs_bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/images/breadcrumbs_bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +39,7 @@
       <recent name="D:\guiadomilico\guiadomilico\apps\accounts\models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\guiadomilico\guiadomilico\templates\accounts" />
       <recent name="D:\guiadomilico\guiadomilico\apps\account\tests" />
       <recent name="D:\guiadomilico\guiadomilico\apps\account\views" />
       <recent name="D:\guiadomilico\guiadomilico\apps\account\models" />

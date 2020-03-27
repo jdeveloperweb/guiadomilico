@@ -19,7 +19,7 @@ from guiadomilico.apps.accounts.forms.base import LoginForm
 class LoginView(FormView):
 	success_url = reverse_lazy('core:index')
 	form_class = LoginForm
-	template_name = 'core/login.html'
+	template_name = 'accounts/login.html'
 
 	@method_decorator(sensitive_post_parameters('password'))
 	@method_decorator(csrf_protect)
