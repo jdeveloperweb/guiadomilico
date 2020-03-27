@@ -12,7 +12,7 @@ from django.views.generic import FormView
 from django.shortcuts import render
 
 from guiadomilico.apps.accounts.models.base import Usuario
-from guiadomilico.apps.accounts.forms.base import LoginForm
+from guiadomilico.apps.accounts.forms.login import LoginForm
 
 # Create your views here.
 

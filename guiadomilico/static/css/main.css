@@ -21589,6 +21589,12 @@ legend {
 	background-size: cover;
 }
 
+.page_title.cover-background2,
+.page_title.s-parallax {
+	background-image: url("../images/breadcrumbs_bg2.jpg");
+	background-size: cover;
+}
+
 .page_title h1,
 .page_title h2 {
 	color: #f4ca59;
