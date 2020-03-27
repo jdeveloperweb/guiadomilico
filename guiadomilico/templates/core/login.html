@@ -1,32 +1,362 @@
 {% extends 'base.html' %}
 {% load static %}
 {%block title%}Login{%endblock%}
+
+
+{% block menu %}
+				<!-- header with two Bootstrap columns - left for logo and right for navigation and includes (search, social icons, additional links and buttons etc -->
+				<header class="page_header s-overlay ds justify-nav-end">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-xl-2 col-lg-3 col-md-4 col-11">
+								<a href="./" class="logo">
+									<img src="{% static 'images/logo.png' %}" alt="">
+								</a>
+							</div>
+							<div class="col-xl-10 col-lg-9 col-md-8 col-1">
+								<div class="nav-wrap">
+
+									<!-- main nav start -->
+									<nav class="top-nav">
+										<ul class="nav sf-menu">
+
+
+											<li class="active">
+												<a href="{% url 'core:index' %}">Principal</a>
+
+											</li>
+
+											<li>
+												<a href="about.html">O Guia</a>
+													<div class="mega-menu">
+													<ul class="mega-menu-row">
+														<li class="mega-menu-col">
+															<a href="#">Headers</a>
+															<ul>
+																<li>
+																	<a href="header1.html">Header Type 1</a>
+																</li>
+																<li>
+																	<a href="header2.html">Header Type 2</a>
+																</li>
+																<li>
+																	<a href="header3.html">Header Type 3</a>
+																</li>
+																<li>
+																	<a href="header4.html">Header Type 4</a>
+																</li>
+																<li>
+																	<a href="header5.html">Header Type 5</a>
+																</li>
+																<li>
+																	<a href="header6.html">Header Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="#">Side Menus</a>
+															<ul>
+																<li>
+																	<a href="header-side.html">Push Left</a>
+																</li>
+																<li>
+																	<a href="header-side-right.html">Push Right</a>
+																</li>
+																<li>
+																	<a href="header-side-slide.html">Slide Left</a>
+																</li>
+																<li>
+																	<a href="header-side-slide-right.html">Slide Right</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked.html">Sticked Left</a>
+																</li>
+																<li>
+																	<a href="header-side-sticked-right.html">Sticked Right</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="title1.html">Title Sections</a>
+															<ul>
+																<li>
+																	<a href="title1.html">Title section 1</a>
+																</li>
+																<li>
+																	<a href="title2.html">Title section 2</a>
+																</li>
+																<li>
+																	<a href="title3.html">Title section 3</a>
+																</li>
+																<li>
+																	<a href="title4.html">Title section 4</a>
+																</li>
+																<li>
+																	<a href="title5.html">Title section 5</a>
+																</li>
+																<li>
+																	<a href="title6.html">Title section 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="footer1.html#footer">Footers</a>
+															<ul>
+																<li>
+																	<a href="footer1.html#footer">Footer Type 1</a>
+																</li>
+																<li>
+																	<a href="footer2.html#footer">Footer Type 2</a>
+																</li>
+																<li>
+																	<a href="footer3.html#footer">Footer Type 3</a>
+																</li>
+																<li>
+																	<a href="footer4.html#footer">Footer Type 4</a>
+																</li>
+																<li>
+																	<a href="footer5.html#footer">Footer Type 5</a>
+																</li>
+																<li>
+																	<a href="footer6.html#footer">Footer Type 6</a>
+																</li>
+															</ul>
+														</li>
+														<li class="mega-menu-col">
+															<a href="copyright1.html#copyright">Copyright</a>
+
+															<ul>
+																<li>
+																	<a href="copyright1.html#copyright">Copyright 1</a>
+																</li>
+																<li>
+																	<a href="copyright2.html#copyright">Copyright 2</a>
+																</li>
+																<li>
+																	<a href="copyright3.html#copyright">Copyright 3</a>
+																</li>
+																<li>
+																	<a href="copyright4.html#copyright">Copyright 4</a>
+																</li>
+																<li>
+																	<a href="copyright5.html#copyright">Copyright 5</a>
+																</li>
+																<li>
+																	<a href="copyright6.html#copyright">Copyright 6</a>
+																</li>
+															</ul>
+														</li>
+
+													</ul>
+												</div> <!-- eof mega menu -->
+											</li>
+											<!-- eof pages -->
+
+
+											<li>
+												<a href="#">Fórum</a>
+											</li>
+											<!-- eof features -->
+
+
+											<!-- blog -->
+											<li>
+												<a href="blog-right.html">Blog</a>
+
+											</li>
+											<!-- eof blog -->
+
+
+											<!-- shop -->
+											<li>
+												<a href="{% url 'core:loja-virtual' %}">Shop</a>
+
+											</li>
+											<!-- eof shop -->
+
+
+											<!-- contacts -->
+											<li>
+												<a href="contact2.html">Contatos</a>
+											</li>
+											<!-- eof contacts -->
+										</ul>
+
+
+									</nav>
+									<!-- eof main nav -->
+
+									<!--hidding includes on small devices. They are duplicated in topline-->
+									<ul class="top-includes d-none d-xl-block">
+										<li>
+											<!--modal search-->
+											<span>
+												<a href="#" class="search_modal_button">
+													<i class="fa fa-search"></i>
+												</a>
+											</span>
+
+										</li>
+										<li>
+											<div class="dropdown">
+												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<i class="ico icon-shopping-bag"></i>
+													<span class="badge bg-maincolor">2</span>
+												</a>
+												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
+													<div class="widget woocommerce widget_shopping_cart">
+
+
+														<div class="widget_shopping_cart_content">
+
+															<ul class="woocommerce-mini-cart cart_list product_list_widget ">
+																<li class="woocommerce-mini-cart-item mini_cart_item">
+																	<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku="">×</a>
+																	<a href="shop-product-right.html">
+																		<img src="{% static 'images/shop/26.jpg' %}" alt="">Medical marijuana THC
+																	</a>
+
+																	<span class="quantity">1 ×
+																		<span class="woocommerce-Price-amount amount">
+																			<span class="woocommerce-Price-currencySymbol">$</span>
+																			12.00
+																		</span>
+																	</span>
+																</li>
+																<li class="woocommerce-mini-cart-item mini_cart_item">
+																	<a href="#" class="remove" aria-label="Remove this item" data-product_id="76" data-product_sku="">×</a>
+																	<a href="shop-product-right.html">
+																		<img src="{% static 'images/shop/26.jpg' %}" alt="">Medical marijuana THC
+																	</a>
+
+																	<span class="quantity">1 ×
+																		<span class="woocommerce-Price-amount amount">
+																			<span class="woocommerce-Price-currencySymbol">$</span>
+																			15.00
+																		</span>
+																	</span>
+																</li>
+															</ul>
+
+															<p class="woocommerce-mini-cart__total total">
+																<strong>Subtotal:</strong>
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">$</span>
+																	27.00
+																</span>
+															</p>
+
+															<p class="woocommerce-mini-cart__buttons buttons">
+																<a href="shop-cart.html" class="button wc-forward">View cart</a>
+																<a href="shop-checkout.html" class="button checkout wc-forward ">Checkout</a>
+															</p>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</li>
+
+										<li>
+											<span>
+												<a class="phone_modal_button" href="#sign_in_modal"><span class="ico icon-male-user-shadow"></span></a>
+											</span>
+
+										</li>
+
+									</ul>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- header toggler -->
+					<span class="toggle_menu"><span></span></span>
+				</header>
+			{% endblock %}
+
+
+
 {% block content %}
-<section id="blog" class="blog-home-style2 s-py-50 ">
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-lg-4 col-md-6 col-sm-8">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Log in</h3>
-          <form method="post" novalidate>
-          	{% csrf_token %}
-          	<div class="form-group">
-    					<label for="id_username">Usuário:</label>
-    					<input type="text" name="username" autofocus class="form-control" required id="id_username">
-    				</div>
+<section class="page_title padding-mobile cs s-py-60 s-py-md-80 s-py-xl-150 cover-background">
+					<div class="container">
+						<div class="row">
 
-					  <div class="form-group">
-					    <label for="id_password">Senha:</label>
-				      <input type="password" name="password" class="form-control" required id="id_password">
-				    </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Log in</button>
-          </form>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-</section>
+							<div class="col-md-12">
+								<h1 class="bold">ACESSAR SUA CONTA</h1>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item">
+										<a href="/">Principal</a>
+									</li>
+									<li class="breadcrumb-item active">
+										 login
+									</li>
+								</ul>
+							</div>
+
+
+						</div>
+					</div>
+				</section>
+         <section class="ls s-py-50">
+				<div class="container">
+					<div class="row">
+
+						<div class="d-none d-lg-block divider-70"></div>
+
+						<main class="col-lg-12">
+							<article>
+								<!-- .entry-header -->
+								<div class="entry-content">
+									<div class="woocommerce">
+
+										<!--
+			<div class="woocommerce-message">Are you sure you want to log out? <a
+				href="shop-account-login.html">Confirm and log out</a>
+			</div>
+			-->
+
+										<form class="woocomerce-form woocommerce-form-login login" method="post" novalidate="">
+											          	{% csrf_token %}
+
+											  	<input type="hidden" name="csrfmiddlewaretoken" value="w8GH7e774DlXeIXhrcBnmmG38kL9QIKcWGH4ynu8oc0Mh59PXCABMKw7XOsptznQ">
+											<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+												<label for="username">Usuário ou E-mail <span class="required">*</span>
+												</label>
+												<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="">
+											</p>
+											<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+												<label for="woo-password">Senha <span class="required">*</span>
+												</label>
+												<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="woo-password">
+											</p>
+
+											<p class="form-row">
+												<input type="submit" class="woocommerce-Button button" name="login" value="Entrar">
+												<label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
+													<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever">
+													<span>Mantenha-me conectado</span>
+												</label>
+											</p>
+											<p class="woocommerce-LostPassword lost_password">
+												<a href="shop-account-password-reset.html">Esqueceu sua senha?</a>
+											</p>
+
+										</form>
+									</div>
+								</div>
+								<!-- .entry-content -->
+							</article>
+
+
+						</main>
+
+						<div class="d-none d-lg-block divider-70"></div>
+					</div>
+
+				</div>
+			</section>
 
 {% endblock %}

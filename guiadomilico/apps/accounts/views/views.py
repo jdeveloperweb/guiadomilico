@@ -24,7 +24,6 @@ class LoginView(FormView):
 	@method_decorator(sensitive_post_parameters('password'))
 	@method_decorator(csrf_protect)
 	@method_decorator(never_cache)
-
 	def dispatch(self, request, *args, **kwargs):
 		request.session.set_test_cookie()
 		logout(request)
