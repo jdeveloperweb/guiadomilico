@@ -682,7 +682,7 @@ ul.list-styled-caret li:before {
 	letter-spacing: 0;
 	margin: 0;
 	padding: 0;
-	text-transform: capitalize;
+
 }
 
 .breadcrumb > li {
@@ -10125,6 +10125,14 @@ body.boxed {
 
 .ls.ms .breadcrumb a:hover {
 	color: #f4ca59;
+}
+
+.breadcrumb-item > a {
+	color: #f4ca59 !important;
+}
+
+.breadcrumb-item > a:hover {
+	color: #fff !important;
 }
 
 /*
