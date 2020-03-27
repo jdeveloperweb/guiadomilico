@@ -20,4 +20,5 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     #URL do app BASE:
     url(r'^', include('guiadomilico.apps.core.urls')),
+    url(r'^accounts/', include('guiadomilico.apps.accounts.urls')),
 ]
