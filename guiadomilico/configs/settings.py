@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+from decouple import config, Csv
 
 import os
 
@@ -19,16 +20,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tz4k+&f2-8zxghufnzd^!c02fw#rx@4u@3bo_y=pu5rti9$%si'
+SECRET_KEY = config('SECRET_KEY')
 
 # CONFIGURA OS REPOSITÓRIOS
 APP_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 PROJECT_ROOT = os.path.abspath(os.path.dirname(APP_ROOT))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 AUTH_USER_MODEL = 'accounts.Usuario'
 
@@ -144,13 +145,13 @@ MEDIA_URL = 'media/'
 # Somente um deles deve estar marcado.
 # O primeiro imprime o email no console
 # O segundo utiliza o SMTP do gmail para o envio do email.
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_PORT = 587
-#EMAIL_HOST_USER = 'suporte.guiadomilico@gmail.com'
-#EMAIL_HOST_PASSWORD = 'guiadomilico@S3th'
-#EMAIL_USE_TLS = True
-#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-#EMAIL_SUBJECT_PREFIX = '[Guia do Milico] '
 
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = config('EMAIL_HOST', default='')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_SUBJECT_PREFIX = '[Guia do Milico] '
