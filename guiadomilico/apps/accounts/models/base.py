@@ -43,7 +43,6 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
                                         null=True, blank=True)
     site_padrao = models.ForeignKey('accounts.Site', related_name="sit_padrao", on_delete=models.CASCADE, null=True,
                                     blank=True)
-
     # Informações de registro
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)

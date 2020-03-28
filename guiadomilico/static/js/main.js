@@ -1070,7 +1070,6 @@ function documentReadyInit() {
 
 
 
-
 	//search modal
 	$(".search_modal_button").on('click', function(e){
 		e.preventDefault();

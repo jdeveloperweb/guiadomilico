@@ -145,6 +145,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST_USER = 'suporte.guiadomilico@gmail.com'
 # EMAIL_HOST_PASSWORD = 'guiadomilico@S3th'
 # EMAIL_USE_TLS = True
-
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # EMAIL_SUBJECT_PREFIX = '[Guia do Milico] '

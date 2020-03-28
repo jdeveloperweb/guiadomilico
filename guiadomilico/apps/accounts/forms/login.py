@@ -6,7 +6,6 @@ from django.core.validators import validate_email
 
 from guiadomilico.apps.accounts.models.base import Usuario
 
-
 class LoginForm(AuthenticationForm):
 
     def confirm_login_permitido(self, user):

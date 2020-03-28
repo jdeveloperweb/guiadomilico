@@ -37,4 +37,3 @@ class LoginView(FormView):
 			self.request.session.delete_test_cookie()
 
 		return super(LoginView, self).form_valid(form)
-

@@ -10,4 +10,5 @@ urlpatterns = [
     path('cadastro/', cadastro.CadastroUserView.as_view(), name='cadastroUsuario'),
     path('confirm/<str:uidb64>/<str:token>', cadastro.ativarCadastro, name='cadastroAtivar')
 
+
 ]
