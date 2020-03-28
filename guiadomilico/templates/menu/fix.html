@@ -251,14 +251,7 @@
 											</div>
 										</li>
 
-<!--
-										<li>
-											<span>
-												<a class="phone_modal_button" href="#sign_in_modal"><span class="ico icon-male-user-shadow"></span></a>
-											</span>
-
-										</li>
--->
+				{% if user.is_authenticated %}
 									<li>
 											<div class="dropdown">
 												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -317,6 +310,14 @@
 												</div>
 											</div>
 										</li>
+					{%else%}
+									<li>
+										<span>
+											<a class="phone_modal_button" href="#sign_in_modal"><span class="ico icon-male-user-shadow"></span></a>
+										</span>
+
+									</li>
+					{% endif %}
 
 									</ul>
 

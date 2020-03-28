@@ -17610,7 +17610,7 @@ a img.aligncenter {
 	}
 
 	.cs .sf-menu > li > a {
-		color: #fff;
+		color: #131e25;
 		font-weight:bold;
 	}
 
@@ -17629,7 +17629,7 @@ a img.aligncenter {
 
 	.cs .sf-menu > li > a:hover,
 	.cs .sf-menu > li.active > a {
-		color: #131e25;
+		color: #fff;
 	}
 
 	.ds .sf-menu > li > a {

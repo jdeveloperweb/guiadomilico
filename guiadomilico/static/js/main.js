@@ -15,7 +15,7 @@ $(".alerta").delay(10000).slideUp(200, function() {
 jQuery("document").ready(function($){
  var nav = $('.menu-fixo');
     $(window).scroll(function () {
-        if ($(this).scrollTop() >= 440) {
+        if ($(this).scrollTop() >= 450) {
             nav.addClass("shop-menu");
         } else {
             nav.removeClass("shop-menu");
