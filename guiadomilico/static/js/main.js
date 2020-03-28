@@ -6,6 +6,12 @@ var $body = $('body');
 var $window = $(window);
 /// minha proprias funções
 
+$(".alert").delay(10000).slideUp(200, function() {
+    $(this).alert('close');
+});
+
+
+
 jQuery("document").ready(function($){
  var nav = $('.menu-fixo');
     $(window).scroll(function () {

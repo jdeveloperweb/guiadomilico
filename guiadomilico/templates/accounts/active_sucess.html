@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+{%block title%}Cadastro{%endblock%}
+{% block menu %}
+{% include 'menu/fix.html' %}
+{% endblock %}
+
+{%block content %}
+<section class="page_title padding-mobile cs s-py-60 s-py-md-80 s-py-xl-50 cover-background">
+					<div class="container">
+						<div class="row">
+
+
+							<div class="col-md-12">
+								<h1 class="bold">SEJA BEM VINDO</h1>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item">
+											Conheça mais os <a href="{% url 'accounts:cadastroUsuario'%} " > Nossos Serviços </a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</section>
+
+         <section class="ls s-py-25">
+				<div class="container">
+					<div class="row">
+
+						<div class="d-none d-lg-block divider-70"></div>
+
+						<main class="col-lg-12">
+							<article>
+								<!-- .entry-header -->
+								<div class="entry-content">
+									<div class="woocommerce">
+
+<div class="icon-box text-center hero-bg rounded box-shadow">
+										<div class="icon-styled bg-maincolor3 rounded fs-24">
+											<i class="fa fa-check"></i>
+										</div>
+										<h6 class="fw-300">Ativada com sucesso.</h6>
+										<p>
+											Sua conta foi ativada com sucesso! Sua conta agora está ativa para utilizar nossos serviços. Obrigado for fazer parte do Guia do Milico.
+										</p>
+</div>
+
+
+
+
+
+
+
+                                        			</div>
+								</div>
+								<!-- .entry-content -->
+							</article>
+
+
+						</main>
+
+						<div class="d-none d-lg-block divider-70"></div>
+					</div>
+
+				</div>
+			</section>
+
+{% endblock %}

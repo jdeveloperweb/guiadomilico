@@ -30,6 +30,8 @@
 .icon-clock:before {
   content: "\e91f";
 }
+
+
 .icon-shield:before {
   content: "\e91e";
 }
@@ -60,6 +62,8 @@
 .icon-shopping-bag:before {
   content: "\e916";
 }
+
+
 .icon-aim:before {
   content: "\e900";
 }

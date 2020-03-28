@@ -751,7 +751,7 @@ textarea,
 select,
 .form-control {
 	background-color: transparent;
-	border-bottom: 1px solid #e7e8e9;
+	border-bottom: 1px solid red;
 	border-color: transparent transparent #e7e8e9;
 	border-radius: 0;
 	color: #131e25;
@@ -18467,6 +18467,17 @@ a img.aligncenter {
 	font-family: FontAwesome;
 }
 
+.page_topline ul li p.plus_top:before {
+	content: "\f007";
+	color: #f4ca59;
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 7px;
+	font-family: FontAwesome;
+}
+
+
+
 .page_topline ul li p.worktime_top:before {
 	content: "\e91f";
 	font-family: "icomoon" !important;
@@ -18629,7 +18640,11 @@ a img.aligncenter {
 }
 
 .top-includes > li {
-	margin-left: 12px;
+	margin-left: 20px;
+}
+
+.top-includes > li:last-child img {
+	margin-bottom: 6px;
 }
 
 .top-includes > li:first-child {
@@ -24204,3 +24219,12 @@ p.entry-description {
 }
 
 
+.account_user{
+        width:20px;
+        display:block;
+    	background-image: url(../images/user.png);
+}
+
+.icon-shopping-cart:before {
+  content: "\f07a";
+}

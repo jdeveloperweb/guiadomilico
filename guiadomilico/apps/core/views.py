@@ -14,5 +14,11 @@ class IndexView(TemplateView):
 
     ## FALTA IMPLEMENTAR ##
 
+class SucessView(TemplateView):
+    template_name = "accounts/active_sucess.html"
+
+    ## FALTA IMPLEMENTAR ##
+
+
 
 
