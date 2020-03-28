@@ -18,7 +18,8 @@ from guiadomilico.apps.accounts.models.base import Usuario
 class CadastroUserView(FormView):
     form_class = CadastroUserForm
     template_name = 'accounts/cadastro_usuario.html'
-    success_url = reverse_lazy('core:index')
+    success_url = reverse_lazy('accounts:cadastroUsuario')
+    extra_context = {}
 
     def form_valid(self, form):
         usuario = form.save(commit=False)
@@ -43,6 +44,9 @@ class CadastroUserView(FormView):
         )
 
         email.send()
+
+        # Context para avisar ao usuário que o cadastro foi efetuado com sucesso.
+        self.extra_context['sucessoCadastro'] = "Um email foi enviado para {} com um link de ativação.".format(to_email)
 
         return super(CadastroUserView, self).form_valid(form)
 

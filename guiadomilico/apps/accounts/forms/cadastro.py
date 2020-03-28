@@ -6,7 +6,7 @@ from guiadomilico.apps.accounts.models.base import Usuario
 
 class CadastroUserForm(UserCreationForm):
     email = forms.CharField(
-        widget=forms.EmailInput(attrs={'placeholder': 'Email...'}),
+        widget=forms.EmailInput(),
         max_length=254,
         required=True
     )

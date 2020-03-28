@@ -39,6 +39,12 @@
 				href="shop-account-login.html">Confirm and log out</a>
 			</div>
 			-->
+										{% if sucessoCadastro %}
+										<div class="alert alert-danger" role="alert">
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											{{ sucessoCadastro }}
+										</div>
+										{% endif %}
 										<form class="woocommerce-EditAccountForm edit-account" method="post" novalidate>
 
 											{% csrf_token %}
