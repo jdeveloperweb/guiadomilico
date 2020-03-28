@@ -1390,6 +1390,7 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox {
 
 label.woocommerce-form__label.woocommerce-form__label-for-checkbox input {
 	margin-right: 10px;
+	font-family:"Roboto", sans-serif !important;
 	margin-top: 0;
 }
 

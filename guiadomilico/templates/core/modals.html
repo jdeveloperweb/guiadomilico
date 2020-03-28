@@ -1,0 +1,130 @@
+{% load static %}
+
+	<!-- MODAL PESQUISA -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="post" class="searchform search-form" action="" >
+				{% csrf_token %}
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Encontrar no site..." id="modal-search-input">
+				</div>
+				<button type="submit" class="btn">Pesquisar</button>
+			</form>
+		</div>
+	</div>
+
+
+
+
+<!-- MODAL CADASTRAR -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="sign_up_modal">
+		<div class="container">
+			<div class="row c-gutter-0 align-items-center">
+				<div class="ls col-12 col-sm-6">
+					<form class="contact-form sign-in c-mb-10 c-gutter-10" method="post" action="" >
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-sm-12">
+								<h4><span class="color-main">Cadastro</span> / Login</h4>
+								<div class="divider-sm-0 divider-md-30"></div>
+								<div class="form-group has-placeholder">
+									<label for="signupname">Nome Completo <span class="required">*</span></label>
+									<input type="text" aria-required="true" size="30" value="" name="name" id="signupname" class="form-control" placeholder="Nome Completo">
+								</div>
+								<div class="form-group has-placeholder">
+									<label for="signuppassword">Senha<span class="required">*</span></label>
+									<input type="password" aria-required="true" size="30" value="" name="password" id="signuppassword" class="form-control" placeholder="Senha">
+								</div>
+								<div class="form-group has-placeholder">
+									<label for="signupemail">E-mail<span class="required">*</span></label>
+									<input type="email" aria-required="true" size="30" value="" name="email" id="signupemail" class="form-control" placeholder="E-mail">
+								</div>
+								<div>
+									<input type="checkbox" class="checkbox" id="signupcheckbox" />
+									<label for="signupcheckbox">Eu concordo com todo o texto do contrato</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<button type="submit" id="contact_signupform_submit" name="contact_submit" class="btn btn-outline-darkgrey">Enviar</button>
+								</div>
+							</div>
+							<a class="phone_modal_button sign_up_modal close-modal" data-dismiss="modal" aria-label="Close" href="#sign_in_modal"><span aria-hidden="true">Eu já sou membro</span></a>
+						</div>
+					</form>
+				</div>
+				<div class="col-12 col-sm-6 d-none d-sm-block">
+					<img src="{% static 'images/sing-in-modal.jpg' %}" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<!-- MODAL LOGIN -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="sign_in_modal">
+		<div class="container">
+			<div class="row c-gutter-0 align-items-center">
+				<div class="ls col-12 col-sm-6">
+					<form class="contact-form  c-mb-10 c-gutter-10" method="post" action="" >
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-sm-12">
+								<h4><span class="color-main">Entrar</span> / Login</h4>
+								<div class="divider-sm-0 divider-md-30"></div>
+								<div class="form-group has-placeholder">
+									<label for="username">E-mail / Usuário <span class="required">*</span></label>
+									<input type="text" aria-required="true" size="30" value="" name="username" id="username" class="form-control" placeholder="E-mail / Usuário">
+								</div>
+								<div class="form-group has-placeholder">
+									<label for="password">Senha<span class="required">*</span></label>
+									<input type="password" aria-required="true" size="30" value="" name="password" id="password" class="form-control" placeholder="Senha">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<button type="submit" id="contact_signinform_submit" name="contact_submit" class="btn btn-outline-darkgrey">Entrar</button>
+								</div>
+
+															</div>
+
+
+							<a class="sign_up_modal close-modal s-py-5" data-dismiss="modal" aria-label="Close" href="#sign_up_modal"><span aria-hidden="true">Esqueceu sua senha?</span></a>
+							<a class=" close-modal link_cadastro" href="{% url 'accounts:cadastroUsuario'%} "><span aria-hidden="true">Quero me Cadastrar</span> </a>
+
+						</div>
+
+					</form>
+
+				</div>
+				<div class="col-12 col-sm-6 d-none d-sm-block">
+					<img src="{% static 'images/sing-in-modal.jpg' %}" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div><!-- eof .modal -->

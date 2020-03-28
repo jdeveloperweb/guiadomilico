@@ -2,16 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff9d0ba-1aec-4622-9673-ccb1cfa95392" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/cadastro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/cadastro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_usuario.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/token.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/email_ativacao.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/core/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/core/foo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/core/head.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/core/modals.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/core/scripts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/menu/fix.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/menu/init.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/cadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/cadastro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/cadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/cadastro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/configs/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/configs/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/static/css/shop.css" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/css/shop.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/static/images/sing-in-modal.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/images/sing-in-modal.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_usuario.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/shop.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +38,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -35,6 +53,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/guiadomilico/templates/accounts" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -45,11 +64,11 @@
       <recent name="D:\guiadomilico\guiadomilico\apps\accounts\models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\guiadomilico\guiadomilico\templates\core" />
       <recent name="D:\guiadomilico\guiadomilico\templates\accounts" />
       <recent name="D:\guiadomilico\guiadomilico\apps\account\tests" />
       <recent name="D:\guiadomilico\guiadomilico\apps\account\views" />
       <recent name="D:\guiadomilico\guiadomilico\apps\account\models" />
-      <recent name="D:\guiadomilico\guiadomilico\templates" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -66,6 +85,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="71" key="#Inspections" timestamp="1585347157104">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1585347157104" />
     <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1584980874687">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

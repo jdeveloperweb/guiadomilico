@@ -8,7 +8,6 @@ from guiadomilico.apps.accounts.models.base import Usuario
 
 
 class LoginForm(AuthenticationForm):
-
     def confirm_login_permitido(self, user):
         if not user.is_trusty:
             raise forms.ValidationError(

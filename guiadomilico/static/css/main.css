@@ -21606,6 +21606,13 @@ legend {
 	text-transform: uppercase;
 }
 
+.link_cadastro{
+
+    margin-top:15px;
+    display:block !important;
+
+}
+
 @media (min-width: 992px) {
 	.page_title h1,
 	.page_title h2 {
@@ -22399,6 +22406,7 @@ h4.title_block {
 	border-color: transparent transparent #b0b6b9;
 	border-radius: 0;
 	color: #131e25;
+	font-family:"Roboto", sans-serif !important;
 	padding-bottom: 3px;
 	padding-left: 0;
 	padding-right: 0;
