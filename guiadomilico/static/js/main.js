@@ -17,7 +17,6 @@ jQuery("document").ready(function($){
     });
 });
 
-
 //hidding menu elements that do not fit in menu width
 //processing center logo
 function menuHideExtraElements() {
@@ -1068,6 +1067,8 @@ function documentReadyInit() {
 			return;
 		}
 
+
+	});
 
 
 	//search modal
