@@ -42,22 +42,6 @@ class CadastroUserView(FormView):
             to=[to_email]
         )
 
-        current_site    = get_current_site(self.request)
-        mail_subject    = "[Guia do Milico] Ativação de usuário necessária"
-        message         = render_to_string('accounts/email_ativacao.html', {
-            'usuario'   : usuario,
-            'dominio'   : current_site.domain,
-            'uid'       : urlsafe_base64_encode(force_bytes(usuario.pk)),
-            'token'     : account_activation_token.make_token(usuario),
-            })
-        to_email        = form.cleaned_data.get('account_email')
-        print("Message: {}".format(message))
-        email = EmailMessage(
-               mail_subject,
-               message,
-               to=[to_email]
-           )
-
         email.send()
 
         return super(CadastroUserView, self).form_valid(form)

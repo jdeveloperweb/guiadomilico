@@ -1,10 +1,10 @@
 {% autoescape off %}
-Ola {{ user.username }},
+Ola {{ usuario.username }},
 
 O Guia do Milico tem a satisfação em receber sua solicitação de cadastro em nosso site.
 Como uma forma de manter nossos usuários seguros, solicitamos que você clique no link abaixo para confirmar seu registro:
 
-https://{{ domain }}{% url 'accounts:cadastroAtivar' uidb64=uid token=token %}
+https://{{ dominio }}{% url 'accounts:cadastroAtivar' uidb64=uid token=token %}
 
 Caso você não se sinta seguro em utilizar o link acimVocê pode confirmar seu registro digitando o seguinte endereço em seu navegador e digitar o código de ativação:
 
