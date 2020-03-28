@@ -1,7 +1,7 @@
 
 from django.contrib.auth import logout, login
 from django.contrib.sites.shortcuts import get_current_site
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
@@ -18,7 +18,8 @@ from guiadomilico.apps.accounts.models.base import Usuario
 class CadastroUserView(FormView):
     form_class = CadastroUserForm
     template_name = 'accounts/cadastro_usuario.html'
-    success_url = reverse_lazy('core:index')
+    success_url = reverse_lazy('accounts:cadastroUsuario')
+    extra_context = {}
 
     def form_valid(self, form):
         usuario = form.save(commit=False)
@@ -34,8 +35,8 @@ class CadastroUserView(FormView):
             'uid': urlsafe_base64_encode(force_bytes(usuario.pk)),
             'token': account_activation_token.make_token(usuario),
         })
-        to_email = form.cleaned_data.get('account_email')
-        print("Message: {}".format(message))
+        to_email = form.cleaned_data.get('email')
+
         email = EmailMessage(
             mail_subject,
             message,
@@ -43,6 +44,9 @@ class CadastroUserView(FormView):
         )
 
         email.send()
+
+        # Context para avisar ao usuário que o cadastro foi efetuado com sucesso.
+        self.extra_context['sucessoCadastro'] = "Um email foi enviado para {} com um link de ativação.".format(to_email)
 
         return super(CadastroUserView, self).form_valid(form)
 

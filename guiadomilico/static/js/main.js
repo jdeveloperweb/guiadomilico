@@ -6,8 +6,8 @@ var $body = $('body');
 var $window = $(window);
 /// minha proprias funções
 
-$(".alert").delay(10000).slideUp(200, function() {
-    $(this).alert('close');
+$(".alerta").delay(10000).slideUp(200, function() {
+    $(this).hide();
 });
 
 
