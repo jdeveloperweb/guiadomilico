@@ -14,3 +14,6 @@ class CadastroUserForm(UserCreationForm):
             'password1',
             'password2'
         )
+
+
+

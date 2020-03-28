@@ -48,3 +48,5 @@ class LoginForm(AuthenticationForm):
                     )
 
         return self.cleaned_data
+
+

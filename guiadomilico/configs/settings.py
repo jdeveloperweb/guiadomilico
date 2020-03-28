@@ -43,6 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # guiadomilico.apps
+
+    #App usado no token
+    'six',
+
+    #guiadomilico.apps
+
     'guiadomilico.apps.core',
     'guiadomilico.apps.accounts',
 ]
@@ -139,11 +145,12 @@ MEDIA_URL = 'media/'
 # O primeiro imprime o email no console
 # O segundo utiliza o SMTP do gmail para o envio do email.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'suporte.guiadomilico@gmail.com'
-# EMAIL_HOST_PASSWORD = 'guiadomilico@S3th'
-# EMAIL_USE_TLS = True
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-# EMAIL_SUBJECT_PREFIX = '[Guia do Milico] '
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = 587
+#EMAIL_HOST_USER = 'suporte.guiadomilico@gmail.com'
+#EMAIL_HOST_PASSWORD = 'guiadomilico@S3th'
+#EMAIL_USE_TLS = True
+#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#EMAIL_SUBJECT_PREFIX = '[Guia do Milico] '
+

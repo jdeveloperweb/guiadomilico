@@ -1,3 +1,4 @@
+
 from django.contrib.auth import logout, login
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
@@ -6,6 +7,7 @@ from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+
 from django.views.generic import FormView
 
 from guiadomilico.apps.accounts.token import account_activation_token
@@ -23,6 +25,7 @@ class CadastroUserView(FormView):
         usuario.is_trusty = False
         usuario.save()
 
+
         current_site = get_current_site(self.request)
         mail_subject = "[Guia do Milico] Ativação de usuário necessária"
         message = render_to_string('accounts/email_ativacao.html', {
@@ -38,6 +41,23 @@ class CadastroUserView(FormView):
             message,
             to=[to_email]
         )
+
+        current_site    = get_current_site(self.request)
+        mail_subject    = "[Guia do Milico] Ativação de usuário necessária"
+        message         = render_to_string('accounts/email_ativacao.html', {
+            'usuario'   : usuario,
+            'dominio'   : current_site.domain,
+            'uid'       : urlsafe_base64_encode(force_bytes(usuario.pk)),
+            'token'     : account_activation_token.make_token(usuario),
+            })
+        to_email        = form.cleaned_data.get('account_email')
+        print("Message: {}".format(message))
+        email = EmailMessage(
+               mail_subject,
+               message,
+               to=[to_email]
+           )
+
         email.send()
 
         return super(CadastroUserView, self).form_valid(form)
