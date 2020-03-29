@@ -17502,6 +17502,7 @@ a img.aligncenter {
 		display: none;
 		position: absolute;
 		top: 100%;
+		left:-550%;
 		z-index: 99;
 	}
 
@@ -17553,11 +17554,26 @@ a img.aligncenter {
 		-webkit-transition-duration: 0.15s;
 		transition-duration: 0.15s;
 	}
-
-	.affix .sf-menu > li > a {
-		padding-bottom: 33px;
-		padding-top: 33px;
+	.my-menu > li > a {
+		line-height: 14px;
+		margin: 0 15px;
+		padding-bottom: 0px;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 0px;
+		-webkit-transition-duration: 0.15s;
+		transition-duration: 0.15s;
 	}
+	.affix .sf-menu > li > a {
+		padding-bottom: 30px;
+		padding-top: 30px;
+	}
+
+	.affix .my-menu > li > a {
+		padding-bottom: 0px !important;
+		padding-top: 0px !important;
+	}
+
 }
 
 @media (min-width: 1200px) and (min-width: 1500px) {
@@ -17691,6 +17707,13 @@ a img.aligncenter {
 		padding: 46px 0 46px;
 		text-align: left;
 		z-index:1000!important;
+		/* no auto sub width for IE7, see white-space comment below */
+	}
+
+		.my-menu li > ul {
+		/* allow long menu items to determine submenu width */
+		padding: 26px 0px !important;
+
 		/* no auto sub width for IE7, see white-space comment below */
 	}
 
@@ -21584,7 +21607,8 @@ legend {
 
 @media (min-width: 576px) {
 	.dropdown-shopping-cart + .dropdown-menu {
-		min-width: 430px;
+		min-width: 300px;
+		0px;
 	}
 }
 
@@ -24224,4 +24248,254 @@ p.entry-description {
 
 .icon-shopping-cart:before {
   content: "\f07a";
+}
+
+.menu-usuario{
+    padding: 10px !important;
+    position: absolute;
+    will-change: transform;
+    top: 0px;
+    left: 0px;
+    min-width:250px !important;
+    transform: translate3d(-155px, 26px, 0px) !important;
+}
+
+
+/* menu expande user layout */
+	.menu-expande-user {
+		display: block;
+	}
+
+	.menu-expande-user,
+	.menu-expande-user ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.menu-expande-user li {
+		position: relative;
+	}
+
+	.menu-expande-user li > ul {
+		display: none;
+		position: absolute;
+		top: 100%;
+		z-index: 99;
+	}
+
+	.menu-expande-user li:hover > ul,
+	.menu-expande-user li.sfHover > ul {
+		display: block;
+	}
+
+	.menu-expande-user a {
+		display: block;
+		position: relative;
+	}
+	/* menu skin */
+	.menu-expande-user a {
+		font-size: 16px;
+		font-weight: 300;
+		padding: 5px 1.1em;
+		text-decoration: none;
+		-webkit-transition-property: color, background-color, border-color, padding-top, padding-bottom;
+		transition-property: color, background-color, border-color, padding-top, padding-bottom;
+		zoom: 1;
+	}
+
+	.menu-expande-user li {
+		*white-space: normal;
+		white-space: nowrap;
+	}
+
+	.menu-expande-user > li {
+		display: inline-block;
+		position: relative;
+	}
+
+	.menu-expande-user.nav > li:first-child > a {
+		margin-left: 0;
+	}
+
+	.menu-expande-user.nav > li:last-child > a {
+		margin-right: 0;
+	}
+
+	.menu-expande-user > li > a {
+		line-height: 14px;
+		margin: 0 15px;
+		padding-bottom: 27px;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 28px;
+		-webkit-transition-duration: 0.15s;
+		transition-duration: 0.15s;
+	}
+
+@media (min-width: 1200px) {
+	.menu-expande-user > li > a:hover,
+	.menu-expande-user > li.active > a {
+		color: #f4ca59;
+	}
+
+	.menu-expande-user > li > a:hover:after,
+	.menu-expande-user > li.active > a:after {
+		color: #f4ca59;
+	}
+
+	.nav-narrow .menu-expande-user > li {
+		padding: 0;
+	}
+
+	.nav-narrow .menu-expande-user > li > a {
+		margin-left: 29px;
+		margin-right: 29px;
+		padding-bottom: 24px;
+		padding-top: 24px;
+	}
+
+	.nav-narrow .menu-expande-user > li.active > a:before {
+		background-color: #f4ca59;
+		content: "";
+		height: 1px;
+		left: -20px;
+		position: absolute;
+		right: -20px;
+		top: 0;
+		z-index: 1;
+	}
+
+	.nav-bordered .menu-expande-user > li + li:before {
+		background-color: rgba(255, 255, 255, 0.15);
+		bottom: 0;
+		content: "";
+		left: -2px;
+		position: absolute;
+		top: 0;
+		width: 1px;
+	}
+
+	.cs .menu-expande-user > li > a {
+		color: #131e25;
+		font-weight:bold;
+	}
+
+.menu-expande-user.new-color > li + li:before {
+	color: #212529;
+	content: "|";
+	font-family: "icomoon" !important;
+	font-size: 18px;
+	margin-left: -4px;
+	position: absolute;
+	top: 45%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+	.cs .menu-expande-user > li > a:hover,
+	.cs .menu-expande-user > li.active > a {
+		color: #fff;
+	}
+
+	.ds .menu-expande-user > li > a {
+		color: #fff;
+	}
+
+
+
+	.ds .menu-expande-user > li > a:hover,
+	.ds .menu-expande-user > li.active > a {
+		color: #f4ca59;
+}
+
+/*MEU INICIO MENU SHOP*/
+
+
+	.ds .menu-expande-user.new-color > li > a {
+		color: #131e25;
+		font-weight:bold!important;
+	}
+
+	.ds .menu-expande-user.new-color > li > a:hover,
+	.ds .menu-expande-user.new-color > li.active > a {
+		color: #fff;
+}
+
+/*FIM MENU SHOP*/
+
+	.ls .menu-expande-user > li > a {
+		color: #131e25;
+	}
+
+	.ls .menu-expande-user > li > a:hover,
+	.ls .menu-expande-user > li.active > a {
+		color: #f4ca59;
+	}
+
+	.ls .menu-expande-user > li + li:before {
+		background-color: #b0b6b9;
+	}
+
+	.menu-expande-user li:hover,
+	.menu-expande-user li.sfHover {
+		/* only transition out, not in */
+		-webkit-transition: none;
+		transition: none;
+	}
+	/* second and next levels */
+	.menu-expande-user > li .mega-menu,
+	.menu-expande-user li > ul {
+		/* allow long menu items to determine submenu width */
+		*width: 10em;
+		background-color: #fff;
+		border-top: none;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		list-style: none;
+		margin-top: 5px;
+		min-width: 17em;
+		padding: 46px 0 46px;
+		text-align: left;
+		z-index:1000!important;
+		/* no auto sub width for IE7, see white-space comment below */
+	}
+
+	.menu-expande-user > li .mega-menu {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.menu-expande-user.nav ul a {
+		color: #131e25;
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+
+	.menu-expande-user .mega-menu ul {
+		background: transparent;
+		box-shadow: none;
+		padding: 0;
+	}
+
+	.menu-expande-user .mega-menu ul a {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.menu-expande-user ul a:hover,
+	.menu-expande-user ul li.active > a {
+		color: #f4ca59;
+	}
+	/* third level */
+	.menu-expande-user ul ul {
+		margin-top: 0;
+		top: -32px;
+	}
+
+	.sf-arrows ul .sf-with-ul:after {
+		content: "\f105";
+		font-family: "FontAwesome";
+		padding-left: 7px;
+	}
 }
