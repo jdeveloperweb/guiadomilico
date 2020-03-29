@@ -53,13 +53,9 @@ class CadastroUserView(FormView):
         return super(CadastroUserView, self).form_valid(form)
 
 
-class AtivadoSucessoView(TemplateView):
+def ativadoSucesso(request):
     template_name = 'accounts/active_sucess.html'
-    def get_context_data(self, **kwargs):
-        context = super(AtivadoSucessoView, self).get_context_data(**kwargs)
-        context['nomeCompleto'] = CadastroUserView.extra_context.get("nomeCompleto")
-
-        return context
+    return render(request, template_name)
 
 
 def ativa(uidb64, token):

@@ -18,10 +18,12 @@
 									<li>
 										<p class="email_top"><a href="mailto:example@fortex.com">atendimento@guiadomilico.com</a></p>
 									</li>
+					{% if not user.is_authenticated %}
+
 									<li>
 										<p class="plus_top"><a href="{% url 'accounts:cadastroUsuario' %}">Quero me cadastrar</a></p>
 									</li>
-
+						{% endif %}
 								</ul>
 							</div>
 							<div class="col-12 col-sm-3 text-right">

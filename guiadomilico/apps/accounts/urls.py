@@ -10,6 +10,6 @@ urlpatterns = [
     path('cadastro/', cadastro.CadastroUserView.as_view(), name='cadastroUsuario'),
     path('confirm/<str:uidb64>/<str:token>', cadastro.ativarCadastro, name='cadastroAtivar'),
     path('cadastro/ativar-conta', cadastro.EmailAtivaView.as_view(), name='ativar-conta'),
-    path('cadastro/ativado', cadastro.AtivadoSucessoView.as_view(), name='ativado'),
+    path('cadastro/ativado', cadastro.ativadoSucesso, name='ativado'),
 
 ]
