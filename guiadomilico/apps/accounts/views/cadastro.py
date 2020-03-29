@@ -51,9 +51,9 @@ class CadastroUserView(FormView):
 
 
         # Context para avisar ao usuário que o cadastro foi efetuado com sucesso.
-        self.extra_context['emailEnvio'] =  usuario.email
         self.extra_context['nomeCompleto'] = "{} {}".format(usuario.nome, usuario.sobrenome)
-        self.extra_context['sucessoCadastro'] = "Um email foi enviado para {} com um link de ativação.".format(usuario.email)
+        self.request.session["emailEnvio"] =  usuario.email
+        self.request.session["sucessoCadastro"] = "Um email foi enviado para {} com um link de ativação.".format(usuario.email)
 
         return super(CadastroUserView, self).form_valid(form)
 
