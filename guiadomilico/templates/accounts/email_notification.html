@@ -11,7 +11,7 @@
 
 
 							<div class="col-md-12">
-								<h1 class="bold">SEJA BEM VINDO</h1>
+								<h1 class="bold">FALTA POUCO...</h1>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item">
 											Conheça mais os <a href="{% url 'accounts:cadastroUsuario'%} " > Nossos Serviços </a>
@@ -36,12 +36,21 @@
 									<div class="woocommerce">
 
 <div class="icon-box text-center hero-bg rounded box-shadow animate" data-animation="slideUp" data-delay="150" >
-										<div class="icon-styled bg-maincolor3 rounded fs-24">
-											<i class="fa fa-check"></i>
+	{% if sucessoCadastro %}
+										<div class="icon-styled bg-maincolor rounded fs-24">
+											<i class="fa fa-envelope"></i>
 										</div>
-										<h6 class="fw-300">Ativada com sucesso.</h6>
-										<p>Parabéns {{ nomeCompleto|title  }}, sua conta foi ativada com sucesso! Agora você pode utilizar todos os nossos serviços.</p>
+										<h6 class="fw-300">Email de ativação.</h6>
+										<p>
 
+												{{ sucessoCadastro }}
+
+
+										</p>
+										<p>
+											<a href="#">Reenviar email</a>
+										</p>
+		{% endif %}
 </div>
 
 

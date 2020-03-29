@@ -6,7 +6,7 @@ var $body = $('body');
 var $window = $(window);
 /// minha proprias funções
 
-$(".alerta").delay(10000).slideUp(200, function() {
+$(".alerta").delay(15000).slideUp(200, function() {
     $(this).hide();
 });
 
@@ -1050,31 +1050,7 @@ function documentReadyInit() {
 	//PHP widgets - contact form, search, MailChimp//
 	/////////////////////////////////////////////////
 
-	//contact form processing
-	$('form.contact-form').on('submit', function( e ){
-		e.preventDefault();
-		var $form = $(this);
-		$($form).find('.contact-form-respond').remove();
 
-		//checking on empty values
-		$($form).find('[aria-required="true"], [required]').each(function(index) {
-			var $thisRequired = $(this);
-			if (!$thisRequired.val().length) {
-				$thisRequired
-					.addClass('invalid')
-					.on('focus', function(){
-						$thisRequired
-							.removeClass('invalid');
-					});
-			}
-		});
-		//if one of form fields is empty - exit
-		if ($form.find('[aria-required="true"], [required]').hasClass('invalid')) {
-			return;
-		}
-
-
-	});
 
 
 	//search modal

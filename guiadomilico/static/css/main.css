@@ -21623,7 +21623,7 @@ legend {
 
 .link_cadastro{
 
-    margin-top:15px;
+    margin-top:5px;
     display:block !important;
 
 }
@@ -22512,7 +22512,7 @@ h4.title_block {
 #sign_up_modal.modal select,
 #sign_up_modal.modal .form-control {
 	background-color: transparent;
-	border-color: transparent transparent #b0b6b9;
+
 	border-radius: 0;
 	color: #131e25;
 	padding-bottom: 3px;
@@ -22660,18 +22660,15 @@ h4.title_block {
 }
 
 .close-modal {
-	color: #6d7a82;
-	margin-top: 2em;
 	position: relative;
 }
 
 .close-modal:after {
 	background: #6d7a82;
 	bottom: 2px;
-	content: "";
 	height: 1px;
 	left: 0;
-	position: absolute;
+
 	right: 0;
 	top: auto;
 	-webkit-transition: all 0.3s ease-in-out;

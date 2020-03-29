@@ -73,7 +73,7 @@
 		<div class="container">
 			<div class="row c-gutter-0 align-items-center">
 				<div class="ls col-12 col-sm-6">
-					<form class="contact-form  c-mb-10 c-gutter-10" method="post" action="" >
+					<form class="contact-form  c-mb-10 c-gutter-10" method="post" action="{% url 'accounts:login' %}"  >
 						{% csrf_token %}
 						<div class="row">
 							<div class="col-sm-12">
@@ -99,9 +99,10 @@
 
 
 							<a class="sign_up_modal close-modal s-py-5" data-dismiss="modal" aria-label="Close" href="#sign_up_modal"><span aria-hidden="true">Esqueceu sua senha?</span></a>
-							<a class=" close-modal link_cadastro" href="{% url 'accounts:cadastroUsuario'%} "><span aria-hidden="true">Quero me Cadastrar</span> </a>
+							<br />
 
 						</div>
+							<a class=" link_cadastro" href="{% url 'accounts:cadastroUsuario'%} "><span aria-hidden="true">Quero me Cadastrar</span> </a>
 
 					</form>
 
