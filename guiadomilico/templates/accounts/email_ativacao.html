@@ -6,9 +6,9 @@ Como uma forma de manter nossos usuários seguros, solicitamos que você clique 
 
 https://{{ dominio }}{% url 'accounts:cadastroAtivar' uidb64=uid token=token %}
 
-Caso você não se sinta seguro em utilizar o link acimVocê pode confirmar seu registro digitando o seguinte endereço em seu navegador e digitar o código de ativação:
+Caso você não se sinta seguro em utilizar o link acima, você pode confirmar seu registro digitando o seguinte endereço em seu navegador e digitar o código de ativação:
 
-https://www.b7invest.com.br/profile/confirm
+https://{{ dominio }}/accounts/ativar
 
 User id: {{ uid }}
 Código de ativação: {{ token }}

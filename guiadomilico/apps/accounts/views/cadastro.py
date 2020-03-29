@@ -4,7 +4,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage, send_mail
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
@@ -13,6 +13,26 @@ from django.views.generic import FormView, TemplateView
 from guiadomilico.apps.accounts.token import account_activation_token
 from guiadomilico.apps.accounts.forms.cadastro import CadastroUserForm
 from guiadomilico.apps.accounts.models.base import Usuario
+
+
+def send_mail(request, usuario):
+        current_site = get_current_site(request)
+        mail_subject = "[Guia do Milico] Ativação de usuário necessária"
+        message = render_to_string('accounts/email_ativacao.html', {
+            'usuario': usuario,
+            'dominio': current_site.domain,
+            'uid': urlsafe_base64_encode(force_bytes(usuario.pk)),
+            'token': account_activation_token.make_token(usuario),
+        })
+        to_email = usuario.email
+
+        email = EmailMessage(
+            mail_subject,
+            message,
+            to=[to_email]
+        )
+
+        email.send()
 
 
 class CadastroUserView(FormView):
@@ -27,28 +47,13 @@ class CadastroUserView(FormView):
         usuario.save()
 
 
-        current_site = get_current_site(self.request)
-        mail_subject = "[Guia do Milico] Ativação de usuário necessária"
-        message = render_to_string('accounts/email_ativacao.html', {
-            'usuario': usuario,
-            'dominio': current_site.domain,
-            'uid': urlsafe_base64_encode(force_bytes(usuario.pk)),
-            'token': account_activation_token.make_token(usuario),
-        })
-        to_email = form.cleaned_data.get('email')
+        send_mail(self.request, usuario)
 
-        email = EmailMessage(
-            mail_subject,
-            message,
-            to=[to_email]
-        )
-
-        email.send()
 
         # Context para avisar ao usuário que o cadastro foi efetuado com sucesso.
-        self.extra_context['emailEnvio'] =  to_email
+        self.extra_context['emailEnvio'] =  usuario.email
         self.extra_context['nomeCompleto'] = "{} {}".format(usuario.nome, usuario.sobrenome)
-        self.extra_context['sucessoCadastro'] = "Um email foi enviado para {} com um link de ativação.".format(to_email)
+        self.extra_context['sucessoCadastro'] = "Um email foi enviado para {} com um link de ativação.".format(usuario.email)
 
         return super(CadastroUserView, self).form_valid(form)
 
@@ -96,11 +101,44 @@ def ativarCadastro(request, uidb64, token):
 
 class EmailAtivaView(TemplateView):
     template_name = 'accounts/email_notification.html'
+
     def get_context_data(self, **kwargs):
         context = super(EmailAtivaView, self).get_context_data(**kwargs)
-        context['sucessoCadastro'] = CadastroUserView.extra_context.get("sucessoCadastro")
-        context['emailEnvio'] = CadastroUserView.extra_context.get("emailEnvio")
+        context['sucessoCadastro'] = self.request.session["sucessoCadastro"]
+        context['emailEnvio'] = self.request.session["emailEnvio"]
+        del self.request.session["sucessoCadastro"]
+        del self.request.session["emailEnvio"]
 
         return context
 
+def accounts_inativa(request):
+    logout(request)
 
+    template_name = 'accounts/cadastro_inativo.html'
+    context = {}
+
+    if request.method == 'POST':
+        username = request.POST['username']
+
+        if Usuario.objects.filter(email=username).count() == 1:
+            usuario = Usuario.objects.get(email=username)
+        elif Usuario.objects.filter(username=username).count() == 1:
+            usuario = Usuario.objects.get(username=username)
+        else:
+            usuario = None
+
+        if usuario is not None:
+            send_mail(request, usuario)
+
+
+            request.session['sucessoCadastro'] = "Um email foi enviado para {} com um link de ativação.".format(usuario.email)
+            request.session['emailEnvio'] = usuario.email
+
+            return redirect(reverse('accounts:ativar-conta'))
+
+        else:
+            context['erro'] = "Nome de usuário/Email não encontrado!"
+
+        return render(request, template_name, context)
+
+    return render(request, template_name, context)
