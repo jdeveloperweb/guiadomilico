@@ -277,9 +277,14 @@ label {
 
 a {
 	color: #131e25;
+	font-family: "Roboto Condensed", sans-serif !important;
 	text-decoration: none;
 	-webkit-transition: all 0.2s ease-in-out 0s;
 	transition: all 0.2s ease-in-out 0s;
+}
+
+input{
+	font-family: "Roboto Condensed", sans-serif !important;
 }
 
 a:hover {
@@ -8757,8 +8762,7 @@ section > .cover-image {
 }
 
 .s-overlay.ds:before {
-	background-color: #131e25;
-	opacity: 0.7;
+	background-color:rgba(19, 30, 37,0.7) !important;
 	z-index: 3;
 }
 
@@ -17717,7 +17721,7 @@ a img.aligncenter {
 		.my-menu li > ul {
 
 		padding: 26px 0px !important;
-		background-color:rgba(19, 30, 37, 0.6) !important;
+		background-color:rgba(19, 30, 37, 0.8) !important;
 		color:#FFF;
 
 	}
@@ -22549,7 +22553,7 @@ h4.title_block {
 #sign_up_modal.modal select,
 #sign_up_modal.modal .form-control {
 	background-color: transparent;
-
+	font-family: "Roboto Condensed", sans-serif !important;
 	border-radius: 0;
 	color: #131e25;
 	padding-bottom: 3px;
@@ -22658,6 +22662,7 @@ h4.title_block {
 
 #sign_up_modal #contact_signupform_submit,
 #sign_in_modal #contact_signinform_submit {
+	font-family: "Roboto Condensed", sans-serif !important;
 	margin-top: 30px;
 }
 

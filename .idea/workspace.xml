@@ -4,7 +4,7 @@
     <list default="true" id="8ff9d0ba-1aec-4622-9673-ccb1cfa95392" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/static/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_inativo.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_inativo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/templates/menu/menu_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/menu/menu_usuario.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
