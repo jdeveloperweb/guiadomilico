@@ -11,6 +11,10 @@ class CadastroUserForm(UserCreationForm):
         required=True
     )
 
+
+
+
+
     class Meta:
         model = Usuario
         fields = (
@@ -21,3 +25,5 @@ class CadastroUserForm(UserCreationForm):
             'password1',
             'password2'
         )
+
+

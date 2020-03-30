@@ -25,8 +25,8 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('Endereço de Email'), unique=True)
 
     # Dados
-    nome = models.CharField(_('Nome'), max_length=255, null=True, blank=True)
-    sobrenome = models.CharField(_('Sobrenome'), max_length=255, null=True, blank=True)
+    nome = models.CharField(_('Nome'), max_length=255)
+    sobrenome = models.CharField(_('Sobrenome'), max_length=255)
     nome_razao_social = models.CharField(max_length=255, null=True, blank=True)
     tipo_pessoa = models.CharField(max_length=2, choices=TIPO_PESSOA, default='PF')
     inscricao_municipal = models.CharField(max_length=32, null=True, blank=True)

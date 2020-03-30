@@ -9,8 +9,9 @@ urlpatterns = [
     url(r'login/$', login.LoginView.as_view(), name='login'),
     path('cadastro/', cadastro.CadastroUserView.as_view(), name='cadastroUsuario'),
     path('confirm/<str:uidb64>/<str:token>', cadastro.ativarCadastro, name='cadastroAtivar'),
-    path('cadastro/ativar-conta', cadastro.EmailAtivaView.as_view(), name='ativar-conta'),
-    path('cadastro/reenviar-email', cadastro.accounts_inativa, name='cadastroReenvioEmail'),
+    path('cadastro/ativar-conta', cadastro.EmailActiveView.as_view(), name='ativar-conta'),
+    path('cadastro/reenviar-email', cadastro.accounts_inactive, name='cadastroReenvioEmail'),
     path('cadastro/ativado', cadastro.ativadoSucesso, name='ativado'),
+    url('ajax/is_exists_register_ajax/', cadastro.is_exists_register_ajax, name='is_exists_register_ajax'),
 
 ]

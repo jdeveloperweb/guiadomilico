@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # DEFINIÇÃO DE NÍVEIS DE ACESSO #
+
 ADMINISTRADOR = 0
 GERENTE = 1
 EDITOR = 2

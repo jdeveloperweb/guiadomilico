@@ -24269,3 +24269,17 @@ p.entry-description {
 }
 
 
+.invalid{
+    width: 100%!important;
+    margin-top: .25rem!important;
+    font-size: 80%!important;
+    color: #dc3545 !important;
+    font-weight:bold !important;
+}
+.valid{
+    width: 100%!important;
+    margin-top: .25rem!important;
+    font-size: 80%!important;
+    color: green !important;
+    font-weight:bold !important;
+}

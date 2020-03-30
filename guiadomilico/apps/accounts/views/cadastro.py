@@ -1,13 +1,12 @@
-
 from django.contrib.auth import logout, login
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage, send_mail
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy, reverse
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-
 from django.views.generic import FormView, TemplateView
 
 from guiadomilico.apps.accounts.token import account_activation_token
@@ -16,23 +15,23 @@ from guiadomilico.apps.accounts.models.base import Usuario
 
 
 def send_mail(request, usuario):
-        current_site = get_current_site(request)
-        mail_subject = "[Guia do Milico] Ativação de usuário necessária"
-        message = render_to_string('accounts/email_ativacao.html', {
-            'usuario': usuario,
-            'dominio': current_site.domain,
-            'uid': urlsafe_base64_encode(force_bytes(usuario.pk)),
-            'token': account_activation_token.make_token(usuario),
-        })
-        to_email = usuario.email
+    current_site = get_current_site(request)
+    mail_subject = "[Guia do Milico] Ativação de usuário necessária"
+    message = render_to_string('accounts/email_ativacao.html', {
+        'usuario': usuario,
+        'dominio': current_site.domain,
+        'uid': urlsafe_base64_encode(force_bytes(usuario.pk)),
+        'token': account_activation_token.make_token(usuario),
+    })
+    to_email = usuario.email
 
-        email = EmailMessage(
-            mail_subject,
-            message,
-            to=[to_email]
-        )
+    email = EmailMessage(
+        mail_subject,
+        message,
+        to=[to_email]
+    )
 
-        email.send()
+    email.send()
 
 
 class CadastroUserView(FormView):
@@ -46,14 +45,14 @@ class CadastroUserView(FormView):
         usuario.is_trusty = False
         usuario.save()
 
-
         send_mail(self.request, usuario)
 
-
         # Context para avisar ao usuário que o cadastro foi efetuado com sucesso.
+        self.extra_context['form'] = self.form_class
         self.extra_context['nomeCompleto'] = "{} {}".format(usuario.nome, usuario.sobrenome)
-        self.request.session["emailEnvio"] =  usuario.email
-        self.request.session["sucessoCadastro"] = "Um email foi enviado para {} com um link de ativação.".format(usuario.email)
+        self.request.session["emailEnvio"] = usuario.email
+        self.request.session["sucessoCadastro"] = "Um email foi enviado para {} com um link de ativação.".format(
+            usuario.email)
 
         return super(CadastroUserView, self).form_valid(form)
 
@@ -98,12 +97,11 @@ def ativarCadastro(request, uidb64, token):
         return render(request, template_name, context)
 
 
-
-class EmailAtivaView(TemplateView):
+class EmailActiveView(TemplateView):
     template_name = 'accounts/email_notification.html'
 
     def get_context_data(self, **kwargs):
-        context = super(EmailAtivaView, self).get_context_data(**kwargs)
+        context = super(EmailActiveView, self).get_context_data(**kwargs)
         context['sucessoCadastro'] = self.request.session["sucessoCadastro"]
         context['emailEnvio'] = self.request.session["emailEnvio"]
         del self.request.session["sucessoCadastro"]
@@ -111,9 +109,9 @@ class EmailAtivaView(TemplateView):
 
         return context
 
-def accounts_inativa(request):
-    logout(request)
 
+def accounts_inactive(request):
+    logout(request)
     template_name = 'accounts/cadastro_inativo.html'
     context = {}
 
@@ -130,8 +128,8 @@ def accounts_inativa(request):
         if usuario is not None:
             send_mail(request, usuario)
 
-
-            request.session['sucessoCadastro'] = "Um email foi enviado para {} com um link de ativação.".format(usuario.email)
+            request.session['sucessoCadastro'] = "Um email foi enviado para {} com um link de ativação.".format(
+                usuario.email)
             request.session['emailEnvio'] = usuario.email
 
             return redirect(reverse('accounts:ativar-conta'))
@@ -142,3 +140,32 @@ def accounts_inativa(request):
         return render(request, template_name, context)
 
     return render(request, template_name, context)
+
+
+def is_exists_register_ajax(request):
+    field = request.GET.get('field', None)
+    validate = request.GET.get('validate', None)
+
+    if validate is not None:
+        if validate == 'username':
+            is_tasken = Usuario.objects.filter(username__iexact=field).exists()
+        elif validate == 'email':
+            is_tasken = Usuario.objects.filter(email__iexact=field).exists()
+        else:
+            is_tasken = False;
+
+
+
+    data = {
+        'is_taken': is_tasken
+    }
+    return JsonResponse(data)
+
+def validate_email_ajax(request):
+    email = request.GET.get('email', None)
+    data = {
+        'is_taken': Usuario.objects.filter(email__iexact=email).exists()
+    }
+    return JsonResponse(data)
+
+

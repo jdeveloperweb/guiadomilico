@@ -4,13 +4,107 @@
 
 var $body = $('body');
 var $window = $(window);
-/// minha proprias funções
 
-$(".alerta").delay(15000).slideUp(200, function() {
-    $(this).hide();
+/*********************************/
+/********  MINHA FUNÇÕES   *******/
+/*********************************/
+
+var password = document.getElementById("password_1") ,
+    confirm_password = document.getElementById("password_2");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("As senhas não conferem");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+$('#password_1').change(function(){
+    validatePassword();
+});
+
+$('#password_2').change(function(){
+    validatePassword();
 });
 
 
+$('#account_username').change(function(){
+      var username = $(this);
+      var msg = $('#msg-username');
+      msg.html("");
+      if(username.val() != ""){
+
+      $.ajax({
+               type: "GET",
+               url: "ajax/is_exists_register_ajax",
+               data: {'field': username.val(),
+                      'validate': 'username' },
+               dataType: "json",
+               success: function (data) {
+                    if (data.is_taken) {
+                        msg.html("Desculpe, este nome de usuário já esta em uso.");
+                        msg.addClass('invalid');
+                        msg.removeClass('valid');
+                    }else{
+                        msg.html("Nome de usuário disponível.");
+                        msg.addClass('valid');
+                        msg.removeClass('invalid');
+                    }
+                },
+                error: function(rs, e) {
+                       fail.html("Ocorreu um erro, tente novamente.");
+                       msg.addClass('invalid');
+                       msg.removeClass('valid');
+                }
+          });
+
+       }else{
+            msg.html("");
+            msg.removeClass('valid');
+            msg.removeClass('invalid');
+       }
+    });
+
+$('#account_email').change(function(){
+      var email = $(this);
+      var msg = $('#msg-email');
+      msg.html("");
+      if(email.val() != ""){
+      $.ajax({
+               type: "GET",
+               url: "ajax/is_exists_register_ajax",
+               data: {'field': email.val(),
+                      'validate': 'email' },
+               dataType: "json",
+               success: function (data) {
+                    if (data.is_taken) {
+                        msg.html("Este email já está cadastrado.");
+                        msg.addClass('invalid');
+                        msg.removeClass('valid');
+                    }else{
+                        msg.addClass('valid');
+                        msg.removeClass('invalid');
+                    }
+                },
+                error: function(rs, e) {
+                       fail.html("Ocorreu um erro, tente novamente.");
+                       msg.addClass('invalid');
+                       msg.removeClass('valid');
+                }
+          });
+
+       }else{
+            msg.html("");
+            msg.removeClass('valid');
+            msg.removeClass('invalid');
+       }
+    });
+
+$(".alerta").delay(15000).slideUp(200,
+function() {
+    $(this).hide();
+});
 
 jQuery("document").ready(function($){
  var nav = $('.menu-fixo');
@@ -22,6 +116,8 @@ jQuery("document").ready(function($){
         }
     });
 });
+
+
 
 //hidding menu elements that do not fit in menu width
 //processing center logo

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'guiadomilico.apps.core',
     'guiadomilico.apps.accounts',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
