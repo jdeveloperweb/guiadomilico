@@ -9,9 +9,8 @@ var $window = $(window);
 /********  MINHA FUNÇÕES   *******/
 /*********************************/
 
-var password = document.getElementById("password_1") ,
-    confirm_password = document.getElementById("password_2");
-
+/** VALIDA O CAMPO SENHA SÃO IGUAIS **/
+var password = document.getElementById("password_1") ,confirm_password = document.getElementById("password_2");
 function validatePassword(){
   if(password.value != confirm_password.value) {
     confirm_password.setCustomValidity("As senhas não conferem");
@@ -19,16 +18,10 @@ function validatePassword(){
     confirm_password.setCustomValidity('');
   }
 }
+$('#password_1').change(function(){validatePassword();});
+$('#password_2').change(function(){validatePassword();});
 
-$('#password_1').change(function(){
-    validatePassword();
-});
-
-$('#password_2').change(function(){
-    validatePassword();
-});
-
-
+/** AJAX PARA VERIFICAR SE EXISTE EMAIL **/
 $('#account_username').change(function(){
       var username = $(this);
       var msg = $('#msg-username');
@@ -66,6 +59,7 @@ $('#account_username').change(function(){
        }
     });
 
+/** AJAX PARA VERIFICAR SE EXISTE EMAIL **/
 $('#account_email').change(function(){
       var email = $(this);
       var msg = $('#msg-email');
@@ -101,11 +95,13 @@ $('#account_email').change(function(){
        }
     });
 
+/** SOME COM O ALERTA DO CADASTRO **/
 $(".alerta").delay(15000).slideUp(200,
 function() {
     $(this).hide();
 });
 
+/**** FIXA O MENU DO SHOP ***/
 jQuery("document").ready(function($){
  var nav = $('.menu-fixo');
     $(window).scroll(function () {
@@ -117,6 +113,9 @@ jQuery("document").ready(function($){
     });
 });
 
+/*********************************/
+/****** FIM  MINHA FUNÇÕES   *****/
+/*********************************/
 
 
 //hidding menu elements that do not fit in menu width

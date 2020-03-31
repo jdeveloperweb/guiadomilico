@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff9d0ba-1aec-4622-9673-ccb1cfa95392" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/cadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/cadastro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/models/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/models/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/models/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/models/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/cadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/cadastro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/configs/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/configs/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/static/images/avatar/captain (1).png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_usuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/menu/menu_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/menu/menu_usuario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/head.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projects/blog" />
+    <property name="last_opened_file_path" value="D:/Projects/blog" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
