@@ -1,5 +1,5 @@
 {% extends 'core/base.html' %}
-{%block title%}Cadastro{%endblock%}
+{% block title %}Cadastro | {{ block.super }}{% endblock %}
 {% block menu %}
 {% include 'menu/fix.html' %}
 {% endblock %}
@@ -50,7 +50,7 @@
 
 
 
-										<form class="woocommerce-EditAccountForm edit-account" method="post">
+
  {% for field in form %}
                    {% for error in field.errors %}
                     <div class="alert alert-warning alerta animate" data-animation="slideUp" data-delay="150"><b>{{ field.label  }}</b> : {{ error }}</div>

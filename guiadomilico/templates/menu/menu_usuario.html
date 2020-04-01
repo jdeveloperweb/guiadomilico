@@ -3,7 +3,7 @@
 
 											<ul class="nav sf-menu my-menu">
 												<li>
-													<a href="#" ><img src="{% static 'images/avatar/police-8.png' %}" width="40"></a>
+													<a href="#" ><img src="{% static 'images/avatar/police-8.png' %}" width="40" /></a>
 
 												<ul style="display: none;">
 
@@ -16,7 +16,7 @@
 														<ul style="display: none; margin-top: 5px; left: -272px;">
 
 															<li>
-																<a href="#"><i class="fa fa-pencil-square-o"></i> Editar Perfil</a>
+																<a href="{% url 'accounts:my-account' %}"><i class="fa fa-user"></i> Meu dados</a>
 															</li>
 															<li>
 																<a href="#"><i class="fa fa-home"></i> Endereços</a>
@@ -26,6 +26,9 @@
 															</li>
 															<li>
 																<a href="#"><i class="fa fa-cog"></i> Preferências</a>
+															</li>
+																<li>
+																<a href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out"></i> Sair</a>
 															</li>
 
 														</ul>

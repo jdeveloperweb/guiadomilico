@@ -9,6 +9,7 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import FormView, TemplateView
 
+
 from guiadomilico.apps.accounts.token import account_activation_token
 from guiadomilico.apps.accounts.forms.cadastro import CadastroUserForm
 from guiadomilico.apps.accounts.models.base import Usuario
@@ -32,6 +33,11 @@ def send_mail(request, usuario):
     )
 
     email.send()
+
+## VIEW EM DESENVOLVIMENTO ##
+def UpdateUserView(request):
+    template_name = 'accounts/my_account.html'
+    return render(request, template_name)
 
 
 class CadastroUserView(FormView):
@@ -167,5 +173,6 @@ def validate_email_ajax(request):
         'is_taken': Usuario.objects.filter(email__iexact=email).exists()
     }
     return JsonResponse(data)
+
 
 

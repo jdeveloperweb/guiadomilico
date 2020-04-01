@@ -9,3 +9,4 @@ admin.site.register(Endereco)
 admin.site.register(Site)
 admin.site.register(Banco)
 admin.site.register(Documento)
+

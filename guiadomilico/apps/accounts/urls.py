@@ -7,7 +7,9 @@ app_name = 'accounts'
 
 urlpatterns = [
     url(r'login/$', login.LoginView.as_view(), name='login'),
+    url(r'logout/$', login.LoginView.as_view(), name='logout'),
     path('cadastro/', cadastro.CadastroUserView.as_view(), name='cadastroUsuario'),
+    path('my-account/', cadastro.UpdateUserView, name='my-account'),
     path('confirm/<str:uidb64>/<str:token>', cadastro.ativarCadastro, name='cadastroAtivar'),
     path('cadastro/ativar-conta', cadastro.EmailActiveView.as_view(), name='ativar-conta'),
     path('cadastro/reenviar-email', cadastro.accounts_inactive, name='cadastroReenvioEmail'),

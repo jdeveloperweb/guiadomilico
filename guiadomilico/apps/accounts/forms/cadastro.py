@@ -11,10 +11,6 @@ class CadastroUserForm(UserCreationForm):
         required=True
     )
 
-
-
-
-
     class Meta:
         model = Usuario
         fields = (

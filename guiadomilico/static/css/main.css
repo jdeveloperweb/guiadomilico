@@ -283,7 +283,7 @@ a {
 	transition: all 0.2s ease-in-out 0s;
 }
 
-input{
+input, select{
 	font-family: "Roboto Condensed", sans-serif !important;
 }
 
@@ -755,19 +755,19 @@ input[type="number"],
 textarea,
 select,
 .form-control {
-	background-color: transparent;
-	border-bottom: 1px solid red;
-	border-color: transparent transparent #e7e8e9;
-	border-radius: 0;
-	color: #131e25;
-	font-size: 16px;
-	height: 40px;
-	outline: none;
-	padding-bottom: 5px;
-	padding-left: 0;
-	padding-right: 0;
-	padding-top: 10px;
-	width: 100%;
+    background-color: transparent !important;
+    border: 1px solid red !important;
+    border-color: #dee2e6 !important;
+    border-radius: 5px !important;
+    color: #131e25 !important;
+    font-size: 15px !important;
+    height: 40px !important;
+    outline: none !important;
+    padding: 5px 5px 5px 15px !important;
+    /* padding-left: 0; */
+    /* padding-right: 0; */
+    /* padding-top: 10px; */
+    width: 100% !important;
 }
 
 footer input[type="text"],
@@ -1157,7 +1157,7 @@ input[type="radio"]:disabled + label:before {
 	font-weight: 500;
 	line-height: 1.15;
 	padding: 21px 49px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 
 .nav-link i {
@@ -24276,10 +24276,54 @@ p.entry-description {
     color: #dc3545 !important;
     font-weight:bold !important;
 }
+
+.box-invalid{
+    background-color:#dc3545 !important;
+}
+
 .valid{
     width: 100%!important;
     margin-top: .25rem!important;
     font-size: 80%!important;
     color: green !important;
     font-weight:bold !important;
+}
+
+.field-data{
+    font-size:24px !important;
+    font-family: "Roboto Condensed", sans-serif !important;
+    margin-top:30px !important;
+
+}
+
+.form-control:disabled, .form-control[readonly] {
+background-color: rgba(255, 255, 255, 0.05) !important;
+}
+select:disabled {
+    border: 2px solid rgba(255, 255, 255, 0.05) !important;
+    border-bottom:1px solid #ced4da !important;
+ }
+
+ label{
+     font-family: "Roboto Condensed", sans-serif !important;
+     font-size:18px !important;
+     font-weight:bold !important;
+ }
+
+.nav-avatar {
+	color: #6d7a82;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.15;
+	margin: 10px !important;
+	/*text-transform: capitalize;*/
+}
+
+.icon-tab{
+        font-size:22px !important;
+}
+
+.nav-link-tab-icon {
+    padding: 15px !important;
+	/*text-transform: capitalize;*/
 }

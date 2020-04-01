@@ -1,5 +1,6 @@
 import re
 
+from django.conf.global_settings import MEDIA_URL
 from django.db import models
 from django.utils import timezone
 
@@ -10,9 +11,7 @@ from django.core import validators
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import gettext_lazy as _
-
 from .managers import CustomUserManager
-
 
 class Usuario(AbstractBaseUser, PermissionsMixin):
     # Forma de login
@@ -24,14 +23,17 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
                                                                       _('Inválido.'))])
     email = models.EmailField(_('Endereço de Email'), unique=True)
 
+
     # Dados
     nome = models.CharField(_('Nome'), max_length=255)
     sobrenome = models.CharField(_('Sobrenome'), max_length=255)
+    aniversario = models.DateField(null=True, blank=True)
     nome_razao_social = models.CharField(max_length=255, null=True, blank=True)
     tipo_pessoa = models.CharField(max_length=2, choices=TIPO_PESSOA, default='PF')
     inscricao_municipal = models.CharField(max_length=32, null=True, blank=True)
     informacoes_adicionais = models.CharField(max_length=1055, null=True, blank=True)
     genero = models.CharField(max_length=1, choices=GENERO, null=True, blank=True)
+    avatar = models.CharField(max_length=255, null=True, blank=True)
 
     # Regras de acesso
     role = models.PositiveSmallIntegerField(default=9, choices=PAPEIS)
@@ -119,7 +121,6 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         s = u'%s %s' % (self.nome, self.sobrenome)
         return s
 
-
 class PessoaFisica(models.Model):
     usuario_id = models.OneToOneField(Usuario, on_delete=models.CASCADE, primary_key=True,
                                       related_name='pessoa_fis_info')
@@ -140,7 +141,6 @@ class PessoaFisica(models.Model):
             return 'RG: {}'.format(self.rg)
         else:
             return ''
-
 
 class PessoaJuridica(models.Model):
     usuario_id = models.OneToOneField(Usuario, on_delete=models.CASCADE, primary_key=True,
@@ -172,7 +172,6 @@ class PessoaJuridica(models.Model):
             return 'Representante: {}'.format(self.responsavel)
         else:
             return ''
-
 
 class Endereco(models.Model):
     usuario_end = models.ForeignKey(Usuario, related_name="endereco", on_delete=models.CASCADE)
@@ -207,7 +206,6 @@ class Endereco(models.Model):
             self.logradouro, self.numero, self.municipio, self.uf)
         return s
 
-
 class Telefone(models.Model):
     usuario_tel = models.ForeignKey(Usuario, related_name="telefone", on_delete=models.CASCADE)
     tipo_telefone = models.CharField(max_length=8, choices=TIPO_TELEFONE, null=True, blank=True)
@@ -223,7 +221,6 @@ class Telefone(models.Model):
         )
         return s
 
-
 class Site(models.Model):
     usuario_site = models.ForeignKey(Usuario, related_name="site", on_delete=models.CASCADE)
     site = models.CharField(max_length=255)
@@ -231,7 +228,6 @@ class Site(models.Model):
     def __str__(self):
         s = u'%s' % (self.site)
         return s
-
 
 class Banco(models.Model):
     usuario_banco = models.ForeignKey(Usuario, related_name="banco", on_delete=models.CASCADE)
@@ -249,7 +245,6 @@ class Banco(models.Model):
         s = u'%s / %s / %s' % (self.get_banco_display(),
                                self.agencia, self.conta)
         return s
-
 
 class Documento(models.Model):
     usuario_documento = models.ForeignKey(Usuario, related_name="documento", on_delete=models.CASCADE)

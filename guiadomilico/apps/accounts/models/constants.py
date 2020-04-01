@@ -73,6 +73,41 @@ UF_SIGLA = [
     ('TO', 'Tocantins')
 ]
 
+AVATAR = [
+    (0, 'user'),
+    (1,'avatar-1'),
+    (2, 'avatar-2'),
+    (3, 'avatar-3'),
+    (4, 'avatar-4'),
+    (5, 'avatar-5'),
+    (6, 'avatar-6'),
+    (7, 'avatar-7'),
+    (8, 'avatar-8'),
+    (9, 'avatar-9'),
+    (10, 'avatar-10'),
+    (11, 'avatar-11'),
+    (12, 'avatar-12'),
+    (13, 'avatar-13'),
+    (14, 'avatar-14'),
+    (15, 'avatar-15'),
+    (16, 'avatar-16'),
+    (17, 'avatar-17'),
+    (18, 'avatar-18'),
+    (19, 'avatar-19'),
+    (20, 'avatar-20'),
+    (21, 'avatar-21'),
+    (22, 'avatar-22'),
+    (23, 'avatar-23'),
+    (24, 'avatar-24'),
+    (25, 'avatar-25'),
+    (26, 'avatar-26'),
+    (27, 'avatar-27'),
+    (28, 'avatar-28'),
+    (29, 'avatar-29'),
+    (30, 'avatar-30'),
+]
+
+
 COD_UF = [
     ('12', 'AC'),
     ('27', 'AL'),

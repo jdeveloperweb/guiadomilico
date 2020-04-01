@@ -8,6 +8,22 @@ var $window = $(window);
 /*********************************/
 /********  MINHA FUNÇÕES   *******/
 /*********************************/
+ $(function() {
+    $('.time').mask('00:00:00');
+    $('.date_time').mask('00/00/0000 00:00:00');
+    $('.cep').mask('00000-000');
+    $('.phone').mask('0000-0000');
+    $('.phone_with_ddd').mask('(00) 0000-0000');
+    $('.phone_us').mask('(000) 000-0000');
+    $('.mixed').mask('AAA 000-S0S');
+    $('.ip_address').mask('099.099.099.099');
+    $('.percent').mask('##0,00%', {reverse: true});
+    $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+    $('.cpf').mask('000.000.000-00', {placeholder: "____.____.____.-___"}, {reverse: true});
+    $('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
+    $('.date').mask("00/00/0000", {placeholder: "__/__/____"});
+    $('.phone_ddd').mask('(00) 00000-0000', {placeholder: "(__)  ____-_______"});
+ });
 
 /** VALIDA O CAMPO SENHA SÃO IGUAIS **/
 var password = document.getElementById("password_1") ,confirm_password = document.getElementById("password_2");
@@ -38,6 +54,7 @@ $('#account_username').change(function(){
                     if (data.is_taken) {
                         msg.html("Desculpe, este nome de usuário já esta em uso.");
                         msg.addClass('invalid');
+                        username.addClass('box-invalid');
                         msg.removeClass('valid');
                     }else{
                         msg.html("Nome de usuário disponível.");
@@ -113,9 +130,16 @@ jQuery("document").ready(function($){
     });
 });
 
+
+
 /*********************************/
 /****** FIM  MINHA FUNÇÕES   *****/
 /*********************************/
+
+
+
+
+
 
 
 //hidding menu elements that do not fit in menu width
