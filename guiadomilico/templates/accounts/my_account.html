@@ -1,6 +1,6 @@
 {% extends 'core/base.html' %}
 {% load static %}
-{% block title %}Minha conta | {{ block.super }}{% endblock %}
+{% block title %}Minha conta{{ block.super }}{% endblock %}
 {% block menu %}
 {% include 'menu/fix.html' %}
 {% endblock %}
@@ -16,69 +16,57 @@
 
 
 <section class="page_title padding-mobile cs s-py-30 s-py-md-80 s-py-xl-50 cover-background">
-					<div class="container">
-						<div class="row">
-
-							<div class="col-md-12">
-								<h1 class="bold">MINHA CONTA</h1>
-								<ul class="breadcrumb">
-									<li class="breadcrumb-item">
-											Visualize e modifique seus dados
-
-									</li>
-								</ul>
-							</div>
-
-
-						</div>
-					</div>
-				</section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="bold">MINHA CONTA</h1>
+					<ul class="breadcrumb">
+						<li class="breadcrumb-item">
+							Visualize e modifique seus dados
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+</section>
 
          <section class="ls s-py-10">
-
 				<div class="container">
-
-
 						<div class="d-none d-lg-block divider-20"></div>
-
 						<main class="col-lg-13">
 							<article>
-								<!-- .entry-header -->
-
 								<div class="entry-content">
 									<div class="woocommerce">
 
-	<!--<div class="woocommerce-message hide">Are you sure you want to log out? <a
-				href="shop-account-login.html">Confirm and log out</a>
-	</div>-->
+								{% include 'menu/menu-accounts.html' %}
 
+						<div class="woocommerce-MyAccount-content">
 
-		{% include 'menu/menu-accounts.html' %}
-
-		<div class="woocommerce-MyAccount-content">
-		{% for field in form %}
-                   {% for error in field.errors %}
-                    <div class="alert alert-warning alerta animate" data-animation="slideUp" data-delay="150"><b>{{ field.label  }}</b> : {{ error }}</div>
-                    {% endfor %}
-  			{% endfor %}
+								{% for field in form %}
+									{% for error in field.errors %}
+										 <div class="alert alert-warning alerta animate" data-animation="slideUp" data-delay="150">
+											 <b>{{ field.label  }}</b> : {{ error }}
+										 </div>
+									{% endfor %}
+								{% endfor %}
 
 
 
 							<ul class="nav nav-tabs" role="tablist">
 										<li class="nav-item">
-											<a class="nav-link active show nav-link-tab-icon" id="tab01" data-toggle="tab" href="#tab01_pane" role="tab" aria-controls="tab01_pane" aria-expanded="true" aria-selected="true"><i class="fa fa-user icon-tab"></i>  </a>
+											<a class="nav-link active show nav-link-tab-icon" id="tab01" data-toggle="tab" href="#tab01_pane" role="tab" aria-controls="tab01_pane" aria-expanded="true" aria-selected="true"><i class="fa fa-user icon-tab"></i> <span class="mob-title"> Informações pessoais</span>  </a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link nav-link-tab-icon" id="tab02" data-toggle="tab" href="#tab02_pane" role="tab" aria-controls="tab02_pane" aria-selected="false"><i class="fa fa-home icon-tab"></i></a>
+											<a class="nav-link nav-link-tab-icon" id="tab02" data-toggle="tab" href="#tab02_pane" role="tab" aria-controls="tab02_pane" aria-selected="false"><i class="fa fa-home icon-tab"></i> <span class="mob-title">Endereços</span></a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link nav-link-tab-icon" id="tab03" data-toggle="tab" href="#tab03_pane" role="tab" aria-controls="tab03_pane" aria-selected="false"><i class="fa fa-unlock-alt icon-tab"></i> </a>
+											<a class="nav-link nav-link-tab-icon" id="tab03" data-toggle="tab" href="#tab03_pane" role="tab" aria-controls="tab03_pane" aria-selected="false"><i class="fa fa-unlock-alt icon-tab"></i> <span class="mob-title">Segurança</span> </a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link nav-link-tab-icon" id="tab04" data-toggle="tab" href="#tab04_pane" role="tab" aria-controls="tab04_pane" aria-selected="false"><i class="fa fa-bank icon-tab"></i></a>
+											<a class="nav-link nav-link-tab-icon" id="tab04" data-toggle="tab" href="#tab04_pane" role="tab" aria-controls="tab04_pane" aria-selected="false"><i class="fa fa-bank icon-tab"></i> <span class="mob-title">Dados Bancários</span></a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link nav-link-tab-icon" id="tab05" data-toggle="tab" href="#tab05_pane" role="tab" aria-controls="tab05_pane" aria-selected="false"><i class="fa fa-cog icon-tab"></i>  </a>
+											<a class="nav-link nav-link-tab-icon" id="tab05" data-toggle="tab" href="#tab05_pane" role="tab" aria-controls="tab05_pane" aria-selected="false"><i class="fa fa-cog icon-tab"></i><span class="mob-title"> Preferências</span> </a>
 										</li>
 							</ul>
 
@@ -87,12 +75,6 @@
 
 						<div class="tab-pane fade in active show" id="tab01_pane" role="tabpanel" aria-labelledby="tab01">
 
-									{% if sucessoCadastro %}
-										<div class="alerta woocommerce-message animate" data-animation="scaleAppear" data-delay="150" role="alert">
-											<button type="button" class="close" data-dismiss="alerta" aria-label="Close"><span aria-hidden="true"></span></button>
-											{{ sucessoCadastro }}
-										</div>
-										{% endif %}
 										<form class="contact-form" method="post" id="form-register" >
 
 											{% csrf_token %}
@@ -104,13 +86,13 @@
 											</p>
 
 											<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
-												<label for="account_first_name">Nome <span class="required">*</span></label>
-												<input  type="text" required aria-required="true" class="woocommerce-Input woocommerce-Input--text input-text form-control"  placeholder="Digite seu nome..." name="nome" id="account_first_name" value="{{ user.nome }}">
+												<label for="account_first_name" > Nome <span class="required">*</span></label>
+												<input  type="text" required aria-required="true" class="woocommerce-Input woocommerce-Input--text input-text form-control "  placeholder="Digite seu nome..." name="nome" id="account_first_name" value="{{ user.nome|title }}">
 											</p>
 
 											<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
 												<label for="account_last_name">Sobrenome <span class="required">*</span></label>
-												<input  type="text" required aria-required="true" class="woocommerce-Input woocommerce-Input--text input-text form-control"  placeholder="Digite seu sobrenome..." name="sobrenome" id="account_last_name" value="{{ user.sobrenome }}">
+												<input  type="text" required aria-required="true" class="woocommerce-Input woocommerce-Input--text input-text form-control"  placeholder="Digite seu sobrenome..." name="sobrenome" id="account_last_name" value="{{ user.sobrenome|title }}">
 											</p>
 
 											<div class="clear">
@@ -121,7 +103,7 @@
 
 											<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
 												<label for="account_gender">Genêro </label>
-												<select  name="account_gender" id="account_gender" class="country_to_state country_select  select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+												<select  name="genero" id="account_gender" class="country_to_state country_select  select2-hidden-accessible" tabindex="-1" aria-hidden="true">
 																<option value="">Selecione seu genêro...</option>
 																<option value="AX" >Masculino</option>
 																<option value="AF">Feminino</option>
@@ -130,17 +112,18 @@
 											</p>
 											<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
 												<label for="account_brithday">Data de nascimento</label>
-												<input  type="text" aria-required="true" required class="woocommerce-Input  input-text form-control date placeholder" placeholder="dd/mm/aaaa" maxlength="10" autocomplete="off" name="account_brithday" id="account_brithday" placeholder="" value="" >
+												<input  type="text" aria-required="true" required class="woocommerce-Input  input-text form-control   date placeholder" placeholder="dd/mm/aaaa" maxlength="10" autocomplete="off" name="nascimento" id="account_brithday" placeholder="" value="" >
 											</p>
 
 
 												<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
 												<label for="account_cpf">CPF </label>
-												<input   type="text" aria-required="true" required class="woocommerce-Input  woocommerce-Input--text input-text form-control cpf"  placeholder="" name="account_cpf" id="account_cpf"  value="">
-											</p>
+												<input   type="text" aria-required="true" required class="woocommerce-Input  woocommerce-Input--text input-text form-control cpf"  placeholder="" name="cpf" id="account_cpf"  value="">
+												<span id="msg-cpf"></span>
+												</p>
 											<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
 												<label for="account_tel">Telefone</label>
-												<input  type="text" aria-required="true" required class="woocommerce-Input woocommerce-Input--email input-text form-control phone_ddd" name="account_tel" id="account_tel" placeholder="" value="" >
+												<input  type="text" aria-required="true" required class="woocommerce-Input woocommerce-Input--email input-text form-control phone_ddd" name="telefone" id="account_tel" placeholder="" value="" >
 
 											</p>
 
@@ -176,12 +159,8 @@
 				</div>
 
 									</div>
-
-
-
-
-
 									</div>
+
 								</div>
 								<!-- .entry-content -->
 							</article>

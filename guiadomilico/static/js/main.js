@@ -13,8 +13,6 @@ var $window = $(window);
     $('.date_time').mask('00/00/0000 00:00:00');
     $('.cep').mask('00000-000');
     $('.phone').mask('0000-0000');
-    $('.phone_with_ddd').mask('(00) 0000-0000');
-    $('.phone_us').mask('(000) 000-0000');
     $('.mixed').mask('AAA 000-S0S');
     $('.ip_address').mask('099.099.099.099');
     $('.percent').mask('##0,00%', {reverse: true});
@@ -27,6 +25,9 @@ var $window = $(window);
 
 /** VALIDA O CAMPO SENHA SÃO IGUAIS **/
 var password = document.getElementById("password_1") ,confirm_password = document.getElementById("password_2");
+
+
+
 function validatePassword(){
   if(password.value != confirm_password.value) {
     confirm_password.setCustomValidity("As senhas não conferem");
@@ -34,6 +35,57 @@ function validatePassword(){
     confirm_password.setCustomValidity('');
   }
 }
+
+
+$('#account_cpf').keyup(function(){
+    var strCPF = $(this).val().replace(".", "").replace(".", "").replace("-","");;
+    var msg = $('#msg-cpf');
+    msg.html("");
+    if(strCPF != ""){
+    var Soma;
+    var Resto;
+    Soma = 0;
+  if (strCPF == "11" ||
+      strCPF == "00000000000" ||
+      strCPF == "11111111111" ||
+      strCPF == "22222222222" ||
+      strCPF == "33333333333" ||
+      strCPF == "44444444444" ||
+      strCPF == "55555555555" ||
+      strCPF == "66666666666" ||
+      strCPF == "77777777777" ||
+      strCPF == "88888888888" ||
+      strCPF == "99999999999"   ){
+
+               msg.html("Digite um CPF válido");
+                msg.addClass('invalid');
+  }
+
+  for (var i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+  Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(strCPF.substring(9, 10)) ){
+              msg.html("Digite um CPF válido");
+                msg.addClass('invalid');
+  }
+  Soma = 0;
+    for (var i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(strCPF.substring(10, 11) ) ){
+                msg.html("Digite um CPF válido");
+                msg.addClass('invalid');
+    }
+
+    }else{
+            msg.html("");
+            msg.removeClass('invalid');
+       }
+});
+
+
 $('#password_1').change(function(){validatePassword();});
 $('#password_2').change(function(){validatePassword();});
 
@@ -42,7 +94,10 @@ $('#account_username').change(function(){
       var username = $(this);
       var msg = $('#msg-username');
       msg.html("");
-      if(username.val() != ""){
+      let regex = /\W|_/;
+      if(username.val() != "" ){
+
+    if(regex.test(username) && username.length < 8){
 
       $.ajax({
                type: "GET",
@@ -69,6 +124,12 @@ $('#account_username').change(function(){
                 }
           });
 
+}else{
+                     msg.html("Desculpe, este nome de usuário já esta em uso.");
+                        msg.addClass('invalid');
+                        username.addClass('box-invalid');
+                        msg.removeClass('valid');
+}
        }else{
             msg.html("");
             msg.removeClass('valid');

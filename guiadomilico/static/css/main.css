@@ -756,7 +756,7 @@ textarea,
 select,
 .form-control {
     background-color: transparent !important;
-    border: 1px solid red !important;
+    border: 1px solid !important;
     border-color: #dee2e6 !important;
     border-radius: 5px !important;
     color: #131e25 !important;
@@ -913,29 +913,30 @@ select option,
 
 .form-control:focus {
 	background-color: transparent;
+	    box-shadow: inset 0px 0px 3px #CCC;
 	border-color: transparent transparent #879195;
 }
 
 .form-control:-moz-placeholder {
-	color: #131e25;
+	color: #999;
 	font-style: normal;
 	opacity: 1;
 }
 
 .form-control::-moz-placeholder {
-	color: #131e25;
+	color: #999;
 	font-style: normal;
 	opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-	color: #131e25;
+	color: #999;
 	font-style: normal;
 	opacity: 1;
 }
 
 .form-control::-webkit-input-placeholder {
-	color: #131e25;
+	color: #999;
 	font-style: normal;
 	opacity: 1;
 }
@@ -965,6 +966,8 @@ form label + [class*="fa-"] {
 	top: 60px;
 	width: 1em;
 }
+
+
 
 form .has-placeholder label + [class*="fa-"] {
 	top: 13px;
@@ -24320,10 +24323,30 @@ select:disabled {
 }
 
 .icon-tab{
-        font-size:22px !important;
+        font-size:16px !important;
 }
 
 .nav-link-tab-icon {
     padding: 15px !important;
 	/*text-transform: capitalize;*/
 }
+
+.mob-title{ font-size:15px !important;}
+
+@media (max-width: 479px) {
+.mob-title{ display:none}
+}
+
+@media (max-width: 767px) {
+.mob-title{ display:none}
+}
+@media (max-width: 575px) {
+.mob-title{ display:none}
+}
+
+.form-control:placeholder{
+    color:#CCC !important;
+}
+
+
+

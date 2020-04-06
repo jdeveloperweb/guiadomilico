@@ -2,36 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff9d0ba-1aec-4622-9673-ccb1cfa95392" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/my_account.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guiadomilico/templates/menu/menu-accounts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/inline_formsets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/cadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/cadastro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/migrations/0002_auto_20200325_2116.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/models/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/models/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/models/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/models/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/cadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/cadastro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/views/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/configs/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/configs/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/static/images/avatar/detective-black.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/active_sucess.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/active_sucess.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_inativo.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_inativo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_usuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/email_notification.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/email_notification.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/my_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/my_account.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/head.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/modals.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/modals.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/scripts.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/scripts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/shop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/menu/fix.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/menu/fix.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/menu/init.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/menu/init.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/menu/menu_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/menu/menu_usuario.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -127,7 +108,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/guiadomilico/apps/accounts/models/base.py</url>
-          <line>209</line>
+          <line>208</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
