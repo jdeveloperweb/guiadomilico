@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff9d0ba-1aec-4622-9673-ccb1cfa95392" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/inline_formsets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/cadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/apps/accounts/forms/cadastro.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/cadastro_usuario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiadomilico/static/css/shop.css" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/static/css/shop.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/accounts/my_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/accounts/my_account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiadomilico/templates/core/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiadomilico/templates/core/shop.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,13 +26,13 @@
   <component name="ProjectId" id="1Z6DWVxbb0JSV6uScNg5qI8udp7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/guiadomilico/static/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -56,6 +49,7 @@
       <recent name="D:\guiadomilico\guiadomilico\apps\accounts\models" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>

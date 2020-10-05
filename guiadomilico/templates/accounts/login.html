@@ -2,37 +2,23 @@
 {% load static %}
 {% block title %}Acessar sua conta{{ block.super }}{% endblock %}
 {% block menu %}
-{% include 'menu/fix.html' %}
+{% include 'menu/fix-blank.html' %}
 {% endblock %}
 
 {% block content %}
-<section class="page_title padding-mobile cs s-py-60 s-py-md-80 s-py-xl-50 cover-background">
-					<div class="container">
-						<div class="row">
-
-
-							<div class="col-md-12">
-								<h1 class="bold">ACESSAR SUA CONTA</h1>
-								<ul class="breadcrumb">
-									<li class="breadcrumb-item">
-											Ainda não possui cadastro? <a href="{% url 'accounts:cadastroUsuario'%} " > Cadastrar-se </a>
-									</li>
-								</ul>
-							</div>
-
-						</div>
-					</div>
-				</section>
-         <section class="ls s-py-25">
+<div class="d-none d-lg-block divider-70"></div>
 				<div class="container">
 					<div class="row">
 
-						<div class="d-none d-lg-block divider-70"></div>
 
-						<main class="col-lg-12">
-							<article>
+	<div class="col-lg-6">
+							<div class="card shadow-sm">
 								<!-- .entry-header -->
-								<div class="entry-content">
+							<div class="card-header">
+											<h5><i class="fa fa-user-o"></i> Quero criar uma conta</h5>
+										</div>
+
+								<div class="entry-content card-body">
 									<div class="woocommerce">
 
 										<!--
@@ -41,11 +27,57 @@
 			</div>
 			-->
 
-										<form class="woocomerce-form woocommerce-form-login login" method="post" 	>
+										<form class="woocomerce-form " method="post" 	>
 										{% csrf_token %}
 
 											<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-												<label for="username">Usuário / E-mail <span class="required">*</span>
+												<label for="username">E-mail <span class="required">*</span>
+												</label>
+												<input type="text" required class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="">
+											</p>
+											
+											<p class="form-row">
+												<input type="submit" class="button" name="login" value="Continuar">
+
+						
+											</p>
+											<p class="woocommerce-LostPassword lost_password">
+												Dúvidas? <a href="shop-account-password-reset.html">fale conosco</a>
+											</p>
+
+
+										</form>
+
+
+
+									</div>
+								</div>
+								<!-- .entry-content -->
+							</div>
+
+
+						</div>
+
+						<div class="col-lg-6">
+							<div class="card shadow-sm">
+								<!-- .entry-header -->
+								<div class="card-header">
+								<h5 ><i class="fa fa-thumbs-o-up"></i>  Já sou cadastrado</h5>
+								</div>
+								<div class="entry-content card-body">
+									<div class="woocommerce">
+
+										<!--
+			<div class="woocommerce-message">Are you sure you want to log out? <a
+				href="shop-account-login.html">Confirm and log out</a>
+			</div>
+			-->
+
+										<form class="woocomerce-form " method="post" 	>
+										{% csrf_token %}
+
+											<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+												<label for="username">Usuário ou E-mail <span class="required">*</span>
 												</label>
 												<input type="text" required class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="">
 											</p>
@@ -58,15 +90,15 @@
 
 											</p>
 											<p class="form-row">
-												<input type="submit" class="woocommerce-Button button" name="login" value="Entrar">
+												<input type="submit" class=" button" name="login" value="Continuar">
 
-												<label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
+												<label class="woocommerce-form__label woocommerce-form__label-for-checkbox mt-3">
 													<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever">
 													<span>Mantenha-me conectado</span>
 												</label>
 											</p>
 											<p class="woocommerce-LostPassword lost_password">
-												<a href="shop-account-password-reset.html">Esqueceu sua senha?</a>
+												Esqueci meu <a href="shop-account-password-reset.html">e-mail</a> ou a <a href="shop-account-password-reset.html">senha</a>
 											</p>
 
 
@@ -77,10 +109,10 @@
 									</div>
 								</div>
 								<!-- .entry-content -->
-							</article>
+							</div>
 
 
-						</main>
+						</div>
 
 						<div class="d-none d-lg-block divider-70"></div>
 					</div>

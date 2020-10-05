@@ -202,7 +202,7 @@ ul.products.owl-carousel .product a.button {
 }
 
 input[type="submit"].woocommerce-Button {
-	margin-top: 16px;
+	margin-top: 0px;
 }
 
 .button {
@@ -215,7 +215,7 @@ input[type="submit"].woocommerce-Button {
 	line-height: 1;
 	padding: 10px 46px;
 	position: relative;
-	text-transform: capitalize;
+	text-transform: uppercase;
 	z-index: 2;
 }
 
