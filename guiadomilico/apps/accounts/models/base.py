@@ -17,7 +17,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     # Forma de login
     username = models.CharField(_('Nome de Usuário'), max_length=15, unique=True,
                                 help_text=_(
-                                    'Obrigatório no máximo 15 caracteres. São permitidos letras, números e \".\" \"-\" \"_\"'),
+                                    'Utilize no máximo 15 caracteres. São permitidos letras, números e \".\" \"-\" \"_\"'),
                                 validators=[validators.RegexValidator(re.compile('^[\w.-_]+$'),
                                                                       _('Digite um nome de usuário válido.'),
                                                                       _('Inválido.'))])
@@ -27,6 +27,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     # Dados
     nome = models.CharField(_('Nome'), max_length=255)
     sobrenome = models.CharField(_('Sobrenome'), max_length=255)
+
     aniversario = models.DateField(null=True, blank=True)
     nome_razao_social = models.CharField(max_length=255, null=True, blank=True)
     tipo_pessoa = models.CharField(max_length=2, choices=TIPO_PESSOA, default='PF')
@@ -39,11 +40,11 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     role = models.PositiveSmallIntegerField(default=9, choices=PAPEIS)
 
     # Dados padrao
-    endereco_padrao = models.ForeignKey('accounts.Endereco', related_name="end_padrao", on_delete=models.CASCADE,
+    endereco_padrao = models.ForeignKey('Endereco', related_name="end_padrao", on_delete=models.CASCADE,
                                         null=True, blank=True)
-    telefone_padrao = models.ForeignKey('accounts.Telefone', related_name="tel_padrao", on_delete=models.CASCADE,
+    telefone_padrao = models.ForeignKey('Telefone', related_name="tel_padrao", on_delete=models.CASCADE,
                                         null=True, blank=True)
-    site_padrao = models.ForeignKey('accounts.Site', related_name="sit_padrao", on_delete=models.CASCADE, null=True,
+    site_padrao = models.ForeignKey('Site', related_name="sit_padrao", on_delete=models.CASCADE, null=True,
                                     blank=True)
     # Informações de registro
     is_staff = models.BooleanField(default=False)
@@ -175,7 +176,7 @@ class PessoaJuridica(models.Model):
 
 class Endereco(models.Model):
     usuario_end = models.ForeignKey(Usuario, related_name="endereco", on_delete=models.CASCADE)
-    tipo_endereco = models.CharField(max_length=3, null=True, blank=True, choices=TIPO_ENDERECO)
+    tipo_endereco = models.CharField(max_length=3, null=True, blank=True, choices=TIPO_ENDERECO, default='RES')
     logradouro = models.CharField(max_length=255, null=True, blank=True)
     numero = models.CharField(max_length=16, null=True, blank=True)
     bairro = models.CharField(max_length=64, null=True, blank=True)
@@ -187,9 +188,13 @@ class Endereco(models.Model):
     cep = models.CharField(max_length=16, null=True, blank=True)
     uf = models.CharField(max_length=2, null=True, blank=True, choices=UF_SIGLA)
 
+
+    def get_cep(self):
+        return self.cep
+
     @property
     def format_endereco(self):
-        return '{0}, {1} - {2}'.format(self.logradouro, self.numero, self.bairro)
+        return '{0} - {1}'.format(self.logradouro, self.bairro)
 
     @property
     def format_endereco_completo(self):
@@ -208,7 +213,7 @@ class Endereco(models.Model):
 
 class Telefone(models.Model):
     usuario_tel = models.ForeignKey(Usuario, related_name="telefone", on_delete=models.CASCADE)
-    tipo_telefone = models.CharField(max_length=8, choices=TIPO_TELEFONE, null=True, blank=True)
+    tipo_telefone = models.CharField(max_length=8, choices=TIPO_TELEFONE, null=True, blank=True, default="CEL")
     telefone = models.CharField(max_length=32)
 
     def get_telefone_apenas_digitos(self):

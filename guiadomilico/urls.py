@@ -21,5 +21,6 @@ urlpatterns = [
     #URL do app BASE:
     url(r'^', include('guiadomilico.apps.core.urls')),
     url(r'^accounts/', include('guiadomilico.apps.accounts.urls')),
-
+    url(r'^dashboard/', include('guiadomilico.apps.dashboard.urls')),
+    url(r'^blog/' , include('guiadomilico.apps.blog.urls')),
 ]

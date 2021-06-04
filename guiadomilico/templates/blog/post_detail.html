@@ -1,0 +1,506 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Minha conta{{ block.super }}{% endblock %}
+{% block menu %}
+{% include 'menu/fix.html' %}
+{% endblock %}
+
+
+
+{% block content %}
+
+			<section class="ls s-py-60 s-py-md-80 s-py-xl-150 c-gutter-60">
+				<div class="container">
+					<div class="row">
+
+
+						<main class="col-lg-8 col-xl-9">
+							<article class="vertical-item post type-post status-publish format-standard has-post-thumbnail single single-post">
+
+								<div class="item-content">
+
+
+									<!-- .post-thumbnail -->
+									<div class="item-media post-thumbnail">
+										<span class="cat-links"><a href="http://drivelywp/category/news/">charity</a></span>
+										<img src="{% static 'images/gallery/01.jpg' %}" alt="">
+									</div>
+
+
+									<div class="entry-content">
+
+										<header class="entry-header single-post">
+											<div class="entry-meta color-darkgrey">
+												<span class="byline">
+													<span class="author-img">
+														<img alt="" src="{% static 'images/team/author-img.jpg' %}">
+													</span>
+													<span class="author vcard">
+														<a class="url fn n" href="blog-right.html">{{ post.author }} </a>
+													</span>
+												</span>
+
+												<span class="posted-on">
+													<a href="blog-single-right.html" rel="bookmark">
+													{% if post.published_date %}
+														<time class="entry-date published updated" datetime="2018-01-03T10:11:37+00:00">    {{ post.published_date }}</time>
+													{% endif %}
+													</a>
+												</span>
+
+											</div>
+											<h1 class="entry-title"> {{ post.title }}</h1>
+											<!-- .entry-meta -->
+										</header>
+
+
+					  <p>{{ post.text|safe }}</p>
+
+									</div>
+
+
+								</div>
+								<!-- .item-content -->
+							</article>
+
+
+							<div id="comments" class="comments-area">
+
+
+								<div id="respond" class="comment-respond ls">
+									<h3 id="reply-title" class="comment-reply-title"><span>Leave</span> Comment</h3>
+									<form action="/" method="post" id="commentform" class="comment-form" novalidate="">
+										<p class="comment-notes">
+											<span id="email-notes">Your email address will not be published.</span> Required
+											fields are marked <span class="required">*</span>
+										</p>
+										<p class="comment-form-author">
+											<label for="author">Name
+												<span class="required">*</span>
+											</label>
+											<input id="author" placeholder="Name" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required">
+										</p>
+										<p class="comment-form-email">
+											<label for="email">Email <span class="required">*</span>
+											</label>
+											<input id="email" placeholder="Email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true" required="required">
+										</p>
+										<p class="comment-form-url">
+											<label for="url">Website</label>
+											<input id="url" placeholder="Website" name="url" type="url" value="" size="30" maxlength="200">
+										</p>
+										<p class="comment-form-comment">
+											<label for="comment">Comment</label>
+											<textarea id="comment" name="comment" cols="30" rows="8" maxlength="65525" placeholder="Comment" aria-required="true" required="required"></textarea>
+										</p>
+
+										<p class="form-submit">
+											<input name="submit" type="submit" class="submit" value="Send">
+										</p>
+									</form>
+								</div>
+								<!-- #respond -->
+
+
+								<ol class="comment-list">
+									<li class="comment">
+										<article class="comment-body">
+											<div class="comment-meta">
+												<img alt="" src="images/team/01.jpg">
+											</div>
+											<div class="comment-content">
+												<div class="comment-author vcard">
+													<a href="#" rel="nofollow" class="url">John Valenzuela</a>
+													<!--<span class="says">says:</span>-->
+												</div>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae debitis distinctio dolorem
+													eaque eius ipsam labore officiis, provident ratione repellat suscipit.</p>
+												<footer class="comment-meta">
+													<div class="edit-link">
+														<a rel="nofollow" class="comment-like" href="#" aria-label="Reply to John Doe">Edit</a>
+													</div>
+													<div class="reply">
+														<a rel="nofollow" class="comment-reply-link" href="#comments" aria-label="Reply to John Doe">Reply</a>
+													</div>
+													<div class="comment-metadata">
+														<a href="#">
+															<time datetime="2017-09-03T10:18:04+00:00">
+																3 Sep, 10:18 AM
+															</time>
+														</a>
+													</div>
+												</footer>
+
+											</div>
+											<!-- .comment-content -->
+
+											<div class="clearfix"></div>
+										</article>
+										<!-- .comment-body -->
+									</li>
+									<!-- #comment-## -->
+
+									<li class="comment">
+										<article class="comment-body">
+											<div class="comment-meta">
+												<img alt="" src="images/team/02.jpg">
+											</div>
+											<div class="comment-content">
+												<div class="comment-author vcard">
+													<a href="#" rel="nofollow" class="url">Amy Heider</a>
+													<!--<span class="says">says:</span>-->
+												</div>
+												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis</p>
+												<footer class="comment-meta">
+													<div class="edit-link">
+														<a rel="nofollow" class="comment-like" href="#" aria-label="Reply to John Doe">Edit</a>
+													</div>
+													<div class="reply">
+														<a rel="nofollow" class="comment-reply-link" href="#comments" aria-label="Reply to John Doe">Reply</a>
+													</div>
+													<div class="comment-metadata">
+														<a href="#">
+															<time datetime="2017-09-03T10:18:04+00:00">
+																10 Sep, 10:18 AM
+															</time>
+														</a>
+													</div>
+												</footer>
+
+											</div>
+											<!-- .comment-content -->
+
+											<div class="clearfix"></div>
+										</article>
+										<!-- .comment-body -->
+										<ol class="children">
+											<li class="comment">
+												<article class="comment-body">
+													<div class="comment-meta">
+														<img alt="" src="images/team/03.jpg">
+													</div>
+													<div class="comment-content">
+														<div class="comment-author vcard">
+															<a href="#" rel="nofollow" class="url">Jane Bloggs</a>
+															<!--<span class="says">says:</span>-->
+														</div>
+														<p>Architecto, deserunt, maxime! Aliquam animi autem deleniti, eaque id ipsam laborum magnam
+															modi, pariatur provident quis temporibus.</p>
+														<footer class="comment-meta">
+															<div class="edit-link">
+																<a rel="nofollow" class="comment-like" href="#" aria-label="Reply to John Doe">Edit</a>
+															</div>
+															<div class="reply">
+																<a rel="nofollow" class="comment-reply-link" href="#comments" aria-label="Reply to John Doe">Reply</a>
+															</div>
+															<div class="comment-metadata">
+																<a href="#">
+																	<time datetime="2017-09-03T10:18:04+00:00">
+																		13 Sep, 10:18 AM
+																	</time>
+																</a>
+															</div>
+														</footer>
+
+													</div>
+													<!-- .comment-content -->
+
+													<div class="clearfix"></div>
+												</article>
+												<!-- .comment-body -->
+												<ol class="children">
+													<li class="comment">
+														<article class="comment-body">
+															<div class="comment-meta">
+																<img alt="" src="images/team/04.jpg">
+															</div>
+															<div class="comment-content">
+																<div class="comment-author vcard">
+																	<a href="#" rel="nofollow" class="url">Fred Bloggs</a>
+																	<!--<span class="says">says:</span>-->
+																</div>
+																<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, </p>
+																<footer class="comment-meta">
+																	<div class="edit-link">
+																		<a rel="nofollow" class="comment-like" href="#" aria-label="Reply to John Doe">Edit</a>
+																	</div>
+																	<div class="reply">
+																		<a rel="nofollow" class="comment-reply-link" href="#comments" aria-label="Reply to John Doe">Reply</a>
+																	</div>
+																	<div class="comment-metadata">
+																		<a href="#">
+																			<time datetime="2017-09-03T10:18:04+00:00">
+																				25 Sep, 10:18 AM
+																			</time>
+																		</a>
+																	</div>
+																</footer>
+
+															</div>
+															<!-- .comment-content -->
+
+															<div class="clearfix"></div>
+														</article>
+														<!-- .comment-body -->
+
+													</li>
+													<!-- #comment-## -->
+												</ol>
+												<!-- .children -->
+											</li>
+											<!-- #comment-## -->
+										</ol>
+										<!-- .children -->
+									</li>
+									<!-- #comment-## -->
+
+									<li class="comment">
+										<article class="comment-body">
+											<div class="comment-meta">
+												<img alt="" src="images/team/05.jpg">
+											</div>
+											<div class="comment-content">
+												<div class="comment-author vcard">
+													<a href="#" rel="nofollow" class="url">Sofia Jones</a>
+													<!--<span class="says">says:</span>-->
+												</div>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae debitis distinctio dolorem
+													eaque eius ipsam labore officiis, provident ratione repellat suscipit.</p>
+												<footer class="comment-meta">
+													<div class="edit-link">
+														<a rel="nofollow" class="comment-like" href="#" aria-label="Reply to John Doe">Edit</a>
+													</div>
+													<div class="reply">
+														<a rel="nofollow" class="comment-reply-link" href="#comments" aria-label="Reply to John Doe">Reply</a>
+													</div>
+													<div class="comment-metadata">
+														<a href="#">
+															<time datetime="2017-09-03T10:18:04+00:00">
+																28 Sep, 10:18 AM
+															</time>
+														</a>
+													</div>
+												</footer>
+
+											</div>
+											<!-- .comment-content -->
+
+											<div class="clearfix"></div>
+										</article>
+										<!-- .comment-body -->
+										<ol class="children">
+											<li class="comment">
+												<article class="comment-body">
+													<div class="comment-meta">
+														<img alt="" src="images/team/06.jpg">
+													</div>
+													<div class="comment-content">
+														<div class="comment-author vcard">
+															<a href="#" rel="nofollow" class="url">Jane Bloggs</a>
+															<!--<span class="says">says:</span>-->
+														</div>
+														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae debitis distinctio dolorem
+															eaque eius ipsam labore officiis, provident ratione repellat suscipit.</p>
+														<footer class="comment-meta">
+															<div class="edit-link">
+																<a rel="nofollow" class="comment-like" href="#" aria-label="Reply to John Doe">Edit</a>
+															</div>
+															<div class="reply">
+																<a rel="nofollow" class="comment-reply-link" href="#comments" aria-label="Reply to John Doe">Reply</a>
+															</div>
+															<div class="comment-metadata">
+																<a href="#">
+																	<time datetime="2017-09-03T10:18:04+00:00">
+																		30 Sep, 10:18 AM
+																	</time>
+																</a>
+															</div>
+														</footer>
+
+													</div>
+													<!-- .comment-content -->
+
+													<div class="clearfix"></div>
+												</article>
+												<!-- .comment-body -->
+
+											</li>
+											<!-- #comment-## -->
+										</ol>
+										<!-- .children -->
+									</li>
+									<!-- #comment-## -->
+								</ol>
+								<!-- .comment-list -->
+
+
+							</div>
+
+
+							<!--})-->
+						</main>
+						<aside class="col-lg-4 col-xl-3">
+
+							<div class="widget widget_categories">
+
+								<h3 class="widget-title">Categories</h3>
+
+								<ul>
+									<li class="cat-item">
+										<a href="blog-right.html">Corporate</a>
+										<ul class="children">
+											<li class="cat-item">
+												<a href="blog-right.html">Business
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="cat-item">
+										<a href="blog-right.html">Entertainment</a>
+									</li>
+									<li class="cat-item">
+										<a href="blog-right.html">Innovations</a>
+									</li>
+									<li class="cat-item">
+										<a href="blog-right.html">News</a>
+									</li>
+									<li class="cat-item">
+										<a href="blog-right.html">Knowledge
+										</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="widget widget_tag_cloud">
+								<h3 class="widget-title">Tags</h3>
+
+
+								<div class="tagcloud">
+
+									<a href="blog-right.html" class="tag-cloud-link">
+										Corporate
+
+									</a>
+
+									<a href="blog-right.html" class="tag-cloud-link">
+										Business
+
+									</a>
+
+									<a href="blog-right.html" class="tag-cloud-link">
+										Entertainment
+
+									</a>
+
+									<a href="blog-right.html" class="tag-cloud-link">
+										Innovations
+
+									</a>
+
+									<a href="blog-right.html" class="tag-cloud-link">
+										News
+
+									</a>
+
+									<a href="blog-right.html" class="tag-cloud-link">
+										Knowledge
+
+									</a>
+								</div>
+							</div>
+
+							<article class="widget widget_post_slider text-md-left vertical-item post type-post status-publish gallery has-post-thumbnail">
+								<div class="item-media post-thumbnail">
+									<div class="owl-carousel" data-loop="true" data-margin="0" data-nav="true" data-dots="false" data-themeclass="entry-thumbnail-carousel" data-center="false" data-items="1" data-autoplay="true" data-responsive-xs="1" data-responsive-sm="1" data-responsive-md="1" data-responsive-lg="1">
+										<div class="item">
+											<img src="images/gallery-side/01.jpg" alt="image">
+										</div>
+										<div class="item">
+											<img src="images/gallery-side/02.jpg" alt="image">
+										</div>
+										<div class="item">
+											<img src="images/gallery-side/03.jpg" alt="image">
+										</div>
+									</div><!-- .owl-thumbnail -->
+								</div><!-- .post-thumbnail -->
+								<div class="item-content">
+									<header class="entry-header">
+										<h3 class="entry-title">
+											<a href="blog-single-@@type.html" rel="bookmark">
+												Why You Must Respond to Sales Emails in One Day
+											</a>
+										</h3>
+										<a href="blog-single-@@type.html" rel="bookmark">
+											<time class="entry-date published updated" datetime="2018-03-18T15:15:12+00:00">June 5, 2019</time>
+										</a>
+									</header>
+									<!-- .entry-header -->
+
+
+									<!-- .entry-meta -->
+								</div><!-- .item-content -->
+							</article><!-- #post-## -->
+
+							<div>
+								<div class="widget widget_recent_posts">
+
+									<h3 class="widget-title">Popular Posts</h3>
+									<ul class="list-unstyled">
+										<li class="media">
+											<a class="media-image" href="blog-single-right.html">
+												<img src="images/events/01.jpg" alt="">
+											</a>
+											<div class="media-body">
+												<h4>
+													<a href="blog-single-right.html">Eod tempor invidunt labore dolore magna</a>
+												</h4>
+												<p class="item-meta">
+													Dec 18, 2018
+												</p>
+											</div>
+										</li>
+
+										<li class="media">
+											<a class="media-image" href="blog-single-right.html">
+												<img src="images/events/02.jpg" alt="">
+											</a>
+											<div class="media-body">
+												<h4>
+													<a href="blog-single-right.html">Aliquyam erat, sed voluptua vero eos </a>
+												</h4>
+												<p class="item-meta">
+													Nov 22, 2018
+												</p>
+
+											</div>
+										</li>
+
+										<li class="media">
+											<a class="media-image" href="blog-single-right.html">
+												<img src="images/events/03.jpg" alt="">
+											</a>
+											<div class="media-body">
+												<h4>
+													<a href="blog-single-right.html">Et justo duo dolores et ea rebum</a>
+												</h4>
+												<p class="item-meta">
+													Nov 12, 2018
+												</p>
+
+											</div>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+
+
+						</aside>
+
+					</div>
+
+				</div>
+			</section>
+
+
+{% endblock %}

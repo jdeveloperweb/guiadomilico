@@ -2,12 +2,17 @@
 {% load static %}
 {% block title %}Acessar sua conta{{ block.super }}{% endblock %}
 {% block menu %}
-{% include 'menu/fix-blank.html' %}
+{% include 'menu/fix.html' %}
 {% endblock %}
 
 {% block content %}
-<div class="d-none d-lg-block divider-70"></div>
+
+
+
+
+<div class="d-none d-lg-block divider-30 "></div>
 				<div class="container">
+					<h5>Identificação</h5>
 					<div class="row">
 
 
@@ -15,7 +20,8 @@
 							<div class="card shadow-sm">
 								<!-- .entry-header -->
 							<div class="card-header">
-											<h5><i class="fa fa-user-o"></i> Quero criar uma conta</h5>
+											<h3 class="special-heading text-center"> Quero criar uma conta</h3>
+											
 										</div>
 
 								<div class="entry-content card-body">
@@ -33,7 +39,7 @@
 											<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 												<label for="username">E-mail <span class="required">*</span>
 												</label>
-												<input type="text" required class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="">
+												<input type="text" required class=" form-control woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="">
 											</p>
 											
 											<p class="form-row">
@@ -62,9 +68,9 @@
 							<div class="card shadow-sm">
 								<!-- .entry-header -->
 								<div class="card-header">
-								<h5 ><i class="fa fa-thumbs-o-up"></i>  Já sou cadastrado</h5>
+									<h1 class="special-heading text-center"> Já sou cadastrado</h1>
 								</div>
-								<div class="entry-content card-body">
+								<div class="card-body">
 									<div class="woocommerce">
 
 										<!--
@@ -79,12 +85,12 @@
 											<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 												<label for="username">Usuário ou E-mail <span class="required">*</span>
 												</label>
-												<input type="text" required class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="">
+												<input type="text" required class=" form-control  woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="">
 											</p>
 											<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 												<label for="woo-password">Senha <span class="required">*</span>
 												</label>
-												<input required class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="woo-password">
+												<input required class=" form-control  woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="woo-password">
 											</p>
 		<p class="woocommerce-LostPassword lost_password">
 

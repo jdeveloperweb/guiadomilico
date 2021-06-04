@@ -1,15 +1,19 @@
-{% extends 'blog/base.html' %}
+{% extends 'dashboard/base.html' %}
 {% load bootstrap %}
 {% block content %}
-    <h1>Novo post</h1>
 
 
-
-
-    <form method="POST" class="post-form">
+<!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container">
+      <h2>Nova postagem</h2>
+      <hr>
+      <div class="row">
+        <div class="form-group col-md-12">
+         <form method="POST" class="post-form">
         {% csrf_token %}
 
-               {{ form.title }}
+               {{ form.title|bootstrap }}
 
 
 
@@ -26,6 +30,7 @@
                 <a class="btnColor" onclick="applyCommand('italic')"><i class="demo-icon icon-italic"></i></a>
                 <a class="btnColor" onclick="applyCommand('strikeThrough')"><i class="demo-icon icon-strike"></i></a>
                 <a class="btnColor" onclick="applyCommand('underline')"><i class="demo-icon icon-underline"></i></a>
+                <a class="btnColor" onclick="applyCommand('heading')"><i class="demo-icon icon-icon-underline"></i></a>
 
                 <a class="btnColor" onclick="applyCommand('outdent')"><i class="demo-icon icon-indent-left"></i></a>
                 <a class="btnColor" onclick="applyCommand('indent')"><i class="demo-icon icon-indent-right"></i></a>
@@ -51,12 +56,57 @@
             </div>
 
             <div id="editor" class="editor" contenteditable="true" name="text">
-             {{ form.text.value|safe }}
+
+                {% if form.text.value != None %}
+                    {{ form.text.value|safe }}
+                {% endif %}
             </div>
         </div>
              {{ form.text }}
+        <div class="row mt-3 text-center">
+            <div class="col-lg-12">
+                <button type="submit"  class="save btn btn-success ">Salvar publicação</button>
+            </div>
 
-                <button type="submit"  class="save btn btn-default">Guardar</button>
+        </div>
+
 
     </form>
+
+        </div>
+
+      </div>
+
+
+
+
+      <footer class="text-center">
+        <div class="mb-2">
+          <small>
+            © 2020 criado com <i class="fa fa-heart" style="color:red"></i> por - <a target="_blank" rel="noopener noreferrer" href="https://www.jadesolutionsit.com">
+              JADE Solutions IT
+            </a>
+          </small>
+        </div>
+
+        <div>
+          <a href="https://github.com/jdeveloperweb" target="_blank">
+            <img alt="GitHub followers" src="https://img.shields.io/github/followers/jdeveloperweb?label=github&style=social" />
+          </a>
+          <a href="https://twitter.com/jdeveloperweb" target="_blank">
+            <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/jdeveloperweb?label=twitter&style=social" />
+          </a>
+        </div>
+      </footer>
+
+    </div>
+
+  </main>
+  <!-- page-content" -->
+
+
+
+
+
+
 {% endblock %}

@@ -5,13 +5,15 @@
 var $body = $('body');
 var $window = $(window);
 
+
+
 /*********************************/
 /********  MINHA FUNÇÕES   *******/
 /*********************************/
  $(function() {
     $('.time').mask('00:00:00');
     $('.date_time').mask('00/00/0000 00:00:00');
-    $('.cep').mask('00000-000');
+    $('.cep').mask('00000-000', {placeholder: "______ - ____"});
     $('.phone').mask('0000-0000');
     $('.mixed').mask('AAA 000-S0S');
     $('.ip_address').mask('099.099.099.099');
@@ -35,6 +37,46 @@ function validatePassword(){
     confirm_password.setCustomValidity('');
   }
 }
+
+
+
+
+
+
+/*DASHBOARD*/
+
+$(".sidebar-dropdown > a").click(function() {
+  $(".sidebar-submenu").slideUp(200);
+  if (
+    $(this)
+      .parent()
+      .hasClass("active")
+  ) {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .parent()
+      .removeClass("active");
+  } else {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .next(".sidebar-submenu")
+      .slideDown(200);
+    $(this)
+      .parent()
+      .addClass("active");
+  }
+});
+
+$("#close-sidebar").click(function() {
+  $(".page-wrapper").removeClass("toggled");
+});
+$("#show-sidebar").click(function() {
+  $(".page-wrapper").addClass("toggled");
+});
+
+/* FIM DASHBOARD*/
+
+
 
 
 $('#account_cpf').keyup(function(){
@@ -89,7 +131,7 @@ $('#account_cpf').keyup(function(){
 $('#password_1').change(function(){validatePassword();});
 $('#password_2').change(function(){validatePassword();});
 
-/** AJAX PARA VERIFICAR SE EXISTE EMAIL **/
+/** AJAX PARA VERIFICAR SE usuario  **/
 $('#account_username').change(function(){
       var username = $(this);
       var msg = $('#msg-username');
@@ -109,7 +151,6 @@ $('#account_username').change(function(){
                     if (data.is_taken) {
                         msg.html("Desculpe, este nome de usuário já esta em uso.");
                         msg.addClass('invalid');
-                        username.addClass('box-invalid');
                         msg.removeClass('valid');
                     }else{
                         msg.html("Nome de usuário disponível.");
@@ -127,7 +168,6 @@ $('#account_username').change(function(){
 }else{
                      msg.html("Desculpe, este nome de usuário já esta em uso.");
                         msg.addClass('invalid');
-                        username.addClass('box-invalid');
                         msg.removeClass('valid');
 }
        }else{
@@ -172,6 +212,74 @@ $('#account_email').change(function(){
             msg.removeClass('invalid');
        }
     });
+
+
+$('#id_endereco-0-cep').after("<span class='help-block ' id='search_cep' style='display:none; font-weight:bold;'>Aguarde por favor, estamos buscando seu CEP...</span>");
+$('#id_endereco-0-cep').after("<span class='help-block ' id='myerro2' style='display:none; color:red; '>Não conseguimos encontrar o CEP informado.</span>");
+/** AJAX PARA VERIFICAR E COMPLETAR CEP **/
+$('#id_endereco-0-cep').keyup(function(){
+      var cep = $(this);
+      var erro = $("#myerro");
+      var erro2 = $("#myerro2");
+      var search_cep = $("#search_cep");
+      var logradouro = $("#id_endereco-0-logradouro");
+      var bairro = $("#id_endereco-0-bairro");
+      var municipio = $("#id_endereco-0-municipio");
+      var uf = $("#id_endereco-0-uf");
+
+if(cep.val().length == 9){
+
+      search_cep.css('display', 'block');
+      erro.css('display', 'none');
+      erro2.css('display', 'none');
+
+      logradouro.val("...");
+      bairro.val("...");
+      municipio.val("...");
+      uf.val("...");
+
+      if(cep.val() != ""){
+      $.ajax({
+               type: "GET",
+               url: "ajax/verifica_cep",
+               data: {'cep': cep.val(),
+                      },
+               dataType: "json",
+               success: function (data) {
+                    if (data.validate) {
+                       logradouro.val(data.logradouro);
+                       bairro.val(data.bairro);
+                       municipio.val(data.cidade);
+                       uf.val(data.uf);
+                       search_cep.css('display', 'none');
+                    }else{
+                        alert("CEP INVALIDO");
+                    }
+                },
+                error: function(rs, e) {
+                      logradouro.val("");
+                      bairro.val("");
+                      municipio.val("");
+                      uf.val("");
+                      search_cep.css('display', 'none');
+                      erro2.css('display', 'block');
+                }
+          });
+
+       }else{
+            msg.html("");
+            msg.removeClass('valid');
+            msg.removeClass('invalid');
+       }
+
+}
+
+    });
+
+
+
+
+
 
 /** SOME COM O ALERTA DO CADASTRO **/
 $(".alerta").delay(15000).slideUp(200,

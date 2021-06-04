@@ -21,7 +21,7 @@
 					{% if not user.is_authenticated %}
 
 									<li>
-										<p class="plus_top"><a href="{% url 'accounts:cadastroUsuario' %}">Quero me cadastrar</a></p>
+										<p class="plus_top"><a href="{% url 'accounts:cadastroUsuario' %}">Quero me inscrever</a></p>
 									</li>
 						{% endif %}
 								</ul>
@@ -198,7 +198,7 @@
 
 											<!-- blog -->
 											<li>
-												<a href="blog-right.html">NOTÍCIAS</a>
+												<a href="{% url 'blog:list' %}">BLOG</a>
 
 											</li>
 											<!-- eof blog -->
@@ -237,7 +237,7 @@
 										<li>
 											<div class="dropdown">
 												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<i class="fas fa-shopping-cart"></i>
+													<i class="ico icon-shopping-bag"></i>
 													<span class="badge bg-maincolor">0</span>
 												</a>
 												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">

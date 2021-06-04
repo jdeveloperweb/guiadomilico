@@ -112,6 +112,7 @@ ul.products .product .star-rating {
 
 ul.products .product .product-inner {
 	box-shadow: 0 1px 14px 1px rgba(0, 0, 0, 0.05);
+	background:#ffffff80;
 	margin-bottom: 15px;
 	margin-top: 15px;
 }
@@ -203,6 +204,7 @@ ul.products.owl-carousel .product a.button {
 
 input[type="submit"].woocommerce-Button {
 	margin-top: 0px;
+	border-radius: .25rem !important;
 }
 
 .button {
@@ -210,11 +212,12 @@ input[type="submit"].woocommerce-Button {
 	border: 2px solid #f4ca59;
 	color: #131e25;
 	display: inline-block;
-	font-size: 16px;
-	font-weight: 700;
+	font-size: 15px;
+	font-weight: 500;
 	line-height: 1;
-	padding: 10px 46px;
+	padding: 15px 46px 10px 46px;
 	position: relative;
+	border-radius: .25rem !important;
 	text-transform: uppercase;
 	z-index: 2;
 }
@@ -1327,7 +1330,7 @@ p.form-row {
 
 p.form-row label {
 	display: block;
-	margin-bottom: 10px;
+
 }
 
 @media (min-width: 992px) {

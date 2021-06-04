@@ -155,7 +155,7 @@
 
 											<!-- blog -->
 											<li>
-												<a href="blog-right.html">BLOG</a>
+												<a href="{% url 'blog:list' %}">BLOG</a>
 
 											</li>
 											<!-- eof blog -->
@@ -171,7 +171,7 @@
 
 											<!-- contacts -->
 											<li>
-												<a href="contact2.html">CONTATOS</a>
+												<a href="{% url 'dashboard:index' %}">DASHBOARD</a>
 											</li>
 											<!-- eof contacts -->
 										</ul>
@@ -194,7 +194,7 @@
 										<li>
 											<div class="dropdown">
 												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<i class="fas fa-shopping-cart"></i>
+													<i class="ico icon-shopping-bag"></i>
 													<span class="badge bg-maincolor">0</span>
 												</a>
 												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">

@@ -1,18 +1,20 @@
 from django.contrib.auth import logout, login
+
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage, send_mail
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy, reverse
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import FormView, TemplateView
-
-
+from guiadomilico.apps.accounts.forms import EnderecoFormSet, TelefoneFormSet
 from guiadomilico.apps.accounts.token import account_activation_token
 from guiadomilico.apps.accounts.forms.cadastro import CadastroUserForm
 from guiadomilico.apps.accounts.models.base import Usuario
+from formtools.wizard.views import SessionWizardView
+import pycep_correios as pycep
 
 
 def send_mail(request, usuario):
@@ -34,33 +36,142 @@ def send_mail(request, usuario):
 
     email.send()
 
+
 ## VIEW EM DESENVOLVIMENTO ##
 def UpdateUserView(request):
     template_name = 'accounts/my_account.html'
     return render(request, template_name)
 
 
+class CadastroWizard(SessionWizardView):
+    template_name = 'accounts/cadastro_usuario.html'
+
+    FORMS = [("usuario", CadastroUserForm),
+             ("endereco", EnderecoFormSet),
+             ("telefone", TelefoneFormSet)
+             ]
+
+    form_list = FORMS
+
+
+    def done(self, form_list, form_dict, **kwargs):
+
+        template_name = 'accounts/email_notification.html'
+        context = {}
+
+        form_data = [form.cleaned_data for form in form_list]
+
+        usuario = CadastroUserForm(form_data[0])
+        user = usuario.save(commit=False)
+        usuario.is_trusty = False
+        instance = usuario.save()
+
+        if 'endereco' in form_dict:
+            formset = form_dict['endereco']
+            if formset.is_valid():
+                formset.instance = instance
+                instance_endereco = formset.save()
+                usuario.endereco_padrao = instance_endereco
+
+
+        if 'telefone' in form_dict:
+            formset = form_dict['telefone']
+            if formset.is_valid():
+                formset.instance = instance
+                instance_telefone = formset.save()
+                usuario.telefone_padrao = instance_telefone
+                
+        usuario.save()
+        send_mail(self.request, user)
+
+        # Context para avisar ao usuário que o cadastro foi efetuado com sucesso.
+        # self.extra_context['form'] = self.get_form_instance(0)
+
+        context['nomeCompleto'] = instance.get_full_name()
+        context["emailEnvio"] = instance.email
+        context["sucessoCadastro"] = "Um email foi enviado para {} com um link de ativação.".format(instance.email)
+
+        return render(self.request, template_name, context )
+
+
+'''
 class CadastroUserView(FormView):
     form_class = CadastroUserForm
     template_name = 'accounts/cadastro_usuario.html'
-    success_url = reverse_lazy('accounts:ativar-conta')
+    
     extra_context = {}
+    endereco = EnderecoFormSet(prefix='endereco')
+    telefone = TelefoneFormSet(prefix='telefone')
 
-    def form_valid(self, form):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.POST:
+            context["endereco"] = EnderecoFormSet(self.request.POST)
+            context["telefone"] = TelefoneFormSet(self.request.POST)
+
+        else:
+            context["endereco"] = EnderecoFormSet()
+            context["telefone"] = TelefoneFormSet()
+
+        return context
+
+    def get(self, request, *args, **kwargs):
+
+        self.object = None
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        endereco = EnderecoFormSet()
+        telefone = TelefoneFormSet()
+
+        return self.render_to_response(
+            self.get_context_data(form=form,
+                                  endereco=endereco,
+                                  telefone=telefone
+                                  )
+        )
+
+    def post(self, request, *args, **kwargs):
+        self.object = None
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        endereco = EnderecoFormSet(self.request.POST)
+        telefone = TelefoneFormSet(self.request.POST)
+
+        if form.is_valid() and endereco.is_valid():
+            return self.form_valid(form, endereco, telefone)
+        else:
+            return self.form_invalid(form, endereco, telefone)
+
+    def form_valid(self, form, endereco, telefone):
         usuario = form.save(commit=False)
         usuario.is_trusty = False
-        usuario.save()
-
+        self.object = form.save()
+        endereco.instance = self.object
+        endereco.save()
+        telefone.instance = self.object
+        telefone.save()
         send_mail(self.request, usuario)
 
         # Context para avisar ao usuário que o cadastro foi efetuado com sucesso.
         self.extra_context['form'] = self.form_class
+
         self.extra_context['nomeCompleto'] = "{} {}".format(usuario.nome, usuario.sobrenome)
         self.request.session["emailEnvio"] = usuario.email
         self.request.session["sucessoCadastro"] = "Um email foi enviado para {} com um link de ativação.".format(
             usuario.email)
 
         return super(CadastroUserView, self).form_valid(form)
+
+    def form_invalid(self, form, endereco, telefone):
+
+        return self.render_to_response(
+            self.get_context_data(form=form,
+                                  endereco=endereco,
+                                  telefone=telefone
+                                  )
+        )
+
+'''
 
 
 def ativadoSucesso(request):
@@ -160,12 +271,11 @@ def is_exists_register_ajax(request):
         else:
             is_tasken = False;
 
-
-
     data = {
         'is_taken': is_tasken
     }
     return JsonResponse(data)
+
 
 def validate_email_ajax(request):
     email = request.GET.get('email', None)
@@ -175,4 +285,9 @@ def validate_email_ajax(request):
     return JsonResponse(data)
 
 
+def consultar_cep(request):
+    cep = request.GET.get('cep', None)
+    endereco = pycep.get_address_from_cep(cep)
+    endereco['validate'] = True
 
+    return JsonResponse(endereco)

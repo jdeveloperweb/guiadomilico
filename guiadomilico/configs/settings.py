@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+
+    'bootstrapform',
 
     # guiadomilico.apps
 
@@ -55,6 +58,8 @@ INSTALLED_APPS = [
 
     'guiadomilico.apps.core',
     'guiadomilico.apps.accounts',
+    'guiadomilico.apps.dashboard',
+    'guiadomilico.apps.blog',
     'widget_tweaks',
 ]
 
