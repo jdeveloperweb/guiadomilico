@@ -1,0 +1,248 @@
+{% extends 'core/base.html' %}
+{% load bootstrap %}
+{% block title %}Cadastro{{ block.super }}{% endblock %}
+{% block menu %}
+{% include 'menu/fix.html' %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+         <section class=" s-py-10">
+
+				<div class="container">
+
+
+						<div class="d-none d-lg-block divider-40"></div>
+
+						<main >
+							<article>
+								<!-- .entry-header -->
+								<div class="entry-content">
+									<div class="woocommerce">
+
+
+
+
+
+				<!--
+
+ {% for field in form %}
+                   {% for error in field.errors %}
+                    <div class="alert alert-warning alerta animate" data-animation="slideUp" data-delay="150"><b>{{ field.label  }}</b> : {{ error }}</div>
+                    {% endfor %}
+  {% endfor %}
+
+			<div class="woocommerce-message">Are you sure you want to log out? <a
+				href="shop-account-login.html">Confirm and log out</a>
+			</div>
+			-->
+										{% if sucessoCadastro %}
+										<div class="alerta woocommerce-message animate" data-animation="scaleAppear" data-delay="150" role="alert">
+											<button type="button" class="close" data-dismiss="alerta" aria-label="Close"><span aria-hidden="true"></span></button>
+											{{ sucessoCadastro }}
+										</div>
+										{% endif %}
+
+										<div class="card shadow-sm">
+											<div class="card-header">
+													<ul id="progressbar">
+                                <li id="account"  {% if wizard.steps.step1 >= 1 %} class="active" {% endif %}  ></li>
+                                <li id="address"  {% if wizard.steps.step1 >= 2  %} class="active" {% endif %} ></li>
+                                <li id="whatsapp"  {% if wizard.steps.step1 >= 3 %} class="active" {% endif %} > </li>
+                                <li id="profissao"  {% if wizard.steps.step1 == 4 %} class="active" {% endif %} > </li>
+                            </ul> <!-- fieldsets -->
+										    </div>
+
+										<!--<p class="h4 text-center">Parte {{ wizard.steps.step1 }} de {{ wizard.steps.count }}</p> -->
+
+
+											<div class="card-body">
+
+
+
+
+
+{% load i18n %}
+
+
+{% if wizard.steps.step1 == 1 %}
+	<h3 class="titulo-cadastro">Acesso a plataforma</h3>
+	<p>faça seu registro no maior portal militar do Brasil</p>
+{% endif %}
+{% if wizard.steps.step1 == 2 %}
+	<h3 class="titulo-cadastro">Aonde você mora?</h3>
+	<p>Informe-nos seu endereço</p>
+{% endif %}
+{% if wizard.steps.step1 == 3 %}
+	<h3 class="titulo-cadastro">Qual seu telefone?</h3>
+	<p>Informe seu telefone, não enviaremos mensagens com promoções ou algo do tipo. </p>
+{% endif %}
+{% if wizard.steps.step1 == 4 %}
+	<h3 class="titulo-cadastro">Acesso a plataforma</h3>
+	<p>faça seu registro no maior portal militar do Brasil</p>
+{% endif %}
+
+			<div class="mt-5"></div>
+
+<form action="" method="post">
+  {% csrf_token %}
+
+  {{ wizard.management_form }}
+  {% if wizard.form.forms %}
+    {{ wizard.form.management_form }}
+    {% for form in wizard.form.forms %}
+
+
+	<div class="row"?>
+	 	{% for f in form.visible_fields  %}
+			<div class="col-lg-6">
+				{{ f|bootstrap }}
+			</div>
+		{% endfor %}
+	</div>
+
+
+    {% endfor %}
+  {% else %}
+
+	<div class="row"?>
+	 	{% for f in wizard.form %}
+			<div class="col-lg-6">
+				{{ f|bootstrap }}
+			</div>
+		{% endfor %}
+	</div>
+
+  {% endif %}
+
+
+{% if wizard.steps.prev %}
+<div class="row">
+	<div class="col-lg-6 float-left">
+
+		<button name="wizard_goto_step"  class="button-spc" type="submit" value="{{ wizard.steps.first }}">{% trans "Inicio" %}</button>
+ <button name="wizard_goto_step" type="submit" class="button-spc" value="{{ wizard.steps.prev }}">{% trans "Voltar" %}</button>
+
+
+	</div>
+<div class="col-lg-6 mt-3 float-right">
+  {% else %}
+
+<div class="col-lg-12 ">
+
+  {% endif %}
+
+	<input type="submit" class="button float-right" value="{% trans "Continuar" %}"/>
+		</div>
+	</div>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+										<!--	<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
+												<label for="account_first_name">Nome <span class="required">*</span></label>
+												<input type="text" required aria-required="true" class="woocommerce-Input woocommerce-Input--text input-text form-control"  placeholder="Digite seu nome..." name="nome" id="account_first_name" value="">
+											</p>
+											<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+												<label for="account_last_name">Sobrenome <span class="required">*</span></label>
+												<input type="text" required aria-required="true" class="woocommerce-Input woocommerce-Input--text input-text form-control"  placeholder="Digite seu sobrenome..." name="sobrenome" id="account_last_name" value="">
+											</p>
+
+											<div class="clear">
+
+											</div>
+
+											<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
+												<label for="account_gender">Genêro </label>
+												<select  name="genero" id="account_gender" class="country_to_state country_select  select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+																<option value="">Selecione seu genêro...</option>
+																<option value="M" >Masculino</option>
+																<option value="F">Feminino</option>
+																<option value="O">Outros</option>
+												</select>
+											</p>
+											<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+												<label for="account_brithday">Data de nascimento</label>
+												<input  type="text" aria-required="true" required class="woocommerce-Input  input-text form-control   date placeholder" placeholder="dd/mm/aaaa" maxlength="10" autocomplete="off" name="nascimento" id="account_brithday" placeholder="" value="" >
+											</p>
+											<div class="clear">
+
+											</div>
+
+												<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
+												<label for="account_cpf">CEP </label>
+												<input   type="text" aria-required="true" required class="woocommerce-Input  woocommerce-Input--text input-text form-control cep"  placeholder="" name="cep" id="account_cep"  value="">
+												<span id="msg-cpf"></span>
+												</p>
+											<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+												<label for="account_tel">Telefone</label>
+												<input  type="text" aria-required="true" required class="woocommerce-Input woocommerce-Input--email input-text form-control phone_ddd" name="telefone" id="account_tel" placeholder="" value="" >
+
+											</p>
+											<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-first">
+												<label for="account_email">E-mail <span class="required">*</span></label>
+												<input type="email" aria-required="true" required class="woocommerce-Input woocommerce-Input--email input-text form-control" name="email" id="account_email" placeholder="Preencha seu email...">
+												<span id="msg-email"></span>
+
+											</p>
+											<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-last">
+												<label for="account_username">Usuário <span class="required">*</span></label>
+												<input type="text" aria-required="true" required class="woocommerce-Input  woocommerce-Input--text input-text form-control"  placeholder="Digite um nome de usuário..." name="username" id="account_username" value="">
+												<span id="msg-username"></span>
+											</p>
+
+
+
+											<div class="clear">
+
+											</div>
+
+											<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
+												<label for="password_1">Senha  <span class="required">*</span></label>
+												<input type="password" aria-required="true" required class="woocommerce-Input woocommerce-Input--password input-text form-control"  placeholder="Digite uma senha..." name="password1" id="password_1">
+
+
+											</p>
+												<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+												<label for="password_2">Confirme a senha  <span class="required">*</span></label>
+												<input type="password" aria-required="true" required class="woocommerce-Input woocommerce-Input--password input-text form-control"  placeholder="Confirme sua senha..." name="password2" id="password_2">
+												<span id="msg-senhas"></span>
+											</p>
+
+											<div class="clear">
+
+											</div>
+
+												-->
+
+
+									</div>
+								</div>
+
+									</div>
+								</div>
+								<!-- .entry-content -->
+							</article>
+
+
+						</main>
+						<div class="d-none d-lg-block divider-70"></div>
+					</div>
+
+				</div>
+			</section>
+
+{% endblock %}
