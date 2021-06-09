@@ -40,12 +40,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     role = models.PositiveSmallIntegerField(default=9, choices=PAPEIS)
 
     # Dados padrao
-    endereco_padrao = models.ForeignKey('Endereco', related_name="end_padrao", on_delete=models.CASCADE,
-                                        null=True, blank=True)
-    telefone_padrao = models.ForeignKey('Telefone', related_name="tel_padrao", on_delete=models.CASCADE,
-                                        null=True, blank=True)
-    site_padrao = models.ForeignKey('Site', related_name="sit_padrao", on_delete=models.CASCADE, null=True,
-                                    blank=True)
+
     # Informações de registro
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -207,8 +202,8 @@ class Endereco(models.Model):
         return s
 
     def __str__(self):
-        s = u'%s, %s, %s (%s)' % (
-            self.logradouro, self.numero, self.municipio, self.uf)
+        s = u'%s, %s (%s)' % (
+            self.logradouro, self.municipio, self.uf)
         return s
 
 class Telefone(models.Model):

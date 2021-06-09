@@ -58,9 +58,7 @@ class CadastroWizard(SessionWizardView):
 
         template_name = 'accounts/email_notification.html'
         context = {}
-
         form_data = [form.cleaned_data for form in form_list]
-
         usuario = CadastroUserForm(form_data[0])
         user = usuario.save(commit=False)
         usuario.is_trusty = False
@@ -80,7 +78,7 @@ class CadastroWizard(SessionWizardView):
                 formset.instance = instance
                 instance_telefone = formset.save()
                 usuario.telefone_padrao = instance_telefone
-                
+
         usuario.save()
         send_mail(self.request, user)
 

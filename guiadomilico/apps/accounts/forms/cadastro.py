@@ -8,6 +8,9 @@ from guiadomilico.apps.accounts.models.base import Usuario, Endereco
 
 
 class CadastroUserForm(UserCreationForm):
+
+
+
     email = forms.CharField(
         label="Endereço de E-mail",
         widget=forms.EmailInput(),
@@ -27,7 +30,6 @@ class CadastroUserForm(UserCreationForm):
             'aniversario',
             'password1',
             'password2',
-
         )
 
 
@@ -49,6 +51,9 @@ class CadastroUserForm(UserCreationForm):
                 raise forms.ValidationError('Digite uma data válida')
 
             return aniversario
+
+   
+        
 
 '''
 class UserChangeForm(UserChangeForm):
