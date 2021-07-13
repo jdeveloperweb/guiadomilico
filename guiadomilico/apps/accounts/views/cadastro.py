@@ -11,11 +11,15 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import FormView, TemplateView
 from guiadomilico.apps.accounts.forms import EnderecoFormSet, TelefoneFormSet
 from guiadomilico.apps.accounts.token import account_activation_token
-from guiadomilico.apps.accounts.forms.cadastro import CadastroUserForm
-from guiadomilico.apps.accounts.models.base import Usuario
+from guiadomilico.apps.accounts.forms.cadastro import CadastroUserForm, CadastroUpdateForm
+from guiadomilico.apps.accounts.models.base import Usuario, Endereco
 from formtools.wizard.views import SessionWizardView
+from  django.views.generic.edit import UpdateView
+from  django.views.generic.list import ListView
+
 import pycep_correios as pycep
 
+from ..models import *
 
 def send_mail(request, usuario):
     current_site = get_current_site(request)
@@ -38,10 +42,38 @@ def send_mail(request, usuario):
 
 
 ## VIEW EM DESENVOLVIMENTO ##
-def UpdateUserView(request):
+class CadastroUpdateView(UpdateView):
     template_name = 'accounts/my_account.html'
-    return render(request, template_name)
+    model = Usuario
+    form_class = CadastroUpdateForm
+    context_object_name = "usuario"
 
+    def get_success_url(self):
+        id = self.kwargs.get(self.pk_url_kwarg)
+        return reverse_lazy('accounts:my-account', kwargs={'pk': id })
+
+    def get_context_data(self, **kwargs):
+        id = self.kwargs.get(self.pk_url_kwarg)
+        kwargs['usuario'] = Usuario.objects.filter(id=id).first()
+        kwargs['usuario_form'] = CadastroUpdateForm(self.request.POST or None, instance=kwargs['usuario'])
+        kwargs['endereco'] = list(Endereco.objects.filter(usuario_end__pk=self.kwargs['pk']).values())
+        kwargs['TIPO_ENDERECO'] = TIPO_ENDERECO
+        return super().get_context_data(**kwargs)
+
+
+
+class CadastroListView(ListView):
+    template_name = 'accounts/my_account.html'
+    model = Usuario
+    form_class = CadastroUserForm
+    context_object_name = "usuario"
+
+
+class EnderecoListView(ListView):
+    template_name = 'accounts/my_account.html'
+    model = Usuario
+    form_class = CadastroUserForm
+    context_object_name = "usuario"
 
 class CadastroWizard(SessionWizardView):
     template_name = 'accounts/cadastro_usuario.html'

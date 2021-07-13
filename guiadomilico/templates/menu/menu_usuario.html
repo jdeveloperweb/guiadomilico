@@ -16,10 +16,10 @@
 														<ul style="display: none; margin-top: 5px; left: -272px;">
 
 															<li>
-																<a href="{% url 'accounts:my-account' %}"><i class="fa fa-user"></i> Meu dados</a>
+																<a href="{% url 'accounts:my-account' user.id %}"><i class="fa fa-user"></i> Meu dados</a>
 															</li>
 															<li>
-																<a href="#"><i class="fa fa-home"></i> Endereços</a>
+																<a href="{% url 'accounts:my-account' user.id %}#tab02_pane"><i class="fa fa-home"></i> Endereços</a>
 															</li>
 															<li>
 																<a href="#"><i class="fa fa-bank"></i> Dados Bancários</a>

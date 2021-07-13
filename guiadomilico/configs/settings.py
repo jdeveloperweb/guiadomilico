@@ -131,6 +131,8 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
+DATE_FORMAT = "%d/%m/%Y"
+
 USE_L10N = True
 
 USE_TZ = True

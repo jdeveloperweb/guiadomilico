@@ -52,8 +52,50 @@ class CadastroUserForm(UserCreationForm):
 
             return aniversario
 
-   
-        
+
+class CadastroUpdateForm(ModelForm):
+    email = forms.CharField(
+        label="Endereço de E-mail",
+        widget=forms.EmailInput(),
+        max_length=254,
+        required=True
+    )
+
+    def __init__(self, *args, **kwargs):
+        super(CadastroUpdateForm, self).__init__(*args, **kwargs)
+        self.fields['username'].help_text = None
+
+    class Meta:
+        model = Usuario
+        fields = (
+            'nome',
+            'sobrenome',
+            'username',
+            'email',
+            'genero',
+            'aniversario'
+        )
+
+
+        widgets = {
+            'aniversario': forms.DateInput(attrs={'class': 'date'}),
+        }
+
+        labels = {
+            'genero': 'Genêro',
+            'aniversario': 'Data de nascimento',
+        }
+
+
+
+    def clean_aniversario(self):
+        aniversario = self.cleaned_data['aniversario']
+
+        if aniversario and aniversario >= date.today():
+            raise forms.ValidationError('Digite uma data válida')
+
+        return aniversario
+
 
 '''
 class UserChangeForm(UserChangeForm):
